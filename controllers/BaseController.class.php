@@ -20,33 +20,34 @@ abstract class BaseController extends Controller {
       'website_title' => 'Website Title',
       'website_description' => 'Website Description',
       'author' => 'Website Author',
-      'title' => '',
+      'title' => 'WF3 | Network',
       'description' => ''
-    );
+      );
 
     $vars['pages'] = array(
-      array('url' => 'home', 'name' => Lang::_('Home')),
-      array('url' => 'post/archives', 'name' => Lang::_('Archives')),
-      array('url' => 'search', 'name' => Lang::_('Search')),
+      array('url' => 'home', 'name' => Lang::_('Accueil')),
+      array('url' => 'news', 'name' => Lang::_('Actualités')),
+      array('url' => 'directory', 'name' => Lang::_('Annuaire')),
+      array('url' => 'job', 'name' => Lang::_('Emploi')),
       array('url' => 'contact', 'name' => Lang::_('Contact'))
-    );
+      );
 /*
     if (User::isLogged()) {
       $vars['user'] = User::get($this->session->user_id);
-    }*/
+  }*/
 
-    $archives_dates = array();
-    for($i = 0; $i < 12; $i++) {
+  $archives_dates = array();
+  for($i = 0; $i < 12; $i++) {
       $time = strtotime('-'.$i.' month');
       $month_value = date('Y-m', $time);
       $month_label = ucfirst(Lang::_(strtolower(date('F', $time))));
       $year = date('Y', $time);
       $archives_dates[$month_value] = $month_label.' '.$year;
-    }
-
-    $vars['archives_dates'] = $archives_dates;
-
-    $this->response->addVars($vars);
   }
+
+  $vars['archives_dates'] = $archives_dates;
+
+  $this->response->addVars($vars);
+}
 
 }

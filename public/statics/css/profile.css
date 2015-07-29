@@ -8,20 +8,15 @@
 }
 
 .profile-information-picture{
-	width: 150px;
-	height: 150px;
 	border-radius: 50%;
-	float: left;
 	margin-top: 5%;
-	margin-right: 5%;
-	margin-bottom: 10%;
-	margin-left: 2%;
+	margin-bottom: 20%;
+	display: inline-block;
 }
 
 .profile-information-prom-dates{
 	float: right;
 	margin-top: 2%;
-	margin-right: 2%;
 	font-weight: bold;
 	background-color: #144563;
 	padding: 1%;
@@ -31,7 +26,6 @@
 .profile-information-name{
 	font-size: 1.8em;
 	font-weight: bold;
-	margin-top: 2%;
 	margin-bottom: 1%;
 }
 
@@ -64,8 +58,8 @@
 }
 
 .profile-information-contact-button{
-	margin-top: 2%;
-	margin-bottom: 2%;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	background-color: #0DB896;
 	border: 0;
 	text-align: center;
@@ -97,6 +91,7 @@
 	margin-top: 2%;
 	background-color: #fff;
 	margin-left: 15px;
+	margin-bottom: 5%;
 }
 
 .project-information-description{
@@ -114,7 +109,21 @@
 
 .simple-profile-sidebar{
 	background-color: #fff;
-	float: right;
 	margin-right: 15px;
+/*	position: fixed;
+	right: 8%;*/
 
 }
+
+.simple-profile-sidebar-same-prooject{
+	margin-bottom: 5%;
+}
+
+.simple-profile-sidebar-same-prom{
+	margin-bottom: 5%;
+}
+
+.simple-profile-sidebar-same-other{
+	margin-bottom: 5%;
+}
+
