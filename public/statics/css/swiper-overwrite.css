@@ -44,7 +44,7 @@
 }
 
 .swiper-button-next-same-project{
-	background-image: url('../img/arrow-right.svg');
+	background-image: url('../img/arrow-right-green.svg');
     right: 10px;
     left: auto;
     position: absolute;
@@ -62,7 +62,7 @@
 }
 
 .swiper-button-prev-same-project{
-	background-image: url('../img/arrow-left.svg');
+	background-image: url('../img/arrow-left-green.svg');
 	left: 10px;
     right: auto;
     position: absolute;
@@ -81,7 +81,7 @@
 }
 
 .swiper-button-next-same-prom{
-	background-image: url('../img/arrow-right.svg');
+	background-image: url('../img/arrow-right-green.svg');
     right: 10px;
     left: auto;
     position: absolute;
@@ -99,7 +99,7 @@
 }
 
 .swiper-button-prev-same-prom{
-	background-image: url('../img/arrow-left.svg');
+	background-image: url('../img/arrow-left-green.svg');
 	left: 10px;
     right: auto;
     position: absolute;
@@ -118,7 +118,7 @@
 }
 
 .swiper-button-next-same-other{
-	background-image: url('../img/arrow-right.svg');
+	background-image: url('../img/arrow-right-green.svg');
     right: 10px;
     left: auto;
     position: absolute;
@@ -136,7 +136,7 @@
 }
 
 .swiper-button-prev-same-other{
-	background-image: url('../img/arrow-left.svg');
+	background-image: url('../img/arrow-left-green.svg');
 	left: 10px;
     right: auto;
     position: absolute;
@@ -162,18 +162,9 @@
 	background-color: #144563;
 }
 
-.swiper-pagination{
+.swiper-pagination-project{
 	position: absolute;
 	text-align: center;
-	-webkit-transition: 300ms;
-	-moz-transition: 300ms;
-	-o-transition: 300ms;
-	transition: 300ms;
-	-webkit-transform: translate3d(0,0,0);
-	-ms-transform: translate3d(0,0,0);
-	-o-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-	z-index: 10;
 }
 
 .swiper-pagination-bullet-project{

@@ -87,13 +87,14 @@
 <!--/div--><!-- end row -->
 <!--div class="row"-->
 	<div class="col-md-8 project-information-wrapper">
-		<div class="project-information">
+		<div class="col-xs-12 project-information">
 			<p class="project-information-description">
-				<strong>Description du projet</strong> <br>---<br> Quod opera consulta cogitabatur astute, ut hoc insidiarum genere Galli periret avunculus, ne eum ut praepotens acueret in fiduciam exitiosa coeptantem. verum navata est opera diligens hocque dilato Eusebius praepositus cubiculi missus est Cabillona aurum secum perferens, quo per turbulentos seditionum concitores occultius distributo et tumor consenuit militum et salus est in tuto locata praefecti. deinde cibo abunde perlato castra die praedicto sunt mota.
+				<h4><strong>Description du projet</strong></h4>
+				 Quod opera consulta cogitabatur astute, ut hoc insidiarum genere Galli periret avunculus, ne eum ut praepotens acueret in fiduciam exitiosa coeptantem. verum navata est opera diligens hocque dilato Eusebius praepositus cubiculi missus est Cabillona aurum secum perferens, quo per turbulentos seditionum concitores occultius distributo et tumor consenuit militum et salus est in tuto locata praefecti. deinde cibo abunde perlato castra die praedicto sunt mota.
 			</p>
 			<a href="#" class="project-information-link">lien vers le projet</a>
 		</div>
-		<div class="project-screenshots">
+		<div class="col-xs-12 project-screenshots">
 			<!-- slider -->
 			<div class="swiper-container s2">
 				<div class="swiper-wrapper">
