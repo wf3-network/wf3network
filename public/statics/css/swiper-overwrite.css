@@ -1,0 +1,15 @@
+.swiper-button-prev {
+	background-image: url('../img/arrow-left.svg');
+}
+
+.swiper-button-next{
+	background-image: url('../img/arrow-right.svg');
+}
+
+.swiper-pagination-bullet{
+	background-color: #000;
+}
+
+.swiper-pagination-bullet-active{
+	background-color: #144563;
+}

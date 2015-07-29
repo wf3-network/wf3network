@@ -1,3 +1,7 @@
+@import url("profile.css");
+@import url("swiper-overwrite.css");
+@import url("directory.css");
+
 @font-face {
     font-family: 'Titillium';
     src: url('../fonts/TitilliumWeb-Regular.ttf');
@@ -8,31 +12,11 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Titillium Web', sans-serif;
 }
 
+/*navheader*/
+
 .navheader {
     height: 150px;
-}
-
-/*navbar*/
-
-.navbar-nav {
-    width: 100%;
-}
-
-.navbar_item {
-    margin-top: 10px;
-}
-
-.listitem {
-    margin: 0 auto;
-}
-
-.navbar_listitem {
-    font-size: 18px;
-}
-
-.navbar_listitem:hover {
-    background-color: white;
-    color: black;
+    background-image: url('../img/WB3_header.jpg');
 }
 
 //swipper
@@ -43,8 +27,7 @@ html, body {
 }
 body {
     background: #eee;
-    /*font-family: Helvetica Neue, Helvetica, Arial, sans-serif;*/
-    font-family: fontawesome;
+    font-family: 'Titillium Web', sans-serif;
     font-size: 14px;
     color:#000;
     margin: 0;
@@ -76,6 +59,40 @@ body {
 
 //facebook
 
-.fb-page {
-    text-align: center;
+//footer
+
+body {
+  padding-bottom: 70px;
+  border-sizing: border-box;
 }
+
+
+/*.copyright {
+   text-align: right;
+}
+
+.backtotop {
+   text-align: right;
+}
+
+
+}*/
+
+.map {
+    maring: 20px 0 0 30px;
+   padding: 0 0 0 0;
+}
+
+/*footer ul {
+       list-style-type: none;
+       padding-left: 0;
+       padding-top: 75px;
+       text-align: right;
+}
+
+
+footer ul li {
+   list-style-type: none;
+   display: inline-block;
+   text-align: right;
+}*/

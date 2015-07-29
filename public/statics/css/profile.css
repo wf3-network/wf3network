@@ -1,0 +1,120 @@
+.profile-information-wrapper{
+	background-color: #fff;
+	margin-left: 15px;
+}
+
+.lastname{
+	text-transform: uppercase;
+}
+
+.profile-information-picture{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	float: left;
+	margin-top: 5%;
+	margin-right: 5%;
+	margin-bottom: 10%;
+	margin-left: 2%;
+}
+
+.profile-information-prom-dates{
+	float: right;
+	margin-top: 2%;
+	margin-right: 2%;
+	font-weight: bold;
+	background-color: #144563;
+	padding: 1%;
+	color: white;
+}
+
+.profile-information-name{
+	font-size: 1.8em;
+	font-weight: bold;
+	margin-top: 2%;
+	margin-bottom: 1%;
+}
+
+.profile-information-status{
+	margin-bottom: 1%;
+}
+
+.profile-information-info{
+	font-size: 1.1em;
+}
+
+.profile-information-personal-website{
+	color: #144563;
+	font-weight: bold;
+	margin-bottom: 2%;
+}
+
+.profile-information-buttons{
+
+}
+
+.profile-information-full-button{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	background-color: #0DB896;
+	border: 0;
+	margin-right: 2%;
+	text-align: center;;
+	padding: 1%;
+}
+
+.profile-information-contact-button{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	background-color: #0DB896;
+	border: 0;
+	text-align: center;
+	padding: 1%;
+}
+
+.profile-information-full-button-link{
+	color: #fff;
+	text-decoration: none;
+}
+
+.profile-information-contact-button-link{
+	color: #fff;
+	text-decoration: none;
+
+}
+
+.profile-information-full-button:hover, .profile-information-contact-button:hover{
+	background-color: #0ba587;
+}
+
+.profile-information-full-button-link:hover, .profile-information-contact-button-link:hover{
+	color: #fff;
+	text-decoration: none;
+}
+
+
+.project-information-wrapper{
+	margin-top: 2%;
+	background-color: #fff;
+	margin-left: 15px;
+}
+
+.project-information-description{
+	margin: 2%;
+}
+
+.project-information-link{
+	margin: 2%;
+}
+
+.project-screenshots{
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+.simple-profile-sidebar{
+	background-color: #fff;
+	float: right;
+	margin-right: 15px;
+
+}

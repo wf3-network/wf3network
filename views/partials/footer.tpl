@@ -1,16 +1,51 @@
-	</div><!-- /.container -->
+  </div><!-- /.container -->
 
-	<footer class="blog-footer">
-      <p>{$website_title} &copy; 2015</p>
-      <p>
-        <a href="#">{t}Back to top{/t}</a>
-      </p>
-    </footer>
+<footer>
+      <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+              <nav class="navbar navbar-inverse navbar-default" role="navigation">
+                  <div class="navbar-header">
+
+                      <button type="button" class="navbar-toggle" data-toggle="collapse"
+                         data-target="#example-navbar-collapse">
+                         <span class="sr-only">Toggle navigation</span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                      </button>
+
+                  </div>
+
+                  <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                      <ul class="nav navbar-nav navbar-left">
+                          <li><img alt="Brand" src="{$IMG_ROOT}WB3network.png" width="100" lenght="100" alt="WF3 Network logo"><br>
+                            <p class="navbar-text"> 18 rue Geoffroy L'Asnier <br> 75004 Paris, FRANCE <br>
+                            +33 (0)8 05 62 23 45 <br>
+                          Découvrez l'école WebForce3 sur <a href="http://www.wf3.fr/">http://www.wf3.fr/</a>
+                          </li>
+                            </p>
+                      </ul>
+
+                        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.2106918459162!2d2.357434400000004!3d48.85419259999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd10fa77a9%3A0xbefa2358f9e7a776!2s18+Rue+Geoffroy+l&#39;Asnier%2C+75004+Paris!5e0!3m2!1sfr!2sfr!4v1438079876768" width="200" height="100" frameborder="0" style="border:10px" allowfullscreen></iframe>
+
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" class=""> Home</a></li>
+                        <li><a href="#" class=""> Product</a></li>
+                        <li><a href="#" class=""> Compagny</a></li>
+                        <li><a href="#" class=""> Blog</a></li>
+                      </ul>
+                  </div>
+              </nav>
+          </div><!--fin col-md-10-->
+          <div class="col-md-1"></div>
+      </div><!-- fin row-->
+</footer>
 
     {include file="partials/debug.tpl"}
 
-	<script src="{$JS_ROOT}jquery.min.js"></script>
-	<script src="{$JS_ROOT}bootstrap.min.js"></script>
+  <script src="{$JS_ROOT}jquery.min.js"></script>
+  <script src="{$JS_ROOT}bootstrap.min.js"></script>
 
 <!--facebook fil-->
   <script>(function(d, s, id) {

@@ -39,7 +39,7 @@ define('TPL_PATH', ROOT_PATH.'views/');
 define('TPL_CACHE_PATH', ROOT_PATH.'cache/views/');
 define('TPL_DEBUGGING', false);
 define('TPL_CACHING', false);
-define('TPL_FORCE_COMPILE', true);
+define('TPL_FORCE_COMPILE', false);
 
 // REFERER
 define('REFERER', !empty($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '');
@@ -54,12 +54,12 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
 	define('DB_USER', 'root');
 	define('DB_PASS', '');
 } else {
-	define('DB_HOST', '');
-	define('DB_USER', '');
-	define('DB_PASS', '');
+	define('DB_HOST', '46.226.110.248');
+	define('DB_USER', 'webaccess');
+	define('DB_PASS', 'ihhnlmda');
 }
 define('DB_ENGINE', 'mysql');
-define('DB_NAME', 'blog');
+define('DB_NAME', 'wf3network');
 
 // ERRORS CONFIG
 error_reporting((CORE_DEBUG ? (E_ALL | E_STRICT) : 0));

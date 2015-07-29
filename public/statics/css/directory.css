@@ -1,0 +1,32 @@
+.caption{
+    display: inline-block;
+
+}
+
+.row{
+    margin:0;
+}
+.profile-thumbnail{
+    border-radius: 50%;
+    border: 3px solid lightblue;
+    vertical-align: top;
+    margin-right: 25px;
+
+}
+
+
+.caption h3{
+    font-size: 19px;
+}
+
+.form-horizontal .control-label{
+    text-align: left;
+}
+
+.profile{
+    margin-top: 25px;
+    margin-bottom: 100px;
+}
+.search-title{
+    padding-bottom: 25px;
+}
