@@ -44,24 +44,22 @@
       <div class="row">
           <div class="col-md-12">
               <nav class="navbar navbar-inverse navbar-default" role="navigation">
-           <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse"
-                 data-target="#example-navbar-collapse">
-                 <span class="sr-only">Toggle navigation</span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-              </button>
-           </div>
+		           <div class="navbar-header">
+		              <button type="button" class="navbar-toggle" data-toggle="collapse"
+		                 data-target="#example-navbar-collapse">
+		                 <span class="sr-only">Toggle navigation</span>
+		                 <span class="icon-bar"></span>
+		                 <span class="icon-bar"></span>
+		                 <span class="icon-bar"></span>
+		              </button>
+		           </div>
            <div class="collapse navbar-collapse" id="example-navbar-collapse">
-              <ul class="nav navbar-nav navbar-left">
-                 <li class="listitem"><a href="#" class="navbar_listitem"> Accueil</a></li>
-                              <li><a href="#">News</a></li>
-                              <li><a href="#">Annuaire</a></li>
-                              <li><a href="#">Emploi</a></li>
-                              <li><a href="#">Contact</a>
-                 </li>
-              </ul>
+           	<ul class="nav navbar-nav navbar-left">
+                {foreach from=$pages item=page}
+                <li><a class="blog-nav-item {if $page.url == $current_page || $page.url == $target || $page.url == "$target/$action"}active{/if}" href="{$HTTP_ROOT}{$page.url}">{$page.name}</a></li>
+                {/foreach}
+                </ul>
+
                <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" class=" glyphicon glyphicon-user"> Login User</a></li>
                         <li><a href="#" class="glyphicon glyphicon-user"> Login Entreprise</i></a></li>

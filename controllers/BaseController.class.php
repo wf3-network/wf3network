@@ -25,10 +25,11 @@ abstract class BaseController extends Controller {
     );
 
     $vars['pages'] = array(
-      array('url' => 'home', 'name' => Lang::_('Home')),
-      array('url' => 'post/archives', 'name' => Lang::_('Archives')),
-      array('url' => 'search', 'name' => Lang::_('Search')),
-      array('url' => 'contact', 'name' => Lang::_('Contact'))
+      array('url' => 'home', 'name' => Lang::_('Accueil')),
+      array('url' => 'News', 'name' => Lang::_('News')),
+      array('url' => 'directory/annuaire', 'name' => Lang::_('Annuaire')),
+      array('url' => 'Emploi', 'name' => Lang::_('Emploi')),
+      array('url' => 'Contact', 'name' => Lang::_('Contact'))
     );
 /*
     if (User::isLogged()) {

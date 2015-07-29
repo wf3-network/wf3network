@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb">
-          <li><a href="#">Annuaire</a></li>
-          <!--li><a href="#">Library</a></li>
-          <li class="active">Data</li-->
+          <li><a href="#">Accueil</a></li>
+          <li class="active"><a href="#">Annuaire</a></li>
+          <!--li class="active">Data</li-->
           </ol>
         </div>
       </div> <!--FIN ROW-->

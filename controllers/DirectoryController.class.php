@@ -2,7 +2,8 @@
 
 class DirectoryController extends BaseController {
 
-  public function index() {
+  public function annuaire() {
+
 
 
     $this->render('directory');

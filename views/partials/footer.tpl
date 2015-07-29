@@ -1,9 +1,9 @@
   </div><!-- /.container -->
 
 <footer>
+  <div class="container">
       <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-10">
+          <div class="col-md-12">
               <nav class="navbar navbar-inverse navbar-default" role="navigation">
                   <div class="navbar-header">
 
@@ -40,6 +40,7 @@
           </div><!--fin col-md-10-->
           <div class="col-md-1"></div>
       </div><!-- fin row-->
+  </div>
 </footer>
 
     {include file="partials/debug.tpl"}
