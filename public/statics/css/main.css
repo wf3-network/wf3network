@@ -59,40 +59,38 @@ body {
 
 //facebook
 
-//footer
-
 body {
   padding-bottom: 70px;
   border-sizing: border-box;
 }
 
+/* FOOTER */
 
-/*.copyright {
-   text-align: right;
+.logo-footer {
+  margin: 5px 0 0 15px;
+
 }
 
+.map {
+  margin: 5px 0 5px 30px;
+}
+
+.footer-link {
+  color: #9d9d9d;
+}
+
+.list-unstyled {
+  margin-top: 25px; 
+
+}
+
+.copyright {
+   color: #9d9d9d;
+}
+
+/*
 .backtotop {
    text-align: right;
 }
-
-
 }*/
 
-.map {
-    maring: 20px 0 0 30px;
-   padding: 0 0 0 0;
-}
-
-/*footer ul {
-       list-style-type: none;
-       padding-left: 0;
-       padding-top: 75px;
-       text-align: right;
-}
-
-
-footer ul li {
-   list-style-type: none;
-   display: inline-block;
-   text-align: right;
-}*/
