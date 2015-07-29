@@ -31,8 +31,11 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="date_promo">Promotion</label>
   <div class="col-md-4">
-  <input id="date_promo" name="date_promo" type="text" placeholder="Mois de la formation" class="form-control input-md" required="">
-
+    <select id="promo" name="promo" class="form-control">
+      <option value="1">Lieu-Mois-Année</option>
+      <option value="2">Lieu-Mois-Année</option>
+      <option value="3">Lieu-Mois-Année</option>
+    </select>
   </div>
 </div>
 
@@ -40,7 +43,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="age">Date de naissance</label>
   <div class="col-md-4">
-  <input id="age" name="age" type="text" placeholder="jj/mm/aaaa" class="form-control input-md">
+  <input id="age" name="age" type="date" placeholder="jj/mm/aaaa" class="form-control input-md">
 
   </div>
 </div>
@@ -49,8 +52,11 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="mail">E-Mail</label>
   <div class="col-md-4">
-  <input id="mail" name="mail" type="text" placeholder="email" class="form-control input-md" required="">
-
+    <div class="input-group">
+    <input type="text" class="form-control" placeholder="nom" aria-describedby="nom_mail">
+    <span class="input-group-addon" id="basic-addon1">@</span>
+    <input type="text" class="form-control" placeholder="domaine" aria-describedby="domaine_mail">
+    </div>
   </div>
 </div>
 
