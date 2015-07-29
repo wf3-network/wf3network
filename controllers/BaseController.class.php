@@ -20,7 +20,7 @@ abstract class BaseController extends Controller {
       'website_title' => 'Website Title',
       'website_description' => 'Website Description',
       'author' => 'Website Author',
-      'title' => '',
+      'title' => 'WF3 | Network',
       'description' => ''
     );
 

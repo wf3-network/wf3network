@@ -19,8 +19,6 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('../img/WB3_header.jpg');
 }
 
-//swipper
-
 html, body {
     position: relative;
     height: 100%;
@@ -55,11 +53,6 @@ body {
     -webkit-align-items: center;
     align-items: center;
 }
-//fin swiper
-
-//facebook
-
-//footer
 
 body {
   padding-bottom: 70px;
