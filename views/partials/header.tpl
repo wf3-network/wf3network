@@ -77,7 +77,7 @@
 									  {if !empty($fb_login_url)}
 			<hr>
 
-			<a href="{$fb_login_url}" class="btn btn-primary">{t}Connect with Facebook{/t}</a>
+			<a href="{$fb_login_url}" class="btn btn-primary">{t}Connectez vous avec Facebook{/t}</a>
 			{/if}
 									  <div class="login-help">
 									  Créer un compte : <a href="#">Étudiant</a> - <a href="#">Entreprise</a>
