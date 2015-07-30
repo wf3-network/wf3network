@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb">
-          <li><a href="#">Annuaire</a></li>
-          <!--li><a href="#">Library</a></li>
-          <li class="active">Data</li-->
+          <li><a href="#">Accueil</a></li>
+          <li class="active"><a href="#">Annuaire</a></li>
+          <!--li class="active">Data</li-->
           </ol>
         </div>
       </div> <!--FIN ROW-->
@@ -109,7 +109,7 @@
             <div class="caption">
               <h3>Nom Prénom</h3>
               <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
+              <p><a class="btn btn-default" href="{$HTTP_ROOT}profile-simple" role="button">Voir profil</a></p>
             </div>
           </div>
 
@@ -181,7 +181,7 @@
             <div class="caption">
               <h3>Nom Prénom</h3>
               <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
+              <p><a class="btn btn-default" href="{$HTTP_ROOT}profile-simple" role="button">Voir profil</a></p>
             </div>
           </div>
           <div class="panel-body"></div>

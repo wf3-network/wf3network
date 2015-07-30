@@ -19,8 +19,6 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('../img/WB3_header.jpg');
 }
 
-//swipper
-
 html, body {
     position: relative;
     height: 100%;
@@ -55,6 +53,7 @@ body {
     -webkit-align-items: center;
     align-items: center;
 }
+
 //fin swiper
 
 //facebook
@@ -69,6 +68,9 @@ body {
 .logo-footer {
   margin: 5px 0 0 15px;
 
+/*.copyright {
+   text-align: right;
+>>>>>>> 60f90aae8151e34f33380c2ce92ae670ecdcad08
 }
 
 .map {

@@ -1,6 +1,10 @@
+.row-profile{
+	padding: 15px;
+}
+
 .profile-information-wrapper{
 	background-color: #fff;
-	margin-left: 15px;
+/*	margin-left: 15px;*/
 }
 
 .lastname{
@@ -8,20 +12,21 @@
 }
 
 .profile-information-picture{
-	width: 150px;
-	height: 150px;
 	border-radius: 50%;
-	float: left;
 	margin-top: 5%;
-	margin-right: 5%;
-	margin-bottom: 10%;
-	margin-left: 2%;
+	margin-bottom: 20%;
+	display: inline-block;
+}
+
+@media (max-width: 1200px){
+	.profile-information-picture{
+	margin-bottom: 20%;
+	}
 }
 
 .profile-information-prom-dates{
 	float: right;
 	margin-top: 2%;
-	margin-right: 2%;
 	font-weight: bold;
 	background-color: #144563;
 	padding: 1%;
@@ -31,7 +36,6 @@
 .profile-information-name{
 	font-size: 1.8em;
 	font-weight: bold;
-	margin-top: 2%;
 	margin-bottom: 1%;
 }
 
@@ -50,12 +54,11 @@
 }
 
 .profile-information-buttons{
-
+	padding: 0;
 }
 
 .profile-information-full-button{
 	margin-top: 2%;
-	margin-bottom: 2%;
 	background-color: #0DB896;
 	border: 0;
 	margin-right: 2%;
@@ -64,8 +67,8 @@
 }
 
 .profile-information-contact-button{
-	margin-top: 2%;
-	margin-bottom: 2%;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	background-color: #0DB896;
 	border: 0;
 	text-align: center;
@@ -83,11 +86,11 @@
 
 }
 
-.profile-information-full-button:hover, .profile-information-contact-button:hover{
+.profile-information-full-button:hover, .profile-information-contact-button:hover, .mini-sidebar-same-project-profile-button:hover{
 	background-color: #0ba587;
 }
 
-.profile-information-full-button-link:hover, .profile-information-contact-button-link:hover{
+.profile-information-full-button-link:hover, .profile-information-contact-button-link:hover, .mini-sidebar-same-project-profile-button-link:hover{
 	color: #fff;
 	text-decoration: none;
 }
@@ -96,7 +99,8 @@
 .project-information-wrapper{
 	margin-top: 2%;
 	background-color: #fff;
-	margin-left: 15px;
+	/*margin-left: 15px;*/
+	margin-bottom: 5%;
 }
 
 .project-information-description{
@@ -104,7 +108,7 @@
 }
 
 .project-information-link{
-	margin: 2%;
+	margin-top: 2%;
 }
 
 .project-screenshots{
@@ -112,9 +116,78 @@
 	margin-bottom: 10%;
 }
 
+@media (max-width: 988px){
+	.project-screenshots{
+		margin-bottom: 5%;
+	}
+}
+
 .simple-profile-sidebar{
 	background-color: #fff;
-	float: right;
-	margin-right: 15px;
+	/*margin-right: 15px;*/
+/*	position: fixed;
+	right: 8%;*/
+}
 
+/*.simple-profile-sidebar-wrapper{
+	background-color: #fff;
+}*/
+
+@media (max-width: 988px){
+	.simple-profile-sidebar{
+	display: none;
+	}
+}
+
+.simple-profile-sidebar-same-prooject{
+	margin-bottom: 5%;
+}
+
+.simple-profile-sidebar-same-prom{
+	margin-bottom: 5%;
+}
+
+.simple-profile-sidebar-same-other{
+	margin-bottom: 5%;
+}
+
+.mini-sidebar-same-project{
+	display: block;
+	background-color: #fff;
+/*	margin-left: 15px;*/
+	margin-bottom: 5%;
+}
+
+@media (min-width: 988px){
+	.mini-sidebar-same-project{
+		display: none;
+	}
+}
+
+.mini-sidebar-same-project-profile{
+	margin-top: 5%;
+	margin-bottom: 2%;
+	text-align: center;
+}
+
+.mini-sidebar-same-project-profile-thumbnail{
+	border-radius: 80%;
+}
+
+.mini-sidebar-same-project-profile-button{
+	margin-top: 2%;
+	background-color: #0DB896;
+	border: 0;
+	margin-right: 2%;
+	text-align: center;;
+	padding: 3%;
+}
+
+.mini-sidebar-same-project-profile-button-link{
+	color:white;
+	text-decoration: none;
+}
+
+.mini-sidebar-same-project-title{
+	margin-top: 2%;
 }
