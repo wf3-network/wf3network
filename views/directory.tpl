@@ -109,7 +109,7 @@
             <div class="caption">
               <h3>Nom Prénom</h3>
               <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
+              <p><a class="btn btn-default" href="{$HTTP_ROOT}profile-simple" role="button">Voir profil</a></p>
             </div>
           </div>
 
@@ -181,7 +181,7 @@
             <div class="caption">
               <h3>Nom Prénom</h3>
               <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
+              <p><a class="btn btn-default" href="{$HTTP_ROOT}profile-simple" role="button">Voir profil</a></p>
             </div>
           </div>
           <div class="panel-body"></div>
