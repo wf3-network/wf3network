@@ -49,7 +49,7 @@
 </div>
 
 <!-- Text input-->
-<div class="form-group">
+<!--div class="form-group">
   <label class="col-md-4 control-label" for="mail">E-Mail</label>
   <div class="col-md-4">
     <div class="input-group">
@@ -58,6 +58,12 @@
     <input type="text" class="form-control" placeholder="domaine" aria-describedby="domaine_mail">
     </div>
   </div>
+</div-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="mail">E-Mail</label>
+  <div class="col-md-4">
+      <input id="mail" name="mail" type="text" placeholder="mail" class="form-control input-md">
+  </div>
 </div>
 
 <!-- Text input-->
@@ -65,7 +71,6 @@
   <label class="col-md-4 control-label" for="telephone">Téléphone</label>
   <div class="col-md-4">
   <input id="telephone" name="telephone" type="text" placeholder="fixe ou mobile" class="form-control input-md">
-
   </div>
 </div>
 
