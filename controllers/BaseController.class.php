@@ -31,6 +31,11 @@ abstract class BaseController extends Controller {
       array('url' => 'Emploi', 'name' => Lang::_('Emploi')),
       array('url' => 'Contact', 'name' => Lang::_('Contact')),
     );
+
+    $fb_active = API_Facebook::isActive();
+    if ($fb_active) {
+      $vars['fb_login_url'] = API_Facebook::getLoginUrl(ROOT_HTTP.'register');
+    }
 /*
     if (User::isLogged()) {
       $vars['user'] = User::get($this->session->user_id);
