@@ -11,13 +11,15 @@ class ProfileController extends BaseController {
 		$vars = array(
 			// 'title' => 'Blog',
 			// 'description' => 'Description',
-			// 'page' => $page,
-			// 'count_pages' => $pagination->getPagesCount(),
-			// 'posts' => $pagination->getResults(),
-			// 'count_total' => $pagination->getTotalCount()
+			// 'page' => $page
 		);
 
-		$this->render('profile-simple.tpl', $vars);
+		//if($_SESSION){
+		//		$this->render('profile-full.tpl', $vars);
+		//}else{
+			//$this->render('profile-simple.tpl', $vars);
+		//}
+		$this->render('profile-full.tpl', $vars);
 	}
 
 }

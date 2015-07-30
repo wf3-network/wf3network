@@ -139,7 +139,7 @@
 	}
 }
 
-.simple-profile-sidebar-same-prooject{
+.simple-profile-sidebar-same-project{
 	margin-bottom: 5%;
 }
 
@@ -190,4 +190,111 @@
 
 .mini-sidebar-same-project-title{
 	margin-top: 2%;
+}
+
+
+/******* PROFIL DETAILLE ********/
+
+.summary-wrapper{
+	margin-top: 2%;
+	background-color: #fff;
+}
+
+.summary-description{
+	margin: 2%;
+}
+
+.studies-wrapper{
+	margin-top: 2%;
+	background-color: #fff;
+}
+
+.studies-description{
+	margin: 2%;
+}
+
+.jobs-wrapper{
+	margin-top: 2%;
+	background-color: #fff;
+	margin-bottom: 2%;
+}
+
+.jobs-description{
+	margin: 2%;
+}
+
+.full-profile-sidebar{
+	background-color: #fff;
+}
+
+.full-profile-sidebar-wf3skills{
+
+}
+
+.full-profile-sidebar-wf3skills-list{
+	list-style: none;
+	padding: 0;
+}
+
+.skill-circles{
+	display: inline-block;
+	margin-right: 10%;
+	color: #144563;
+}
+
+.personal-skill-circles{
+	display: inline-block;
+	margin-right: 10%;
+	color: #0DB896;
+}
+
+
+@media (max-width: 988px){
+	.full-profile-sidebar{
+	display: none;
+	}
+}
+
+.full-profile-sidebar-project-link{
+	margin-top: 2%;
+}
+
+.full-profile-sidebar-project-screenshots{
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+.s6{
+	margin-top: 10%;
+}
+
+.studies-description{
+	margin-bottom: 7.5%;
+}
+
+.jobs-description{
+	margin-bottom: 7.5%;
+}
+
+.full-profile-keywords-word{
+	display: inline-block;
+	background-color: #b6e9df;
+	border: 1px solid #0DB896;
+	border-radius: 10%;
+	padding: 2%;
+}
+
+.full-profile-keywords-word-link{
+	color: #065c4b;
+	text-decoration: none;
+}
+
+.full-profile-keywords-word:hover{
+	background-color: #0DB896;
+	border: 1px solid #b6e9df;
+}
+
+.full-profile-keywords-word-link:hover{
+	color: #fff;
+	text-decoration: none;
 }
