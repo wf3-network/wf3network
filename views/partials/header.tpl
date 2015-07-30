@@ -59,8 +59,12 @@
 							</ul>
 
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="#" class=" glyphicon glyphicon-user"> Login User</a></li>
+								{if User::isLogged()}
+								<li><a href="{$HTTP_ROOT}logout" class=" glyphicon glyphicon-user"> Déconnexion</a></li>
+								{else}
+								<li><a href="{$HTTP_ROOT}login" class=" glyphicon glyphicon-user"> Login User</a></li>
 								<li><a href="#" class="glyphicon glyphicon-user"> Login Entreprise</i></a></li>
+								{/if}
 							</ul>
 						</div>
 					</nav>

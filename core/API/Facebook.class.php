@@ -9,8 +9,8 @@ use Facebook\GraphUser;
 
 class API_Facebook {
 
-	const FACEBOOK_APP_ID = null;
-	const FACEBOOK_SECRET_KEY = null;
+	const FACEBOOK_APP_ID = '1020087448003904';
+	const FACEBOOK_SECRET_KEY = '1e3ad2f2f377bf6243ea29134e04ff8c';
 
 	public static $post_types = array(
 		'photo',
