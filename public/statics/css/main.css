@@ -1,6 +1,7 @@
 @import url("profile.css");
 @import url("swiper-overwrite.css");
 @import url("directory.css");
+@import url("login.css");
 
 @font-face {
     font-family: 'Titillium';
@@ -67,10 +68,6 @@ body {
 
 .logo-footer {
   margin: 5px 0 0 15px;
-
-/*.copyright {
-   text-align: right;
->>>>>>> 60f90aae8151e34f33380c2ce92ae670ecdcad08
 }
 
 .map {
@@ -90,9 +87,6 @@ body {
    color: #9d9d9d;
 }
 
-/*
-.backtotop {
-   text-align: right;
+.modal-backdrop {
+   z-index: 0;
 }
-}*/
-

@@ -62,9 +62,32 @@
 								{if User::isLogged()}
 								<li><a href="{$HTTP_ROOT}logout" class=" glyphicon glyphicon-user"> Déconnexion</a></li>
 								{else}
-								<li><a href="{$HTTP_ROOT}login" class=" glyphicon glyphicon-user"> Login User</a></li>
-								<li><a href="#" class="glyphicon glyphicon-user"> Login Entreprise</i></a></li>
+								<li><a href="#" class=" glyphicon glyphicon-user" data-toggle="modal" data-target="#login-modal" border="0"> Login</a></li>
+
+									<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  					<div class="modal-dialog">
+									<div class="loginmodal-container">
+										<h1>Connexion</h1><br>
+									  <form>
+										<input type="text" name="user" placeholder="e-mail">
+										<input type="password" name="pass" placeholder="mot de passe">
+										<input type="submit" name="login" class="login loginmodal-submit" value="Login">
+									  </form>
+
+									  {if !empty($fb_login_url)}
+			<hr>
+
+			<a href="{$fb_login_url}" class="btn btn-primary">{t}Connect with Facebook{/t}</a>
+			{/if}
+									  <div class="login-help">
+									  Créer un compte : <a href="#">Étudiant</a> - <a href="#">Entreprise</a>
+									  </div>
+									</div>
+								</div>
+							  </div>
+
 								{/if}
+
 							</ul>
 						</div>
 					</nav>
