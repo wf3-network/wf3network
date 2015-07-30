@@ -9,6 +9,8 @@
 
 	<title>{$title}</title>
 
+	<link rel="icon" type="image/png" href="{$IMG_ROOT}favicon.png" />
+
 	<link rel="stylesheet" href="{$CSS_ROOT}bootstrap.min.css">
 	<link rel="stylesheet" href="{$CSS_ROOT}bootstrap-theme.min.css">
 	<link rel="stylesheet" href="{$CSS_ROOT}Swiper-3.1.0/dist/css/swiper.min.css">

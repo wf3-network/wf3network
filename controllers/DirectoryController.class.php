@@ -2,7 +2,7 @@
 
 class DirectoryController extends BaseController {
 
-  public function annuaire() {
+  public function index() {
 
 
 
