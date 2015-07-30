@@ -2,10 +2,6 @@
     display: inline-block;
 
 }
-
-.row{
-    margin:0;
-}
 .profile-thumbnail{
     border-radius: 50%;
     border: 3px solid lightblue;

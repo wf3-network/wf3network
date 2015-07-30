@@ -28,7 +28,7 @@ abstract class BaseController extends Controller {
       array('url' => 'home', 'name' => Lang::_('Accueil')),
       array('url' => 'News', 'name' => Lang::_('News')),
       array('url' => 'directory', 'name' => Lang::_('Annuaire')),
-      array('url' => 'Emploi', 'name' => Lang::_('Emploie')),
+      array('url' => 'Emploi', 'name' => Lang::_('Emploi')),
       array('url' => 'Contact', 'name' => Lang::_('Contact')),
     );
 /*

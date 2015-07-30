@@ -8,7 +8,9 @@ class AutoloadException extends Exception {
 
 function autoload($class) {
 
-    if (strpos($class, 'Facebook\\') !== false) {
+    $class  = str_replace('\\', '/', $class);
+
+    if (strpos($class, 'Facebook/') !== false) {
         require_once ROOT_PATH.'core/API/'.$class.'.php';
         return false;
     }

@@ -59,6 +59,7 @@
 							</ul>
 
 							<ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
 								<li><a href="#" class=" glyphicon glyphicon-user" data-toggle="modal" data-target="#login-modal" border="0"> Login</a></li>
 
 									<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -76,6 +77,14 @@
 									</div>
 								</div>
 							  </div>
+=======
+								{if User::isLogged()}
+								<li><a href="{$HTTP_ROOT}logout" class=" glyphicon glyphicon-user"> Déconnexion</a></li>
+								{else}
+								<li><a href="{$HTTP_ROOT}login" class=" glyphicon glyphicon-user"> Login User</a></li>
+								<li><a href="#" class="glyphicon glyphicon-user"> Login Entreprise</i></a></li>
+								{/if}
+>>>>>>> 60f90aae8151e34f33380c2ce92ae670ecdcad08
 							</ul>
 						</div>
 					</nav>
