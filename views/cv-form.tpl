@@ -20,9 +20,9 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="name">Nom</label>
+  <label class="col-md-4 control-label" for="lastname">Nom</label>
   <div class="col-md-4">
-  <input id="name" name="name" type="text" placeholder="NOM" class="form-control input-md" required="">
+  <input id="lastname" name="lastname" type="text" placeholder="NOM" class="form-control input-md" required="">
 
   </div>
 </div>
@@ -123,9 +123,9 @@
 
 <!-- File Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="phto">Photo</label>
+  <label class="col-md-4 control-label" for="photo">Photo</label>
   <div class="col-md-4">
-    <input id="phto" name="phto" class="input-file" type="file">
+    <input id="photo" name="photo" class="input-file" type="file">
   </div>
 </div>
 
