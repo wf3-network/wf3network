@@ -1,6 +1,7 @@
 @import url("profile.css");
 @import url("swiper-overwrite.css");
 @import url("directory.css");
+@import url("login.css");
 
 @font-face {
     font-family: 'Titillium';
@@ -73,6 +74,10 @@ body {
 .map {
     maring: 20px 0 0 30px;
    padding: 0 0 0 0;
+}
+
+.modal-backdrop {
+   z-index: 0;
 }
 
 /*footer ul {
