@@ -1,4 +1,4 @@
-{include file="partials/header.tpl"}
+
 
 <?php
 
@@ -10,7 +10,7 @@ FacebookSession::setDefaultApplication(FB_APP_ID, FB_APP_SECRET);
 $helper = new FacebookRedirectLoginHelper($root_path.'/register.php');
 $loginUrl = $helper->getLoginUrl(
 	array(
-		'scope' => 'public_profile,email'
+		'scope' => 'public_profile,mail'
 	)
 );
 
@@ -18,7 +18,7 @@ $expiration = 60 * 60 * 24 * 7;  // 7 jours
 
 $remember_me = getRememberMe($expiration);
 
-/*if ($remember_me !== false) {
+if ($remember_me !== false) {
 
 	$user_id = $remember_me;
 
@@ -37,7 +37,7 @@ $remember_me = getRememberMe($expiration);
 
 //debug($_POST);
 
-$email = !empty($_POST['email']) ? $_POST['email'] : '';
+$mail = !empty($_POST['mail']) ? $_POST['mail'] : '';
 $password = !empty($_POST['password']) ? $_POST['password'] : '';
 $remember_me = !empty($_POST['remember_me']) ? intval($_POST['remember_me']) : 0;
 
@@ -47,10 +47,10 @@ $errors = array();
 // On a appuyé sur le bouton Envoyer, le formulaire a été soumis
 if (!empty($_POST)) {
 
-	if (!empty($email) && !empty($password)) {
+	if (!empty($mail) && !empty($password)) {
 
-		$query = $db->prepare('SELECT * FROM users WHERE email = :email');
-		$query->bindValue('email', $email);
+		$query = $db->prepare('SELECT * FROM user WHERE mail = :mail');
+		$query->bindValue('mail', $mail);
 		$query->execute();
 		$user = $query->fetch();
 
@@ -75,7 +75,7 @@ if (!empty($_POST)) {
 	}
 
 	$errors['authent'] = 'Identifiants incorrects';
-}*/
+}
 ?>
 
 <h1>Connexion</h1>
@@ -90,17 +90,17 @@ if (!empty($_POST)) {
 
 <form class="form-horizontal" action="" method="POST" novalidate>
 
-	<div class="form-group{ !empty($errors['authent']) ? ' has-error' : '' ?>">
-		<label for="email" class="col-sm-2 control-label">Email</label>
+	<div class="form-group{ !empty($errors['authent']) ? ' has-error' : '' }">
+		<label for="mail" class="col-sm-2 control-label">mail</label>
 		<div class="col-sm-5">
-			<input type="email" id="email" name="email" class="form-control" placeholder="Email" value="{ $email ?>">
+			<input type="mail" id="mail" name="mail" class="form-control" placeholder="mail" value="{ $mail }">
 		</div>·
 	</div>
 
-	<div class="form-group{ !empty($errors['authent']) ? ' has-error' : '' ?>">
+	<div class="form-group{ !empty($errors['authent']) ? ' has-error' : '' }">
 		<label for="password" class="col-sm-2 control-label">Mot de passe</label>
 		<div class="col-sm-5">
-			<input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" value="{ $password ?>">
+			<input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" value="{ $password }">
 		</div>
 	</div>
 
@@ -108,7 +108,7 @@ if (!empty($_POST)) {
 		<div class="col-sm-offset-2 col-sm-10">
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="remember_me" value="1" { $remember_me ? 'checked' : '' ?>> Se souvenir de moi
+					<input type="checkbox" name="remember_me" value="1" { $remember_me ? 'checked' : '' }> Se souvenir de moi
 				</label>
 			</div>
 		</div>
@@ -120,16 +120,13 @@ if (!empty($_POST)) {
 		</div>
 	</div>
 </form>
-
-
 <hr>
-
 <form class="form-horizontal" action="" method="POST" novalidate>
 
 	<div class="form-group">
 		<label class="col-sm-2 control-label"></label>
 		<div class="col-sm-5">
-			<a class="btn btn-primary" href="{ $loginUrl ?>">Facebook Connect</a>
+			<a class="btn btn-primary" href="{ $loginUrl }">Facebook Connect</a>
 		</div>
 	</div>
 </form>
@@ -138,4 +135,3 @@ if (!empty($_POST)) {
 end:
 
 ?>
-{include file="partials/footer.tpl"}

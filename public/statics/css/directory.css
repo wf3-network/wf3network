@@ -1,15 +1,26 @@
-.caption{
-    display: inline-block;
+/* Search Bar */
+.search-title{
+    padding-bottom: 25px;
+}
 
+
+/* List profiles */
+.profile{
+    margin-top: 25px;
+    margin-bottom: 100px;
 }
 .profile-thumbnail{
     border-radius: 50%;
     border: 3px solid lightblue;
     vertical-align: top;
-    margin-right: 25px;
+        margin-right: 25px;
 
 }
 
+.caption{
+    display: inline-block;
+    text-align: center;
+}
 
 .caption h3{
     font-size: 19px;
@@ -19,10 +30,3 @@
     text-align: left;
 }
 
-.profile{
-    margin-top: 25px;
-    margin-bottom: 100px;
-}
-.search-title{
-    padding-bottom: 25px;
-}

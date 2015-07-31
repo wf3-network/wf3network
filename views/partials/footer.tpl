@@ -5,6 +5,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-inverse navbar-default" role="navigation">
+
 					 <div class="navbar-header"> 
 						
 					</div>
@@ -22,23 +23,23 @@
 					</div> <!-- fin col 4 adresse-->   
 					<div class="col-md-4 hidden-xs">  
 						<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.2106918459162!2d2.357434400000004!3d48.85419259999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd10fa77a9%3A0xbefa2358f9e7a776!2s18+Rue+Geoffroy+l&#39;Asnier%2C+75004+Paris!5e0!3m2!1sfr!2sfr!4v1438079876768" width="250" height="150" frameborder="0" style="border:10px" allowfullscreen align="center"></iframe>
-					</div> <!-- fin col 4 iframe-->        
+					</div> <!-- fin col 4 iframe-->
 
-					<div class="col-md-4"> 
+					<div class="col-md-4">
 
 						<ul class="list-unstyled">
 							<li><a href="#" class="footer-link" target="_blank"> Plan du site <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-							<li><a href="https://www.doyoubuzz.com/fr/p/policy" class="footer-link" target="_blank"> Conditions générales d'utilisation <i class="glyphicon glyphicon-chevron-right"></i></a></li> 
+							<li><a href="https://www.doyoubuzz.com/fr/p/policy" class="footer-link" target="_blank"> Conditions générales d'utilisation <i class="glyphicon glyphicon-chevron-right"></i></a></li>
 
 							<li><a href="https://www.doyoubuzz.com/fr/p/charter" class="footer-link" target="_blank"> Charte des données personnelles <i class="glyphicon glyphicon-chevron-right"></i></a></li> 
 
-							<li><a href="https://www.doyoubuzz.com/fr/p/mentions" class="footer-link" target="_blank"> Mentions légales<i class="glyphicon glyphicon-chevron-right"></i></a> </li> 
+							<li><a href="https://www.doyoubuzz.com/fr/p/mentions" class="footer-link" target="_blank"> Mentions légales<i class="glyphicon glyphicon-chevron-right"></i></a> </li>
 
-							<li><a href="#" class="footer-link" target="_blank"> Blog <i class="glyphicon glyphicon-chevron-right"></i></a></li> 
+							<li><a href="#" class="footer-link" target="_blank"> Blog <i class="glyphicon glyphicon-chevron-right"></i></a></li>
 						</ul>
 
 						<p class="copyright">&copy; 2015 WF3 Network</p>
-					</div> <!-- /.col-md-4 -->        
+					</div> <!-- /.col-md-4 -->
 				</nav>
 			</div><!--fin col-md-12-->
 		</div><!-- fin row-->
@@ -90,7 +91,7 @@ autoplayDisableOnInteraction: false
 	});
 </script><!--fin swiper-->
 <script>
-	var swiperProfile = new Swiper('.s3', {
+	var swiperProfile1 = new Swiper('.s3', {
 		nextButton: '.swiper-button-next-same-project',
 		prevButton: '.swiper-button-prev-same-project',
 		slidesPerView: 3,
@@ -100,7 +101,7 @@ autoplayDisableOnInteraction: false
 	});
 </script><!--fin swiper-->
 <script>
-	var swiperProfile = new Swiper('.s4', {
+	var swiperProfile2 = new Swiper('.s4', {
 		nextButton: '.swiper-button-next-same-prom',
 		prevButton: '.swiper-button-prev-same-prom',
 		slidesPerView: 3,
@@ -110,11 +111,22 @@ autoplayDisableOnInteraction: false
 	});
 </script><!--fin swiper-->
 <script>
-	var swiperProfile = new Swiper('.s5', {
+	var swiperProfile3 = new Swiper('.s5', {
 		nextButton: '.swiper-button-next-same-other',
 		prevButton: '.swiper-button-prev-same-other',
 		slidesPerView: 3,
 		spaceBetween: 100,
+		loop: true,
+		centeredSlides: true,
+	});
+</script><!--fin swiper-->
+<script>
+	var swiperProjectMini = new Swiper('.s6', {
+		nextButton: '.swiper-button-next-project-mini',
+		prevButton: '.swiper-button-prev-project-mini',
+		slidesPerView: 1,
+		paginationClickable: true,
+		spaceBetween: 30,
 		loop: true,
 		centeredSlides: true,
 	});

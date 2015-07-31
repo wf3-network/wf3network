@@ -2,22 +2,35 @@
 
 class ProfileController extends BaseController {
 
-	public function index() {
+	public function view() {
+		
+		$params = $this->getParams();
 
-		// $page = (int) $this->getParam(0, 1);
+		if (empty($params[0])) {
+			throw new ActionControllerException('Undefined post id');
+		}
 
-		// $pagination = new Pagination('SELECT * FROM posts ORDER BY date DESC', array(), 4, $page - 1);
 
+		$id = (int) $params[0];
+		
+		$profile = Profile::get($id);
+
+		$formations = Profile::getList('SELECT * FROM profile_formation INNER JOIN profile ON profile_formation.profile_id =  profile.id WHERE profile_formation.profile_id ='.$id.' ORDER BY date_formation DESC');
+
+		$jobs = Profile::getList('SELECT * FROM profile INNER JOIN profile_expro ON profile.id = profile_expro.profile_id WHERE profile_expro.profile_id = '.$id.' ORDER BY date_job DESC');
+		/*  */
 		$vars = array(
-			// 'title' => 'Blog',
-			// 'description' => 'Description',
-			// 'page' => $page,
-			// 'count_pages' => $pagination->getPagesCount(),
-			// 'posts' => $pagination->getResults(),
-			// 'count_total' => $pagination->getTotalCount()
+			'profile' => $profile,
+			'formations' => $formations,
+			'jobs' => $jobs
 		);
-
-		$this->render('profile-simple.tpl', $vars);
+		
+		// if(!(User::isLogged)){
+		// 	$this->render('profile-simple.tpl', $vars);
+		// }else{
+		// 	$this->render('profile-full.tpl', $vars);
+		// }
+		$this->render('profile-full.tpl', $vars);
 	}
 
 }

@@ -12,74 +12,11 @@
 
 
       <div class="row">
-
-
-        <!-- SEARCH SIDEBAR -->
-        <div class="col-md-4">
-          <div class="panel panel-default embed-responsive-item">
-            <div class="panel-body">
-
-            <h3 class="search-title">Recherche avancée</h3>
-
-              <form class="form-horizontal" action="" method="POST" novalidate>
-                <div class="form-group">
-                  <label for="nom" class="col-sm-4 control-label">Nom</label>
-                  <div class="col-sm-8">
-                   <input type="text" id="nom" name="nom" class="form-control" placeholder="Nom" value="">
-                 </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="prenom" class="col-sm-4 control-label">Prénom</label>
-                  <div class="col-sm-8">
-                    <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Prénom" value="">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="projet" class="col-sm-4 control-label">Projet</label>
-                  <div class="col-sm-8">
-                    <input type="text" id="projet" name="projet" class="form-control" placeholder="Projet" value="">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="localisation" class="col-sm-4 control-label">Localisation</label>
-                  <div class="col-sm-8">
-                    <input type="text" id="localisation" name="localisation" class="form-control" placeholder="Localisation" value="">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="session" class="col-sm-4 control-label">Session</label>
-                  <div class="col-sm-8">
-                    <input type="date" id="session" name="session" class="form-control" placeholder="Session" value="">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="keywords" class="col-sm-4 control-label">Mots Clés</label>
-                  <div class="col-sm-8">
-                    <input type="text" id="keywords" name="keywords" class="form-control" placeholder="Mots Clés" value="">
-                  </div>
-                </div>
-
-                <div class="form-group pull-right">
-                  <div class="col-sm-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Rechercher</button>
-                  </div>
-                </div>
-
-              </form>
-            </div><!--END panel-body  -->
-          </div><!--END panel panel-default embed-responsive-item-->
-        </div><!-- END col-md-3-->
-        <!-- END SEARCH SIDEBAR -->
+        {include file="partials/directory-search.tpl"}
 
 
 
         <!-- LISTING PROFILES -->
-
         <div class="col-md-8">
           <!-- BAR "ORDER BY" -->
           <form class="form-inline pull-right col-xs-12" method="GET">
@@ -99,105 +36,33 @@
               <button type="submit" class="btn btn-default">Random</button>
             </div>
           </form>
-          <!-- END BAR "ORDER BY" -->
+          <!-- FIN BAR "ORDER BY" -->
 
           <div class="panel-body"></div>
 
 
-          <div class="profile col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="125" width="125"  />
-            <div class="caption">
-              <h3>Nom Prénom</h3>
-              <p>Date promo</p>
-              <p><a class="btn btn-default" href="{$HTTP_ROOT}profile-simple" role="button">Voir profil</a></p>
-            </div>
-          </div>
 
-          <div class="profile col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="125" width="125"  />
+          <!-- LIST PROFILES -->
+          {foreach $profiles as $profile}
+          <div class="pull-left profile col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <img class="profile-thumbnail" src="https://randomuser.me/api/portraits/med/women/69.jpg" height="125" width="125"  />
             <div class="caption">
-              <h3>Nom Prénom</h3>
-              <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
-            </div>
-          </div>
+              <h3>{$profile->firstname}<br> {$profile->lastname}</h3>
+              <p>{$profile->date_promo}</p>
+              <p><a class="btn btn-default" href="{$HTTP_ROOT}profile/view/{$profile->id}" role="button">Voir le profil</a></p>
+            </div> <!-- FIN CAPTION -->
+          </div> <!-- FIN pull-left profile col-xs-12 col-sm-12 col-md-4 col-lg-4 -->
+          {/foreach}
 
-          <div class="profile col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="125" width="125"  />
-            <div class="caption">
-              <h3>Nom Prénom</h3>
-              <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
-            </div>
-          </div>
 
-          <div class="profile col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="125" width="125"  />
-            <div class="caption">
-              <h3>Nom Prénom</h3>
-              <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
-            </div>
-          </div>
-
-          <div class="profile col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="125" width="125"  />
-            <div class="caption">
-              <h3>Nom Prénom</h3>
-              <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
-            </div>
-          </div>
-
-          <div class="profile col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="125" width="125"  />
-            <div class="caption">
-              <h3>Nom Prénom</h3>
-              <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
-            </div>
-          </div>
-
-          <div class="profile col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="125" width="125"  />
-            <div class="caption">
-              <h3>Nom Prénom</h3>
-              <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
-            </div>
-          </div>
-
-          <div class="profile col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="125" width="125"  />
-            <div class="caption">
-              <h3>Nom Prénom</h3>
-              <p>Date promo</p>
-              <p><a class="btn btn-default" href="#" role="button">Voir profil</a></p>
-            </div>
-          </div>
-
-          <div class="profile col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="125" width="125"  />
-            <div class="caption">
-              <h3>Nom Prénom</h3>
-              <p>Date promo</p>
-              <p><a class="btn btn-default" href="{$HTTP_ROOT}profile-simple" role="button">Voir profil</a></p>
-            </div>
-          </div>
           <div class="panel-body"></div>
 
-        </div><!-- FIN col-md-7-->
-
-        <!-- END LISTING PROFILES -->
-
-
-
-
-
+        </div><!-- FIN col-md-8-->
+        <!-- END LIST PROFILES -->
 
       </div><!--FIN ROW-->
 
-{include file="partials/footer.tpl"}
+    {include file="partials/footer.tpl"}
 
-</body>
+  </body>
 </html>
