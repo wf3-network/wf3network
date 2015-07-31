@@ -154,6 +154,43 @@
 
 }
 
+.swiper-button-next-project-mini{
+    background-image: url('../img/arrow-right-green.svg');
+    right: 10px;
+    left: auto;
+    position: absolute;
+    top: 50%;
+    width: 27px;
+    height: 44px;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: pointer;
+    -moz-background-size: 27px 44px;
+    -webkit-background-size: 27px 44px;
+    background-size: 27px 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.swiper-button-prev-project-mini{
+    background-image: url('../img/arrow-left-green.svg');
+    left: 10px;
+    right: auto;
+    position: absolute;
+    top: 50%;
+    width: 27px;
+    height: 44px;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: pointer;
+    -moz-background-size: 27px 44px;
+    -webkit-background-size: 27px 44px;
+    background-size: 27px 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
 .swiper-pagination-bullet{
 	background-color: #000;
 }

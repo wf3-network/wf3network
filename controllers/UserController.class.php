@@ -53,7 +53,7 @@ class UserController extends BaseController {
 			$vars['fb_login_url'] = API_Facebook::getLoginUrl(ROOT_HTTP.'register');
 		}
 
-		return $this->render('authent', $vars);
+		return $this->render('authent', $vars, true);
 	}
 
 	public function register() {
@@ -105,7 +105,7 @@ class UserController extends BaseController {
 
 					$user_already_exists = $user->checkAlreadyExists();
 					if ($user_already_exists === true) {
-						$errors['email'] = Lang::_('Email already in use');
+						$errors['mail'] = Lang::_('Email already in use');
 					} else {
 
 						$user->password = password_hash($user->password, PASSWORD_BCRYPT);
@@ -148,7 +148,9 @@ class UserController extends BaseController {
 			'success' => $success
 		);
 
-		return $this->render('authent', $vars);
+		// quand on se déconnecte on est automatiquement redirigé vers l'index pour qu'il n'arrive pas sur la page AJAX
+		$this->response->redirect(ROOT_HTTP);
+		//return $this->render('authent', $vars);
 	}
 
 }

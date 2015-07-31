@@ -90,9 +90,6 @@ class User extends Model {
 		$this->newsletter = $newsletter;
 	}
 	public function setCgu($cgu) {
-		if (empty($cgu)) {
-			throw new Exception(Lang::_('You have to accept the terms of service'));
-		}
 		$this->cgu = $cgu;
 	}
 	public function setRegisterDate($register_date) {
@@ -125,7 +122,6 @@ class User extends Model {
 	public function checkLogin($remember_me = false) {
 
 		$result = Db::selectOne('SELECT * FROM user WHERE email = :email', array('email' => $this->email));
-
 
 		if (!empty($result)) {
 

@@ -21,8 +21,12 @@ abstract class BaseController extends Controller {
       'website_description' => 'Website Description',
       'author' => 'Website Author',
       'title' => 'WF3 | Network',
-      'description' => ''
+      'description' => '',
+      // Vérifie si la page est appelée en Ajax --> utilisé surtout pour la page login pour afficher la fenêtre modale ou pas
+      'isAjax' => $this->request->isAjax()
     );
+
+
 
     $vars['pages'] = array(
       array('url' => 'home', 'name' => Lang::_('Accueil')),
@@ -36,10 +40,10 @@ abstract class BaseController extends Controller {
     if ($fb_active) {
       $vars['fb_login_url'] = API_Facebook::getLoginUrl(ROOT_HTTP.'register');
     }
-/*
+
     if (User::isLogged()) {
       $vars['user'] = User::get($this->session->user_id);
-    }*/
+    }
 
     $archives_dates = array();
     for($i = 0; $i < 12; $i++) {
