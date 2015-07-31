@@ -19,3 +19,12 @@ try {
 } catch (Exception $e) {
     exit('MySQL Connect Error >> '.$e->getMessage());
 }
+
+$query = $db->prepare('SELECT * FROM profile');
+$query->execute();
+$test = $query->fetchAll();
+
+echo '<pre>';
+print_r($test);
+echo '</pre>';
+
