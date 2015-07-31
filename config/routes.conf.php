@@ -36,4 +36,20 @@ $routes = array(
 		'action' => 'register'
 	),
 
+
+
+	/* Footer pages */
+	'cgu' => array(
+		'target' => 'page',
+		'action' => 'cgu'
+	),
+	'mentionslegales' => array(
+		'target' => 'page',
+		'action' => 'mentionslegales'
+	),
+	'charte' => array(
+		'target' => 'page',
+		'action' => 'charte'
+	),
+
 );

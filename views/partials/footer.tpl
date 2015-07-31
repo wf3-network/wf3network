@@ -29,11 +29,11 @@
 
 						<ul class="list-unstyled">
 							<li><a href="#" class="footer-link" target="_blank"> Plan du site <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-							<li><a href="https://www.doyoubuzz.com/fr/p/policy" class="footer-link" target="_blank"> Conditions générales d'utilisation <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+							<li><a href="{$HTTP_ROOT}cgu" class="footer-link" target="_blank"> Conditions générales d'utilisation <i class="glyphicon glyphicon-chevron-right"></i></a></li>
 
-							<li><a href="https://www.doyoubuzz.com/fr/p/charter" class="footer-link" target="_blank"> Charte des données personnelles <i class="glyphicon glyphicon-chevron-right"></i></a></li> 
+							<li><a href="{$HTTP_ROOT}charte" class="footer-link" target="_blank"> Charte des données personnelles <i class="glyphicon glyphicon-chevron-right"></i></a></li> 
 
-							<li><a href="https://www.doyoubuzz.com/fr/p/mentions" class="footer-link" target="_blank"> Mentions légales<i class="glyphicon glyphicon-chevron-right"></i></a> </li>
+							<li><a href="{$HTTP_ROOT}mentionslegales" class="footer-link" target="_blank"> Mentions légales<i class="glyphicon glyphicon-chevron-right"></i></a> </li>
 
 							<li><a href="#" class="footer-link" target="_blank"> Blog <i class="glyphicon glyphicon-chevron-right"></i></a></li>
 						</ul>
