@@ -60,31 +60,37 @@ body {
 //facebook
 
 body {
-  padding-bottom: 70px;
-  border-sizing: border-box;
+    padding-bottom: 70px;
+    border-sizing: border-box;
 }
 
 /* FOOTER */
 
-.logo-footer {
-  margin: 5px 0 0 15px;
+.logo-footer { 
+    margin: 15px 0 0 15px;
+}
+
+.navbar-text {
+    margin: 0 0 0 15px;  
+
 }
 
 .map {
-  margin: 5px 0 5px 30px;
+    margin: 5px 0 5px 30px;
 }
 
 .footer-link {
-  color: #9d9d9d;
+    color: #9d9d9d;
 }
 
 .list-unstyled {
-  margin-top: 25px; 
-
+    margin-top: 25px; 
+    margin-left: 15px; 
 }
 
 .copyright {
-   color: #9d9d9d;
+    color: #9d9d9d;
+    margin-left: 15px; 
 }
 
 .modal-backdrop {

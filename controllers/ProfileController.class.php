@@ -16,6 +16,7 @@ class ProfileController extends BaseController {
 		$formations = Profile::getList('SELECT * FROM profile p LEFT JOIN profile_formation pf ON pf.profile_id = p.id WHERE pf.profile_id = :id ORDER BY pf.date_formation DESC', array('id' => $id));
 
 		$jobs = Profile::getList('SELECT * FROM profile p LEFT JOIN profile_expro pe ON p.id = pe.profile_id WHERE pe.profile_id = :id ORDER BY pe.date_job DESC', array('id' => $id));
+
 		/*  */
 		$vars = array(
 			'profile' => $profile,
