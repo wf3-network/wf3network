@@ -36,10 +36,10 @@ abstract class BaseController extends Controller {
     if ($fb_active) {
       $vars['fb_login_url'] = API_Facebook::getLoginUrl(ROOT_HTTP.'register');
     }
-/*
+
     if (User::isLogged()) {
       $vars['user'] = User::get($this->session->user_id);
-    }*/
+    }
 
     $archives_dates = array();
     for($i = 0; $i < 12; $i++) {

@@ -5,7 +5,7 @@ class User extends Model {
 	protected $fb_id;
 	protected $firstname;
 	protected $lastname;
-	protected $email;
+	protected $mail;
 	protected $password;
 	protected $status;
 	protected $newsletter;
@@ -34,7 +34,7 @@ class User extends Model {
 		return $this->lastname;
 	}
 	public function getEmail() {
-		return $this->email;
+		return $this->mail;
 	}
 	public function getPassword() {
 		return $this->password;
@@ -71,11 +71,11 @@ class User extends Model {
 		}
 		$this->lastname = $lastname;
 	}
-	public function setEmail($email) {
-		if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	public function setEmail($mail) {
+		if (empty($mail) || !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
 			throw new Exception(Lang::_('You must provide a valid email'));
 		}
-		$this->email = $email;
+		$this->mail = $mail;
 	}
 	public function setPassword($password) {
 		if (strlen($password) < 6) {
@@ -124,7 +124,7 @@ class User extends Model {
 
 	public function checkLogin($remember_me = false) {
 
-		$result = Db::selectOne('SELECT * FROM user WHERE email = :email', array('email' => $this->email));
+		$result = Db::selectOne('SELECT * FROM user WHERE mail = :mail', array('mail' => $this->mail));
 
 
 		if (!empty($result)) {

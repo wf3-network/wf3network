@@ -24,8 +24,12 @@ class ProfileController extends BaseController {
 			'formations' => $formations,
 			'jobs' => $jobs
 		);
-
-
+		
+		// if(!(User::isLogged)){
+		// 	$this->render('profile-simple.tpl', $vars);
+		// }else{
+		// 	$this->render('profile-full.tpl', $vars);
+		// }
 		$this->render('profile-full.tpl', $vars);
 	}
 
