@@ -10,14 +10,14 @@ class ProfileController extends BaseController {
 			throw new ActionControllerException('Undefined post id');
 		}
 
+
 		$id = (int) $params[0];
-
-
+		
 		$profile = Profile::get($id);
 
-		$formations = Profile::getList('SELECT * FROM profile_formation INNER JOIN profile ON profile_formation.profile_id =  profile.id ORDER BY date_formation DESC');
+		$formations = Profile::getList('SELECT * FROM profile_formation INNER JOIN profile ON profile_formation.profile_id =  profile.id WHERE profile_formation.profile_id ='.$id.' ORDER BY date_formation DESC');
 
-		$jobs = Profile::getList('SELECT * FROM profile INNER JOIN profile_expro ON profile.id = profile_expro.profile_id ORDER BY date_job DESC');
+		$jobs = Profile::getList('SELECT * FROM profile INNER JOIN profile_expro ON profile.id = profile_expro.profile_id WHERE profile_expro.profile_id = '.$id.' ORDER BY date_job DESC');
 		/*  */
 		$vars = array(
 			'profile' => $profile,
