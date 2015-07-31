@@ -146,10 +146,10 @@ class User extends Model {
 	}
 
 	public function checkAlreadyExists() {
-		if (empty($this->email)) {
+		if (empty($this->mail)) {
 			return false;
 		}
-		$user = Db::select('SELECT * FROM user WHERE email = :email', array('email' => $this->email));
+		$user = Db::select('SELECT * FROM user WHERE mail = :mail', array('email' => $this->mail));
 		if (!empty($user)) {
 			return true;
 		}
@@ -181,7 +181,7 @@ class User extends Model {
 		$form->addField('firstname', Lang::_('Firstname'), 'text', $this->_getfieldvalue('firstname', $type, $request), true, '', @$errors['firstname']);
 		$form->addField('lastname', Lang::_('Lastname'), 'text', $this->_getfieldvalue('lastname', $type, $request), true, '', @$errors['lastname']);
 		$form->addField('email', Lang::_('Email'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', @$errors['email']);
-		$form->addField('confirm_email', Lang::_('Confirm email'), 'email', $this->_getfieldvalue('confirm_email', $type, $request), true, '', @$errors['confirm_email']);
+		$form->addField('confirm_email', Lang::_('Confirm email'), 'mail', $this->_getfieldvalue('confirm_email', $type, $request), true, '', @$errors['confirm_email']);
 		$form->addField('password', Lang::_('Password'), 'password', '', true, '', @$errors['password']);
 		$form->addField('confirm_password', Lang::_('Confirm password'), 'password', '', true, '', @$errors['confirm_password']);
 		$form->addField('newsletter', Lang::_('Subscribe to the newsletter'), 'checkbox', $this->_getfieldvalue('newsletter', $type, $request), false, '');
@@ -192,12 +192,12 @@ class User extends Model {
 
 	public function register() {
 		return Db::insert(
-		   'INSERT INTO user (lastname, firstname, email, password, newsletter, cgu, register_date)
-			VALUES (:lastname, :firstname, :email, :password, :newsletter, :cgu, NOW())',
+		   'INSERT INTO user (lastname, firstname, mail, password, newsletter, cgu, register_date)
+			VALUES (:lastname, :firstname, :mail, :password, :newsletter, :cgu, NOW())',
 			array(
 				'lastname' => $this->lastname,
 				'firstname' => $this->firstname,
-				'email' => $this->email,
+				'mail' => $this->mail,
 				'password' => $this->password,
 				'newsletter' => $this->newsletter,
 				'cgu' => $this->cgu
@@ -236,13 +236,13 @@ class User extends Model {
 
 	public function facebookRegister() {
 		return Db::insert(
-			'INSERT INTO user SET firstname = :firstname, lastname = :lastname, email = :email, password = :password, fb_id = :fb_id, cgu = 1, register_date = NOW()
+			'INSERT INTO user SET firstname = :firstname, lastname = :lastname, mail = :eail, password = :password, fb_id = :fb_id, cgu = 1, register_date = NOW()
 			 ON DUPLICATE KEY UPDATE firstname = :firstname, lastname = :lastname, email = :email, password = :password, fb_id = :fb_id, cgu = 1',
 			 array(
 				'fb_id' => $this->fb_id,
 				'firstname' => $this->firstname,
 				'lastname' => $this->lastname,
-				'email' => $this->email,
+				'mail' => $this->mail,
 				'password' => $this->password
 			 )
 		);

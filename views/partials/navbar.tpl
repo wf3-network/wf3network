@@ -50,12 +50,12 @@
 											<input type="password" name="pass" placeholder="mot de passe">
 											<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 											<ul class="nav navbar-nav navbar-right">
-												{if User::isLogged()}
+											{if User::isLogged()}
 												<li><a href="{$HTTP_ROOT}logout" class=" glyphicon glyphicon-user"> Déconnexion</a></li>
-												{else}
-												<!-- <li><a href="{$HTTP_ROOT}login" class=" glyphicon glyphicon-user"> Login User</a></li>
-												<li><a href="#" class="glyphicon glyphicon-user"> Login Entreprise</i></a></li> -->
-												{/if}
+											{else}
+												<!-- <li><a href="{$HTTP_ROOT}login" class=" glyphicon glyphicon-user"> Login User</a></li> -->
+												<!-- <li><a href="#" class="glyphicon glyphicon-user"> Login Entreprise</i></a></li> -->
+											{/if}
 
 											</ul>
 										</form>
