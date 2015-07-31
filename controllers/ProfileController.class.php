@@ -2,23 +2,30 @@
 
 class ProfileController extends BaseController {
 
-	public function index() {
+	public function view() {
+		
+		$params = $this->getParams();
 
-		// $page = (int) $this->getParam(0, 1);
+		if (empty($params[0])) {
+			throw new ActionControllerException('Undefined post id');
+		}
 
-		// $pagination = new Pagination('SELECT * FROM posts ORDER BY date DESC', array(), 4, $page - 1);
+		$id = (int) $params[0];
 
+
+		$profile = Profile::get($id);
+
+		$formations = Profile::getList('SELECT * FROM profile_formation INNER JOIN profile ON profile_formation.profile_id =  profile.id ORDER BY date_formation DESC');
+
+		$jobs = Profile::getList('SELECT * FROM profile INNER JOIN profile_expro ON profile.id = profile_expro.profile_id ORDER BY date_job DESC');
+		/*  */
 		$vars = array(
-			// 'title' => 'Blog',
-			// 'description' => 'Description',
-			// 'page' => $page
+			'profile' => $profile,
+			'formations' => $formations,
+			'jobs' => $jobs
 		);
 
-		//if($_SESSION){
-		//		$this->render('profile-full.tpl', $vars);
-		//}else{
-			//$this->render('profile-simple.tpl', $vars);
-		//}
+
 		$this->render('profile-full.tpl', $vars);
 	}
 
