@@ -34,7 +34,8 @@
 
 							<ul class="nav navbar-nav navbar-right">
 								{if User::isLogged()}
-								<li><a href="{$HTTP_ROOT}logout" class=" glyphicon glyphicon-user"> Déconnexion</a></li>
+								<li><a href="{$HTTP_ROOT}profile/view/{$user->id}" class=" glyphicon glyphicon-user"> Bonjour {$user->firstname}</a></li>
+								<li><a href="{$HTTP_ROOT}logout"> Déconnexion</a></li>
 								{else}
 
 								<li><a id="login-link" href="{$HTTP_ROOT}login" class="glyphicon glyphicon-user" data-target="#login-modal" border="0"> Login</a></li>
@@ -55,12 +56,14 @@
 											<input type="password" name="password" placeholder="mot de passe">
 											<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 											<ul class="nav navbar-nav navbar-right">
-											{if User::isLogged()}
-												<li><a href="{$HTTP_ROOT}logout" class=" glyphicon glyphicon-user"> Déconnexion</a></li>
-											{else}
-												<!-- <li><a href="{$HTTP_ROOT}login" class=" glyphicon glyphicon-user"> Login User</a></li> -->
-												<!-- <li><a href="#" class="glyphicon glyphicon-user"> Login Entreprise</i></a></li> -->
-											{/if}
+
+												{if User::isLogged()}
+												<li><a href="{$HTTP_ROOT}logout" class=" glyphicon glyphicon-user">Déconnexion</a></li>
+												{else}
+												<!-- <li><a href="{$HTTP_ROOT}login" class=" glyphicon glyphicon-user"> Login User</a></li>
+												<li><a href="#" class="glyphicon glyphicon-user"> Login Entreprise</i></a></li> -->
+												{/if}
+
 
 											</ul>
 										</form>

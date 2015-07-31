@@ -55,23 +55,31 @@ body {
     align-items: center;
 }
 
-//fin swiper
+/*fin swiper*/
 
-//facebook
+/*facebook*/
 
 body {
     padding-bottom: 70px;
     border-sizing: border-box;
 }
 
+.rand_thumbnails_p{
+    text-align: center;
+}
+
+.profile-thumbnail{
+    margin: 0;
+}
+
 /* FOOTER */
 
-.logo-footer { 
+.logo-footer {
     margin: 15px 0 0 15px;
 }
 
 .navbar-text {
-    margin: 0 0 0 15px;  
+    margin: 0 0 0 15px;
 
 }
 
@@ -84,13 +92,13 @@ body {
 }
 
 .list-unstyled {
-    margin-top: 25px; 
-    margin-left: 15px; 
+    margin-top: 25px;
+    margin-left: 15px;
 }
 
 .copyright {
     color: #9d9d9d;
-    margin-left: 15px; 
+    margin-left: 15px;
 }
 
 .modal-backdrop {

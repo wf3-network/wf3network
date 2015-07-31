@@ -81,32 +81,18 @@
             <div class="panel-heading">Les profils du jour</div>
                 <div class="panel-body container">
                 <div class="sidebar col-md-8">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="80" width="80"  />
-                        <div class="caption">
-                            <h3>Nom Prénom</h3>
-                            <p>Date promo</p>
-                            <p><a class="btn btn-default" href="{$HTTP_ROOT}profile-simple" role="button">Voir profil</a></p>
-                        </div>
-                    </div>
 
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="80" width="80"  />
+                {foreach $rand_profiles as $rand_profile}
+                    <div class="rand_thumbnails_p col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <img class="profile-thumbnail" src="{$rand_profile->photo}"  height="80" width="80"  />
                         <div class="caption">
-                            <h3>Nom Prénom</h3>
-                            <p>Date promo</p>
-                            <p><a class="btn btn-default" href="{$HTTP_ROOT}profile-simple" role="button">Voir profil</a></p>
+                            <h3>{$rand_profile->firstname} {$rand_profile->lastname}</h3>
+                            <p>{$rand_profile->date_promo}</p>
+                            <p><a class="btn btn-default" href="{$HTTP_ROOT}profile/view/{$rand_profile->id}" role="button">Voir profil</a></p>
                         </div>
                     </div>
+                {/foreach}
 
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                        <img class="profile-thumbnail" src="{$IMG_ROOT}default.png" height="80" width="80"  />
-                        <div class="caption">
-                            <h3>Nom Prénom</h3>
-                            <p>Date promo</p>
-                            <p><a class="btn btn-default" href="{$HTTP_ROOT}profile-simple" role="button">Voir profil</a></p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -128,27 +114,8 @@
                 <div class="sidebar col-md-6"> <!--rss-->
                     <div class="list-group">
                         <div class="list-group-item ">
-                            <h3 class="list-group-item-heading"><a class="glyphicon glyphicon-comment">Derniers news</a></h3>
-                            <!--ul>
-                                <!--li>
-                                    <a href="#" class="nodeco">
-                                        <h5>Le php c est l avenir</h5>
-                                        <p class="list-group-item-text">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nodeco">
-                                        <h5>JQuery est il incomprehensible</h5>
-                                        <p class="list-group-item-text">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="nodeco">
-                                        <h5>Le code comem moyen de communication</h5>
-                                        <p class="list-group-item-text">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                    </a>
-                                </li-->
-                            <!--/ul-->
+                            <h3 class="list-group-item-heading"><a class="glyphicon glyphicon-comment">Actualités</a></h3>
+
                             <iframe src="http://www.wf3.fr/" width="290px" height="450px"></iframe><!--RSS-->
                         </div>
                     </div>
@@ -188,7 +155,7 @@
 
                 <div class="list-group">
                     <div class="list-group-item ">
-                        <h3 class="list-group-item-heading"><i class="fa fa-newspaper-o"> Derniers annonces</i></h3>
+                        <h3 class="list-group-item-heading"><i class="fa fa-newspaper-o"> Dernières annonces</i></h3>
                         <ul>
                             <li>
                                 <a href="#" class="nodeco">
@@ -208,6 +175,7 @@
                                     <p class="list-group-item-text">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                                 </a>
                             </li>
+                            <!-- <iframe src="http://www.alsacreations.com/" width="250px" height="327px"></iframe> -->
                         </ul>
                     </div>
                 </div>

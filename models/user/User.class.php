@@ -97,6 +97,10 @@ class User extends Model {
 	}
 
 	/* Misc */
+	// public static function LoggedFirstname() {
+	// 	return Session::getInstance()->firstname;
+	// }
+
 	public static function isLogged() {
 		return Session::getInstance()->user_id;
 	}
