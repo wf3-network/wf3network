@@ -5,18 +5,12 @@
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-inverse navbar-default" role="navigation">
-					<!-- <div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse"
-							data-target="#example-navbar-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div> -->
+
+					 <div class="navbar-header"> 
+						
+					</div>
 					<div class="col-md-4">
-						<!-- <div class="collapse navbar-collapse" id="example-navbar-collapse"> -->
-							<ul class="nav navbar-nav navbar-left">
+						<ul class="nav navbar-nav navbar-left">
 								<li>
 									<img alt="Brand" src="{$IMG_ROOT}WB3network.png" width="100" lenght="100" alt="WF3 Network logo" class="logo-footer">
 									<br>
@@ -25,10 +19,9 @@
 										Découvrez l'école WebForce3 sur : <a href="http://www.wf3.fr/">http://www.wf3.fr/</a>
 									</p>
 								</li>
-							</ul>
-						<!-- </div>  fin col 4 adresse -->
-					</div>
-					<div class="col-md-4">
+						</ul>
+					</div> <!-- fin col 4 adresse-->   
+					<div class="col-md-4 hidden-xs">  
 						<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.2106918459162!2d2.357434400000004!3d48.85419259999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd10fa77a9%3A0xbefa2358f9e7a776!2s18+Rue+Geoffroy+l&#39;Asnier%2C+75004+Paris!5e0!3m2!1sfr!2sfr!4v1438079876768" width="250" height="150" frameborder="0" style="border:10px" allowfullscreen align="center"></iframe>
 					</div> <!-- fin col 4 iframe-->
 
@@ -36,11 +29,11 @@
 
 						<ul class="list-unstyled">
 							<li><a href="#" class="footer-link" target="_blank"> Plan du site <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-							<li><a href="https://www.doyoubuzz.com/fr/p/policy" class="footer-link" target="_blank"> Conditions générales d'utilisation <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+							<li><a href="{$HTTP_ROOT}cgu" class="footer-link" target="_blank"> Conditions générales d'utilisation <i class="glyphicon glyphicon-chevron-right"></i></a></li>
 
-							<li><a href="https://www.doyoubuzz.com/fr/p/charter" class="footer-link" target="_blank"> Charte données personnelles <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+							<li><a href="{$HTTP_ROOT}charte" class="footer-link" target="_blank"> Charte des données personnelles <i class="glyphicon glyphicon-chevron-right"></i></a></li> 
 
-							<li><a href="https://www.doyoubuzz.com/fr/p/mentions" class="footer-link" target="_blank"> Mentions légales<i class="glyphicon glyphicon-chevron-right"></i></a> </li>
+							<li><a href="{$HTTP_ROOT}mentionslegales" class="footer-link" target="_blank"> Mentions légales<i class="glyphicon glyphicon-chevron-right"></i></a> </li>
 
 							<li><a href="#" class="footer-link" target="_blank"> Blog <i class="glyphicon glyphicon-chevron-right"></i></a></li>
 						</ul>
@@ -138,6 +131,58 @@ autoplayDisableOnInteraction: false
 		centeredSlides: true,
 	});
 </script><!--fin swiper-->
+
+<!-- Gère la connexion(login) dans la fenêtre modale -->
+<script>
+var HTTP_ROOT = '{$HTTP_ROOT}';
+{literal}
+
+function login(href, target) {
+
+	var post = typeof(arguments[2]) ? arguments[2] : null;
+
+	var options = {
+		url: href,
+		dataType: 'html'
+	};
+
+	if (post != null) {
+		options.method = 'POST';
+		options.data = post;
+	}
+
+	$.ajax(options).done(function(result) {
+
+		$('.loginmodal-container').html(result);
+
+		$(target).modal('show');
+
+		$('#form-login').submit(function(e) {
+			e.preventDefault();
+
+			var href = $(this).attr('action');
+			var target = '#login-modal';
+
+			login(href, target, $(this).serialize());
+		});
+	});
+}
+
+$(document).ready(function() {
+
+	$('#login-link').click(function(e) {
+		e.preventDefault();
+
+		var href = $(this).attr('href');
+		var target = $(this).data('target');
+
+		login(href, target);
+	});
+
+});
+{/literal}
+</script>
+
 
 </body>
 </html>

@@ -5,7 +5,7 @@ class User extends Model {
 	protected $fb_id;
 	protected $firstname;
 	protected $lastname;
-	protected $mail;
+	protected $email;
 	protected $password;
 	protected $status;
 	protected $newsletter;
@@ -34,7 +34,7 @@ class User extends Model {
 		return $this->lastname;
 	}
 	public function getEmail() {
-		return $this->mail;
+		return $this->email;
 	}
 	public function getPassword() {
 		return $this->password;
@@ -71,11 +71,11 @@ class User extends Model {
 		}
 		$this->lastname = $lastname;
 	}
-	public function setEmail($mail) {
-		if (empty($mail) || !filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+	public function setEmail($email) {
+		if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			throw new Exception(Lang::_('You must provide a valid email'));
 		}
-		$this->mail = $mail;
+		$this->email = $email;
 	}
 	public function setPassword($password) {
 		if (strlen($password) < 6) {
@@ -90,9 +90,6 @@ class User extends Model {
 		$this->newsletter = $newsletter;
 	}
 	public function setCgu($cgu) {
-		if (empty($cgu)) {
-			throw new Exception(Lang::_('You have to accept the terms of service'));
-		}
 		$this->cgu = $cgu;
 	}
 	public function setRegisterDate($register_date) {
@@ -124,8 +121,7 @@ class User extends Model {
 
 	public function checkLogin($remember_me = false) {
 
-		$result = Db::selectOne('SELECT * FROM user WHERE mail = :mail', array('mail' => $this->mail));
-
+		$result = Db::selectOne('SELECT * FROM user WHERE email = :email', array('email' => $this->email));
 
 		if (!empty($result)) {
 

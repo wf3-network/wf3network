@@ -1,4 +1,3 @@
-
 <header>
 			<div class="row">
 				<div class="col-md-12">
@@ -38,16 +37,22 @@
 								<li><a href="{$HTTP_ROOT}logout" class=" glyphicon glyphicon-user"> Déconnexion</a></li>
 								{else}
 
-								<li><a href="{$HTTP_ROOT}login" class=" glyphicon glyphicon-user" data-toggle="modal" data-target="#login-modal" border="0"> Login</a></li>
+								<li><a id="login-link" href="{$HTTP_ROOT}login" class="glyphicon glyphicon-user" data-target="#login-modal" border="0"> Login</a></li>
 
 								<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 
 	    	  					<div class="modal-dialog">
 									<div class="loginmodal-container">
+										{*
 										<h1>Connexion</h1><br>
-										<form>
-											<input type="text" name="user" placeholder="e-mail">
-											<input type="password" name="pass" placeholder="mot de passe">
+										{if !empty($errors)}
+										<div class="alert alert-danger" role="danger">
+											<a href="{$HTTPS_ROOT}authent.tpl">Redirect</a>
+										</div>
+										{/if}
+										<form method="post">
+											<input type="text" name="mail" placeholder="e-mail" value="">
+											<input type="password" name="password" placeholder="mot de passe">
 											<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 											<ul class="nav navbar-nav navbar-right">
 											{if User::isLogged()}
@@ -67,9 +72,10 @@
 										<hr>
 										<div class="login-help">
 											<p>Vous êtes une <b>entreprise<b> à la rechercher de développeurs
-											<button type="button" name="register" class="" value="Login"><a href="#"> Inscrivez-vous </a></button><p>
+											<button type="button" name="register" class="" value="Login"><a href="#"> Inscrivez-vous </a></button></p>
 											<!-- <a href="{$HTTP_ROOT}cvform">Étudiant</a> - <a href="#">Entreprise</a> -->
-										</div>
+										</div><!-- end modal-dialog -->
+										*}
 									</div>
 								</div>
 								{/if}

@@ -10,9 +10,6 @@
 			<p class="profile-information-info">Information de contact Quod opera consulta cogitabatur astute, ut hoc insidiarum genere Galli periret avunculus, ne eum ut praepotens acueret in fiduciam exitiosa coeptantem. verum navata est opera diligens hocque dilato Eusebius praepositus cubiculi missus est Cabillona aurum secum perferens</p>
 			<a href="#" class="profile-information-personal-website">Lien site web personnel</a>
 			<span class="col-xs-9 profile-information-buttons">
-				<button class="profile-information-full-button">
-					<a class="profile-information-full-button-link" href="">Voir profil complet</a>
-				</button>
 				<button class="profile-information-contact-button">
 					<a  class="profile-information-contact-button-link" href="">Contactez-moi</a>
 				</button>
