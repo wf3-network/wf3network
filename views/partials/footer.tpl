@@ -139,5 +139,57 @@ autoplayDisableOnInteraction: false
 	});
 </script><!--fin swiper-->
 
+<!-- Gère la connexion(login) dans la fenêtre modale -->
+<script>
+var HTTP_ROOT = '{$HTTP_ROOT}';
+{literal}
+
+function login(href, target) {
+
+	var post = typeof(arguments[2]) ? arguments[2] : null;
+
+	var options = {
+		url: href,
+		dataType: 'html'
+	};
+
+	if (post != null) {
+		options.method = 'POST';
+		options.data = post;
+	}
+
+	$.ajax(options).done(function(result) {
+
+		$('.loginmodal-container').html(result);
+
+		$(target).modal('show');
+
+		$('#form-login').submit(function(e) {
+			e.preventDefault();
+
+			var href = $(this).attr('action');
+			var target = '#login-modal';
+
+			login(href, target, $(this).serialize());
+		});
+	});
+}
+
+$(document).ready(function() {
+
+	$('#login-link').click(function(e) {
+		e.preventDefault();
+
+		var href = $(this).attr('href');
+		var target = $(this).data('target');
+
+		login(href, target);
+	});
+
+});
+{/literal}
+</script>
+
+
 </body>
 </html>
