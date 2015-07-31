@@ -53,7 +53,7 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
 	// define('DB_HOST', '46.226.110.248');
 	// define('DB_USER', 'webaccess');
 	// define('DB_PASS', 'ihhnlmda');
-		define('DB_HOST', 'localhost');
+	define('DB_HOST', 'localhost');
 	define('DB_USER', 'root');
 	define('DB_PASS', '');
 } else {

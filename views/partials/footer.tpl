@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-inverse navbar-default" role="navigation">
-					<div class="navbar-header">
+					<!-- <div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse"
 							data-target="#example-navbar-collapse">
 							<span class="sr-only">Toggle navigation</span>
@@ -13,9 +13,9 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-					</div>
+					</div> -->
 					<div class="col-md-4">
-						<div class="collapse navbar-collapse" id="example-navbar-collapse">
+						<!-- <div class="collapse navbar-collapse" id="example-navbar-collapse"> -->
 							<ul class="nav navbar-nav navbar-left">
 								<li>
 									<img alt="Brand" src="{$IMG_ROOT}WB3network.png" width="100" lenght="100" alt="WF3 Network logo" class="logo-footer">
@@ -26,7 +26,7 @@
 									</p>
 								</li>
 							</ul>
-						</div> <!-- fin col 4 adresse-->
+						<!-- </div>  fin col 4 adresse -->
 					</div>
 					<div class="col-md-4">
 						<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.2106918459162!2d2.357434400000004!3d48.85419259999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd10fa77a9%3A0xbefa2358f9e7a776!2s18+Rue+Geoffroy+l&#39;Asnier%2C+75004+Paris!5e0!3m2!1sfr!2sfr!4v1438079876768" width="250" height="150" frameborder="0" style="border:10px" allowfullscreen align="center"></iframe>

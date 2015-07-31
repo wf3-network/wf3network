@@ -14,11 +14,11 @@ class ProfileController extends BaseController {
 			// 'page' => $page
 		);
 
-		//if($_SESSION){
-		//		$this->render('profile-full.tpl', $vars);
-		//}else{
-			//$this->render('profile-simple.tpl', $vars);
-		//}
+		// if(!(User::isLogged)){
+		// 	$this->render('profile-simple.tpl', $vars);
+		// }else{
+		// 	$this->render('profile-full.tpl', $vars);
+		// }
 		$this->render('profile-full.tpl', $vars);
 	}
 
