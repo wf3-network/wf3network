@@ -84,7 +84,7 @@
 </div>
 
 <!-- Select Multiple -->
-<div class="form-group">
+<!--div class="form-group">
   <label class="col-md-4 control-label" for="skill_wf3">Compétences WF3</label>
   <div class="col-md-4">
     <select id="skill_wf3" name="skill_wf3" class="form-control" multiple="multiple">
@@ -96,6 +96,94 @@
       <option value="cms">CMS - Wordpress ...</option>
     </select>
   </div>
+</div-->
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="skill_wf3">Compétences WF3</label>
+  <div class="col-md-4">
+      <div class="panel panel-default embed-responsive-item">
+        <div class="panel-body container">
+          <div class="dropdown">
+            <form>
+              <input type="checkbox" name="choix1" value="1"> HTML 5 </input>
+                  <SELECT class="" name="nom" size="1">
+                    <option>0
+                    <option>1
+                    <option>2
+                    <option>3
+                    <option>4
+                    <option>5
+                  </select>
+            </form>
+          </div>
+          <div class="dropdown">
+            <form>
+              <input type="checkbox" name="choix1" value="1"> CSS 3 </input>
+                  <SELECT name="nom" size="1">
+                    <option>0
+                    <option>1
+                    <option>2
+                    <option>3
+                    <option>4
+                    <option>5
+                  </select>
+            </form>
+          </div>
+          <div class="dropdown">
+            <form>
+              <input type="checkbox" name="choix1" value="1"> PHP </input>
+                  <SELECT name="nom" size="1">
+                    <option>0
+                    <option>1
+                    <option>2
+                    <option>3
+                    <option>4
+                    <option>5
+                  </select>
+            </form>
+          </div>
+          <div class="dropdown">
+            <form>
+              <input type="checkbox" name="choix1" value="1"> MySQL </input>
+                  <SELECT name="nom" size="1">
+                    <option>0
+                    <option>1
+                    <option>2
+                    <option>3
+                    <option>4
+                    <option>5
+                  </select>
+            </form>
+          </div>
+          <div class="dropdown">
+            <form>
+              <input type="checkbox" name="choix1" value="1"> Javascript </input>
+                  <SELECT name="nom" size="1">
+                    <option>0
+                    <option>1
+                    <option>2
+                    <option>3
+                    <option>4
+                    <option>5
+                  </select>
+            </form>
+          </div>
+          <div class="dropdown">
+            <form>
+              <input type="checkbox" name="choix1" value="1"> CMS - Wordpress ...</input>
+                  <SELECT name="nom" size="1">
+                    <option>0
+                    <option>1
+                    <option>2
+                    <option>3
+                    <option>4
+                    <option>5
+                  </select>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
 
 <!-- Select Basic -->
@@ -103,7 +191,7 @@
   <label class="col-md-4 control-label" for="project_name">Projet de fin de formation</label>
   <div class="col-md-4">
     <select id="project_name" name="project_name" class="form-control">
-      <option value="1">Projet 1</option>
+      <div class="checkbox">Projet 1</option>
       <option value="2">Projet 2</option>
       <option value="3">...</option>
     </select>
