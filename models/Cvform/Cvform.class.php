@@ -2,21 +2,20 @@
 class Cvform extends Model {
 
 	protected $id;
-	protected $firstname;
+	protected $photo;
 	protected $lastname;
-	protected $promo;
+	protected $firstname;
+	protected $date_promo;
 	protected $age;
 	protected $mail;
 	protected $telephone;
 	protected $site;
-	protected $skill_wf3;
-	protected $project_name;
-	protected $exp_pro;
 	protected $formation;
-	protected $photo;
-	protected $cgu;
-	
+	protected $exp_pro;
 
+	protected $project_name;
+	protected $skill_wf3;
+	protected $cgu;
 
 /*	public function getForm($id = '', $name = '', $action = '', $method = 'POST', $class = 'form-horizontal', $errors = array(), $isPost = false) {
 
@@ -49,7 +48,7 @@ class Cvform extends Model {
 	}
 	public function getMail() {
 		return $this->mail;
-	}	
+	}
 	public function getTelephone() {
 		return $this->telephone;
 	}
@@ -58,7 +57,7 @@ class Cvform extends Model {
 	}
 	public function getSkill_wf3() {
 		return $this->skill_wf3;
-	}	
+	}
 	public function getProject_name() {
 		return $this->project_name;
 	}
@@ -122,7 +121,7 @@ class Cvform extends Model {
 			throw new Exception(Lang::_('You must fill your skills'));
 		}
 		$this->skill_wf3 = $skill_wf3;
-	}		
+	}
 	public function setMail($mail) {
 		if (empty($mail) || !filter_var($project_name, FILTER_VALIDATE_EMAIL)) {
 			throw new Exception(Lang::_('You must fill a valid email'));
@@ -134,7 +133,7 @@ class Cvform extends Model {
 			throw new Exception(Lang::_('You must fill the project name'));
 		}
 		$this->project_name = strip_tags($project_name);
-	}	
+	}
 	public function setExp_pro($exp_pro) {
 		if (empty($exp_pro)) {
 			throw new Exception(Lang::_('You must fill your pro exp'));
@@ -159,12 +158,12 @@ class Cvform extends Model {
 	public function insert() {
 
 		return Db::insert(
-			'INSERT INTO profile (lastname, firstname, promo, age, mail, telephone, site, skill_wf3, project_name, exp_pro, formation, photo, cgu);
-		 	 VALUES (:lastname, :firstname, :promo, :age, :mail, :telephone, :site, :skill_wf3, :project_name, :exp_pro, :formation, :photo, :cgu)',
+			'INSERT INTO profile (lastname, firstname, date_promo, age, mail, telephone, site, skill_wf3, project_name, exp_pro, formation, photo, cgu);
+		 	 VALUES (:lastname, :firstname, :date_promo, :age, :mail, :telephone, :site, :skill_wf3, :project_name, :exp_pro, :formation, :photo, :cgu)',
 			array(
 				'lastname' => $this->lastname,
 				'firstname' => $this->firstname,
-				'promo' => $this->promo,
+				'date_promo' => $this->date_promo,
 				'age' => $this->age,
 				'mail' => $this->mail,
 				'telephone' => $this->telephone,
