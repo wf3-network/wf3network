@@ -39,18 +39,18 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="age">Date de naissance</label>
+  <label class="col-md-4 control-label" for="birth">Date de naissance</label>
   <div class="col-md-4">
-  <input type="date" id="age" name="age" placeholder="jj/mm/aaaa" class="form-control input-md">
+  <input type="date" id="birth" name="birth" placeholder="jj/mm/aaaa" class="form-control input-md">
 
   </div>
 </div>
 
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="mail">E-Mail</label>
+  <label class="col-md-4 control-label" for="email">E-Mail</label>
   <div class="col-md-4">
-      <input id="mail" name="mail" type="text" placeholder="mail" class="form-control input-md">
+      <input id="email" name="email" type="text" placeholder="email" class="form-control input-md">
   </div>
 </div>
 
@@ -81,5 +81,6 @@
 
 
 
+{include file="partials/cv-footer.tpl"}
 
 {include file="partials/footer.tpl"}

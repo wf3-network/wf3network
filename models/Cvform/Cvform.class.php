@@ -2,6 +2,7 @@
 class Cvform extends Model {
 
 	protected $id;
+	protected $user_id;
 	protected $photo;
 	protected $lastname;
 	protected $firstname;
@@ -33,6 +34,9 @@ class Cvform extends Model {
 	/* Getters */
 	public function getId() {
 		return $this->id;
+	}
+	public function getUserId() {
+		return $this->user_id;
 	}
 	public function getFirstname() {
 		return $this->firstname;
@@ -80,6 +84,11 @@ class Cvform extends Model {
 	public function setId($id) {
 		$this->id = $id;
 	}
+
+	public function setUserId($user_id) {
+		$this->user_id = $user_id;
+	}
+
 	public function setLastname($lastname) {
 		if (empty($lastname)) {
 			throw new Exception(Lang::_('You must fill your lastname'));
@@ -158,9 +167,10 @@ class Cvform extends Model {
 	public function insert() {
 
 		return Db::insert(
-			'INSERT INTO profile (lastname, firstname, date_promo, age, mail, telephone, site, skill_wf3, project_name, exp_pro, formation, photo, cgu);
-		 	 VALUES (:lastname, :firstname, :date_promo, :age, :mail, :telephone, :site, :skill_wf3, :project_name, :exp_pro, :formation, :photo, :cgu)',
+			'INSERT INTO profile (user_id, lastname, firstname, date_promo, age, mail, telephone, site, skill_wf3, project_name, exp_pro, formation, photo, cgu);
+		 	 VALUES (:user_id, :lastname, :firstname, :date_promo, :age, :mail, :telephone, :site, :skill_wf3, :project_name, :exp_pro, :formation, :photo, :cgu)',
 			array(
+				'user_id' => $this->user_id,
 				'lastname' => $this->lastname,
 				'firstname' => $this->firstname,
 				'date_promo' => $this->date_promo,
