@@ -11,6 +11,7 @@ class User extends Model {
 	protected $newsletter;
 	protected $cgu;
 	protected $register_date;
+	protected $type;
 
 	private $session;
 
@@ -50,6 +51,9 @@ class User extends Model {
 	}
 	public function getRegisterDate() {
 		return $this->register_date;
+	}
+	public function getType() {
+		return $this->type;
 	}
 
 	/* Setters */
@@ -95,7 +99,9 @@ class User extends Model {
 	public function setRegisterDate($register_date) {
 		$this->register_date = $register_date;
 	}
-
+	public function setType($type) {
+		$this->type = $type;
+	}
 	/* Misc */
 	// public static function LoggedFirstname() {
 	// 	return Session::getInstance()->firstname;
@@ -146,10 +152,10 @@ class User extends Model {
 	}
 
 	public function checkAlreadyExists() {
-		if (empty($this->mail)) {
+		if (empty($this->email)) {
 			return false;
 		}
-		$user = Db::select('SELECT * FROM user WHERE mail = :mail', array('email' => $this->mail));
+		$user = Db::select('SELECT * FROM user WHERE email = :email', array('email' => $this->email));
 		if (!empty($user)) {
 			return true;
 		}
@@ -192,12 +198,13 @@ class User extends Model {
 
 	public function register() {
 		return Db::insert(
-		   'INSERT INTO user (lastname, firstname, mail, password, newsletter, cgu, register_date)
-			VALUES (:lastname, :firstname, :mail, :password, :newsletter, :cgu, NOW())',
+		   'INSERT INTO user (type, lastname, firstname, email, password, newsletter, cgu, register_date)
+			VALUES (:type, :lastname, :firstname, :email, :password, :newsletter, :cgu, NOW())',
 			array(
+				'type' => $this->type,
 				'lastname' => $this->lastname,
 				'firstname' => $this->firstname,
-				'mail' => $this->mail,
+				'email' => $this->email,
 				'password' => $this->password,
 				'newsletter' => $this->newsletter,
 				'cgu' => $this->cgu
@@ -236,13 +243,13 @@ class User extends Model {
 
 	public function facebookRegister() {
 		return Db::insert(
-			'INSERT INTO user SET firstname = :firstname, lastname = :lastname, mail = :eail, password = :password, fb_id = :fb_id, cgu = 1, register_date = NOW()
+			'INSERT INTO user SET firstname = :firstname, lastname = :lastname, email = :email, password = :password, fb_id = :fb_id, cgu = 1, register_date = NOW()
 			 ON DUPLICATE KEY UPDATE firstname = :firstname, lastname = :lastname, email = :email, password = :password, fb_id = :fb_id, cgu = 1',
 			 array(
 				'fb_id' => $this->fb_id,
 				'firstname' => $this->firstname,
 				'lastname' => $this->lastname,
-				'mail' => $this->mail,
+				'email' => $this->email,
 				'password' => $this->password
 			 )
 		);
