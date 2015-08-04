@@ -52,4 +52,9 @@ $routes = array(
 		'action' => 'charte'
 	),
 
+	'profile/([a-zA-Z-_]+)/([a-zA-Z-_]+)/?([0-9]*)' => array(
+		'target' => 'profile',
+		'action' => 'action'
+	),
+
 );
