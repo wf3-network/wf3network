@@ -17,8 +17,15 @@
 			{/if}
 
 			{if !empty($isPost) && !empty($success)}
+
 				<div class="alert alert-success" role="success">{$title} {t}success{/t}</div>
-				{Utils::redirectJS("{$HTTP_ROOT}cvform", 1)}
+
+				{if $user->type == 0}
+					{Utils::redirectJS("{$HTTP_ROOT}cvform", 1)}
+				{else if $user->type == 2}
+					{Utils::redirectJS("{$HTTP_ROOT}home", 1)}
+				{/if}
+
 			{/if}
 
 			{if isset($form) && empty($success)}
