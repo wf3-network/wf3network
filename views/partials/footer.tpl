@@ -6,8 +6,8 @@
 			<div class="col-md-12">
 				<nav class="navbar navbar-inverse navbar-default" role="navigation">
 
-					 <div class="navbar-header"> 
-						
+					 <div class="navbar-header">
+
 					</div>
 					<div class="col-md-4">
 						<ul class="nav navbar-nav navbar-left">
@@ -20,8 +20,8 @@
 									</p>
 								</li>
 						</ul>
-					</div> <!-- fin col 4 adresse-->   
-					<div class="col-md-4 hidden-xs">  
+					</div> <!-- fin col 4 adresse-->
+					<div class="col-md-4 hidden-xs">
 						<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.2106918459162!2d2.357434400000004!3d48.85419259999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd10fa77a9%3A0xbefa2358f9e7a776!2s18+Rue+Geoffroy+l&#39;Asnier%2C+75004+Paris!5e0!3m2!1sfr!2sfr!4v1438079876768" width="250" height="150" frameborder="0" style="border:10px" allowfullscreen align="center"></iframe>
 					</div> <!-- fin col 4 iframe-->
 
@@ -30,7 +30,7 @@
 						<ul class="list-unstyled">
 							<li><a href="{$HTTP_ROOT}cgu" class="footer-link" target="_blank"> Conditions générales d'utilisation <i class="glyphicon glyphicon-chevron-right"></i></a></li>
 
-							<li><a href="{$HTTP_ROOT}charte" class="footer-link" target="_blank"> Charte des données personnelles <i class="glyphicon glyphicon-chevron-right"></i></a></li> 
+							<li><a href="{$HTTP_ROOT}charte" class="footer-link" target="_blank"> Charte des données personnelles <i class="glyphicon glyphicon-chevron-right"></i></a></li>
 
 							<li><a href="{$HTTP_ROOT}mentionslegales" class="footer-link" target="_blank"> Mentions légales<i class="glyphicon glyphicon-chevron-right"></i></a> </li>
 
@@ -176,6 +176,22 @@ $(document).ready(function() {
 		var target = $(this).data('target');
 
 		login(href, target);
+	});
+
+	$('.profile-action').click(function() {
+
+		var type = $(this).data('type');
+		var action = $(this).data('action');
+
+		$.ajax({
+			type: 'POST',
+			url: HTTP_ROOT+'profile/'+type+'/'+action,
+			data: $(this).closest('form').serialize(),
+			dataType: 'html'
+		}).done(function(result) {
+			console.log(result);
+		});
+
 	});
 
 });
