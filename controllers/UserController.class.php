@@ -45,12 +45,17 @@ class UserController extends BaseController {
 			'isPost' => $isPost,
 			'form' => $form,
 			'errors' => $errors,
-			'success' => $success
+			'success' => $success,
+			'user' => new User()
 		);
 
 		$fb_active = API_Facebook::isActive();
 		if ($fb_active) {
 			$vars['fb_login_url'] = API_Facebook::getLoginUrl(ROOT_HTTP.'register');
+		}
+
+		if ($success) {
+			$vars['user'] = User::get($this->session->user_id);
 		}
 
 		return $this->render('authent', $vars, true);
