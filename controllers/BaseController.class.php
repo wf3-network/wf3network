@@ -23,10 +23,9 @@ abstract class BaseController extends Controller {
       'title' => 'WF3 | Network',
       'description' => '',
       // Vérifie si la page est appelée en Ajax --> utilisé surtout pour la page login pour afficher la fenêtre modale ou pas
-      'isAjax' => $this->request->isAjax()
+      'isAjax' => $this->request->isAjax(),
+      'user' => new User()
     );
-
-
 
     $vars['pages'] = array(
       array('url' => 'home', 'name' => Lang::_('Accueil')),
