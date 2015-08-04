@@ -32,4 +32,48 @@ class ProfileController extends BaseController {
 		}
 	}
 
+	public function action() {
+
+		$types = array('profile_experience', 'profile_formation', 'profile_skill');
+		$actions = array('create', 'update', 'delete');
+
+		$type = $this->getParam(0, '');
+		$action = $this->getParam(1, '');
+		$id = $this->getParam(2, '');
+
+		$class = 'Profile_'.ucfirst($type);
+
+		$isPost = $this->request->isPost();
+
+		$entity = new $class();
+
+		$errors = array();
+		if ($isPost) {
+
+			print_r($this->request->post);
+
+			foreach($entity->getFields() as $key => $value) {
+				try {
+					$entity->$key = $this->request->post($key, '');
+				} catch (Exception $e) {
+					$errors[$key] = $e->getMessage();
+				}
+			}
+
+			if (empty($errors)) {
+
+				if ($result = $entity->insert()) {
+
+					$vars = array(
+						$type => $entity
+					);
+
+					return $this->render('partials/profile-item-'.$type, $vars, true);
+				}
+			}
+		}
+
+		return json_encode(array('error' => 'Unable to handle '.$type.' '.$action));
+	}
+
 }
