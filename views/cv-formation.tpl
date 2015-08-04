@@ -8,7 +8,7 @@
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="school_name"></label>
+  <label class="col-md-4 control-label" for="school_name">Nom de l'école</label>
   <div class="col-md-4">
     <textarea class="form-control" id="school_name" name="school_name" placeholder="Nom de l'école"></textarea>
   </div>
@@ -16,7 +16,7 @@
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="name_formation"></label>
+  <label class="col-md-4 control-label" for="name_formation">Intitulé de la formation</label>
   <div class="col-md-4">
     <textarea class="form-control" id="name_formation" name="name_formation" placeholder="Intitulé de la formation"></textarea>
   </div>
@@ -24,7 +24,7 @@
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="date_formation"></label>
+  <label class="col-md-4 control-label" for="date_formation">Dates</label>
   <div class="col-md-4">
     <textarea class="form-control" id="date_formation" name="date_formation" placeholder="Dates"></textarea>
   </div>
@@ -32,7 +32,7 @@
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="city"></label>
+  <label class="col-md-4 control-label" for="city">Ville</label>
   <div class="col-md-4">
     <textarea class="form-control" id="city" name="city" placeholder="Ville"></textarea>
   </div>
@@ -40,7 +40,7 @@
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="country"></label>
+  <label class="col-md-4 control-label" for="country">Pays</label>
   <div class="col-md-4">
     <textarea class="form-control" id="country" name="country" placeholder="Pays"></textarea>
   </div>
@@ -48,7 +48,7 @@
 
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="description"></label>
+  <label class="col-md-4 control-label" for="description">Description de la formation</label>
   <div class="col-md-4">
     <textarea class="form-control" id="description" name="description" placeholder="Description de la formation"></textarea>
   </div>
