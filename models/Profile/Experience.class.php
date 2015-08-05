@@ -72,7 +72,7 @@ class Profile_Experience extends Model {
     public function insert() {
 
     	return Db::insert(
-    		'INSERT INTO profile_expro (profile_id, job_name, company_name, date_job, job_city, job_country, job_description)
+    		'INSERT INTO profile_experience (profile_id, job_name, company_name, date_job, job_city, job_country, job_description)
     		VALUES (:profile_id, :job_name, :company_name, :date_job, :job_city, :job_country, :job_description)',
     		array(
     			'profile_id' => $this->profile_id,

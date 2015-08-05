@@ -178,7 +178,7 @@ $(document).ready(function() {
 		login(href, target);
 	});
 
-	$('.profile-action').click(function() {
+	$(document).delegate('.profile-action', 'click', function() {
 
 		var type = $(this).data('type');
 		var action = $(this).data('action');
@@ -189,9 +189,13 @@ $(document).ready(function() {
 			data: $(this).closest('form').serialize(),
 			dataType: 'html'
 		}).done(function(result) {
-			//console.log(result);
-			$('.profile-experience-container').append('<p>'+result+'</p>');
+			console.log(result);
+			$('#'+type).html(result);
+			//$(location).attr('href', HTTP_ROOT+'profile/cvform#experience')
+
 		});
+
+		return false;
 
 	});
 

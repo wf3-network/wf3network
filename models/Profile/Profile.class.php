@@ -16,8 +16,6 @@ class Profile extends Model {
     protected $register_date;
 
 
-
-
     /* Getters */
     public function getId() {
         return $this->id;
@@ -75,24 +73,24 @@ class Profile extends Model {
       }
       $this->lastname = $lastname;
   }
-  public function setFirstname($firstname) {
-    if (empty($firstname)) {
-      throw new Exception(Lang::_('You must fill your firstname'));
-  }
-  $this->firstname = $firstname;
-}
-public function setDatepromo($date_promo) {
-    $this->date_promo = $date_promo;
-}
-public function setBirth($birth) {
-    $this->birth = $birth;
-}
-public function setEmail($email) {
-    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      throw new Exception(Lang::_('You must fill a valid email'));
+     public function setFirstname($firstname) {
+         if (empty($firstname)) {
+        throw new Exception(Lang::_('You must fill your firstname'));
+        }
+      $this->firstname = $firstname;
     }
-    $this->email = $email;
-}
+    public function setDatepromo($date_promo) {
+        $this->date_promo = $date_promo;
+    }
+    public function setBirth($birth) {
+        $this->birth = $birth;
+    }
+    public function setEmail($email) {
+        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          throw new Exception(Lang::_('You must fill a valid email'));
+        }
+        $this->email = $email;
+    }
     public function setTelephone($telephone) {
         $this->telephone = $telephone;
     }
@@ -108,28 +106,33 @@ public function setEmail($email) {
 
 
 
+    public function getExperiences() {
+        if (empty($this->id)) {
+            return array();
+        }
+        return Profile_Experience::getList('SELECT * FROM profile_experience WHERE profile_id = :profile_id', array('profile_id' => $this->id));
+    }
 
 
+    public function insert() {
 
-public function insert() {
-
-    return Db::insert(
-      'INSERT INTO profile (user_id, lastname, firstname, date_promo, birth, email, telephone, site, photo, publish, register_date)
-      VALUES (:user_id, :lastname, :firstname, :date_promo, :birth, :email, :telephone, :site, :photo, :publish, NOW())',
-      array(
-        'user_id' => $this->user_id,
-        'lastname' => $this->lastname,
-        'firstname' => $this->firstname,
-        'date_promo' => $this->date_promo,
-        'birth' => $this->birth,
-        'email' => $this->email,
-        'telephone' => $this->telephone,
-        'site' => $this->site,
-        'photo' => $this->photo,
-        'publish' => (int) $this->publish
-        )
-      );
-}
+        return Db::insert(
+          'INSERT INTO profile (user_id, lastname, firstname, date_promo, birth, email, telephone, site, photo, publish, register_date)
+          VALUES (:user_id, :lastname, :firstname, :date_promo, :birth, :email, :telephone, :site, :photo, :publish, NOW())',
+          array(
+            'user_id' => $this->user_id,
+            'lastname' => $this->lastname,
+            'firstname' => $this->firstname,
+            'date_promo' => $this->date_promo,
+            'birth' => $this->birth,
+            'email' => $this->email,
+            'telephone' => $this->telephone,
+            'site' => $this->site,
+            'photo' => $this->photo,
+            'publish' => (int) $this->publish
+            )
+          );
+    }
 
 
 
