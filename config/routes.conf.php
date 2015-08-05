@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 global $routes;
@@ -36,10 +35,8 @@ $routes = array(
 		'target' => 'user',
 		'action' => 'register'
 	),
-	'News' => array(
-		'target' => 'news',
-		'action' => 'news'
-	),
+
+
 
 	/* Footer pages */
 	'cgu' => array(
