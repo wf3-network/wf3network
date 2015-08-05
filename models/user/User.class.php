@@ -1,6 +1,9 @@
 <?php
 class User extends Model {
 
+	const USER_TYPE_STUDENT = 1;
+	const USER_TYPE_COMPANY = 2;
+
 	protected $id;
 	protected $fb_id;
 	protected $firstname;
@@ -14,6 +17,11 @@ class User extends Model {
 	protected $type;
 
 	private $session;
+
+	public static $types = array(
+		self::USER_TYPE_STUDENT => 'Etudiant',
+		self::USER_TYPE_COMPANY => 'Entreprise'
+	);
 
 	public function __construct($data = array()) {
 		parent::__construct($data);
@@ -100,12 +108,23 @@ class User extends Model {
 		$this->register_date = $register_date;
 	}
 	public function setType($type) {
+		// if (empty($type)) {
+		// 	throw new Exception(Lang::_('You must select your status'));
+		//}
 		$this->type = $type;
 	}
 	/* Misc */
 	// public static function LoggedFirstname() {
 	// 	return Session::getInstance()->firstname;
 	// }
+	//
+
+	public static function getTypeLabel($type) {
+		if (isset(self::$types[$type])) {
+			return self::$types[$type];
+		}
+		return '';
+	}
 
 	public static function isLogged() {
 		return Session::getInstance()->user_id;
@@ -183,11 +202,17 @@ class User extends Model {
 
 	public function getRegisterForm($type, $action, $request, $isPost = false, $errors = array()) {
 
+		$types_select = array();
+		foreach(User::$types as $type => $label) {
+			$types_select[] = array('id' => $type, 'name' => $label);
+		}
+
 		$form = new Form('', 'form-register', $action, 'POST', 'form-horizontal', $errors, $isPost);
+		$form->addField('type', Lang::_('Type'), 'select', $this->_getfieldvalue('type', $type, $request), true, '', @$errors['type'], null, null, $types_select);
 		$form->addField('firstname', Lang::_('Firstname'), 'text', $this->_getfieldvalue('firstname', $type, $request), true, '', @$errors['firstname']);
 		$form->addField('lastname', Lang::_('Lastname'), 'text', $this->_getfieldvalue('lastname', $type, $request), true, '', @$errors['lastname']);
 		$form->addField('email', Lang::_('Email'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', @$errors['email']);
-		$form->addField('confirm_email', Lang::_('Confirm email'), 'mail', $this->_getfieldvalue('confirm_email', $type, $request), true, '', @$errors['confirm_email']);
+		$form->addField('confirm_email', Lang::_('Confirm email'), 'email', $this->_getfieldvalue('confirm_email', $type, $request), true, '', @$errors['confirm_email']);
 		$form->addField('password', Lang::_('Password'), 'password', '', true, '', @$errors['password']);
 		$form->addField('confirm_password', Lang::_('Confirm password'), 'password', '', true, '', @$errors['confirm_password']);
 		$form->addField('newsletter', Lang::_('Subscribe to the newsletter'), 'checkbox', $this->_getfieldvalue('newsletter', $type, $request), false, '');

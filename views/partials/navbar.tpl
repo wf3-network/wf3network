@@ -40,6 +40,8 @@
 
 								<li><a id="login-link" href="{$HTTP_ROOT}login" class="glyphicon glyphicon-user" data-target="#login-modal" border="0"> Login</a></li>
 
+								<li><a id="login-link" href="{$HTTP_ROOT}register" class="glyphicon glyphicon-user" data-target="#login-modal" border="0"> Register</a></li>
+
 								<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 
 	    	  					<div class="modal-dialog">

@@ -32,9 +32,41 @@ class ProfileController extends BaseController {
 		}
 	}
 
+	public function company() {
+
+		$isPost = $this->request->isPost();
+
+		$profile_company = new Profile_Company();
+
+		$errors = array();
+		if ($isPost) {
+
+			foreach($profile_company->getFields() as $key => $value) {
+				try {
+					$profile_company->$key = $this->request->post($key, '');
+				} catch (Exception $e) {
+					$errors[$key] = $e->getMessage();
+				}
+			}
+
+			if (empty($errors)) {
+
+				if ($result = $profile_company->insert()) {
+					$this->response->redirect(ROOT_HTTP);
+				}
+			}
+		}
+
+		$form = $profile_company->getForm($id = 'form-profile-company', $name = 'form-profile-company', $action = ROOT_HTTP.'profile/company', 'POST', 'form-horizontal', $errors, $isPost);
+
+		$vars['form'] = $form;
+
+		$this->render('company-form', $vars);
+	}
+
 	public function action() {
 
-		$types = array('profile_experience', 'profile_formation', 'profile_skill');
+		$types = array('profile_company', 'profile_experience', 'profile_formation', 'profile_skill');
 		$actions = array('create', 'update', 'delete');
 
 		$type = $this->getParam(0, '');

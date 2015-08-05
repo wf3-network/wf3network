@@ -20,31 +20,32 @@
 
 				<div class="alert alert-success" role="success">{$title} {t}success{/t}</div>
 
-				{if $user->type == 0}
-					{Utils::redirectJS("{$HTTP_ROOT}cvform", 1)}
-				{else if $user->type == 2 || 3}
+				{if $user->status == 1}
 					{Utils::redirectJS("{$HTTP_ROOT}home", 1)}
+				{else}
+					{if $user->type == 1}
+						{Utils::redirectJS("{$HTTP_ROOT}profile/company", 1)}
+					{else if $user->type == 2}
+						{Utils::redirectJS("{$HTTP_ROOT}profile/cvform", 1)}
+					{/if}
 				{/if}
 
 			{/if}
 
 			{if isset($form) && empty($success)}
 				{$form}
+
+				<hr>
+				<p>Vous êtes une <b>entreprise<b> à la recherche de développeurs</b>
+				<button type="button" name="register" class="register-btn" value="Register"><a href="{$HTTP_ROOT}register"> Inscrivez-vous </a></button>
 			{/if}
-
-			<hr>
-			<p>Vous êtes une <b>entreprise<b> à la rechercher de développeurs</b>
-			<button type="button" name="register" class="register-btn" value="Register"><a href="{$HTTP_ROOT}company-form"> Inscrivez-vous </a></button>
-
 
 			{*if !empty($fb_login_url)*}
 	<!-- 		<hr>
 
 			<a href="{$fb_login_url}" class="btn btn-primary">{t}Se connecter avec Facebook{/t}</a> -->
 			{*/if*}
-
 		</div>
-
 	</div>
 
 {if !$isAjax}
