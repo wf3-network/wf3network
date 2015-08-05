@@ -41,7 +41,8 @@ abstract class BaseController extends Controller {
     }
 
     if (User::isLogged()) {
-      $vars['user'] = User::get($this->session->user_id);
+      $this->user = User::get($this->session->user_id);
+      $vars['user'] = $this->user;
     }
 
     $archives_dates = array();
@@ -59,3 +60,4 @@ abstract class BaseController extends Controller {
   }
 
 }
+
