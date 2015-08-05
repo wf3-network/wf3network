@@ -29,10 +29,10 @@ abstract class BaseController extends Controller {
 
     $vars['pages'] = array(
       array('url' => 'home', 'name' => Lang::_('Accueil')),
-      array('url' => 'News', 'name' => Lang::_('News')),
+      array('url' => 'news', 'name' => Lang::_('News')),
       array('url' => 'directory', 'name' => Lang::_('Annuaire')),
-      array('url' => 'Emploi', 'name' => Lang::_('Emploi')),
-      array('url' => 'Contact', 'name' => Lang::_('Contact')),
+      array('url' => 'emploi', 'name' => Lang::_('Emploi')),
+      array('url' => 'contact', 'name' => Lang::_('Contact')),
     );
 
     $fb_active = API_Facebook::isActive();

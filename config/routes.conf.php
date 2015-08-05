@@ -35,10 +35,6 @@ $routes = array(
 		'target' => 'user',
 		'action' => 'register'
 	),
-	'News' => array(
-		'target' => 'news',
-		'action' => 'news'
-	),
 
 
 

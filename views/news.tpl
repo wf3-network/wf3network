@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="{$CSS_ROOT}news.css">
 
-<div class="container fil-arianne">
+<div class="container fil-ariane">
 	<div class="row">
 		<div class="col-md-12">
 			<ol class="breadcrumb">
