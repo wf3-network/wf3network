@@ -67,11 +67,13 @@ class ProfileController extends BaseController {
 		$profile = $this->user->getProfile();
 
 		$experiences = $profile->getExperiences();
+		$formations = $profile->getFormations();
 		
 		$vars = array(
 			'user' => $this->user,
 			'profile' => $profile,
-			'experiences' => $experiences
+			'experiences' => $experiences,
+			'formations' => $formations
 		);
 
 		echo '<pre>';    
@@ -109,12 +111,13 @@ class ProfileController extends BaseController {
 		if ($isPost) {
 
 			// print array with post items
-			print_r($this->request->post);
+			//print_r($this->request->post);
 
 			foreach($this->request->post as $key => $value) {
 				try {
 					if (property_exists($entity, $key)) {
 						$entity->$key = $this->request->post($key, '');
+						print_r($entity);
 					}
 				} catch (Exception $e) {
 					$errors[$key] = $e->getMessage();
@@ -127,6 +130,7 @@ class ProfileController extends BaseController {
 				if ($entity->id = $entity->insert()) {
 
 					$vars[$type] = $entity;	
+					print_r($entity);
 					
 				}
 			}
@@ -134,12 +138,15 @@ class ProfileController extends BaseController {
 
 		
 		$experiences = $profile->getExperiences();
+		$formations = $profile->getFormations();
+
 
 		$vars = array(
 			'isPost' => $isPost,
 			'errors' => $errors,
 			$type => $entity,
-			'experiences' => $experiences
+			'experiences' => $experiences,
+			'formations' => $formations
 		);
 
 		return $this->render('partials/cv-'.$type, $vars, true);

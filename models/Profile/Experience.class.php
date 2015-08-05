@@ -23,7 +23,7 @@ class Profile_Experience extends Model {
 		return $this->company_name;
 	}
 	public function getDateJob() {
-		return $this->date_;
+		return $this->date_job;
 	}
 	public function getJobCity() {
 		return $this->job_city;
@@ -85,5 +85,39 @@ class Profile_Experience extends Model {
     			)
     		);
     }
+
+    public function update() {
+
+        return Db::update(
+            'UPDATE profile_experience (profile_id, job_name, company_name, date_job, job_city, job_country, job_description)
+            VALUES (:profile_id, :job_name, :company_name, :date_job, :job_city, :job_country, :job_description)',
+            array(
+                'profile_id' => $this->profile_id,
+                'job_name' => $this->job_name,
+                'company_name' => $this->company_name,
+                'date_job' => $this->date_job,
+                'job_city' => $this->job_city,
+                'job_country' => $this->job_country,
+                'job_description' => $this->job_description
+                )
+            );
+    }
+
+    // public function delete() {
+
+    //     return Db::delete(
+    //         'DELETE profile_experience (profile_id, job_name, company_name, date_job, job_city, job_country, job_description) WHERE profile_experience.id = :id,
+    //         VALUES (:profile_id, :job_name, :company_name, :date_job, :job_city, :job_country, :job_description)',
+    //         array(
+    //             'profile_id' => $this->profile_id,
+    //             'job_name' => $this->job_name,
+    //             'company_name' => $this->company_name,
+    //             'date_job' => $this->date_job,
+    //             'job_city' => $this->job_city,
+    //             'job_country' => $this->job_country,
+    //             'job_description' => $this->job_description
+    //             )
+    //         );
+    // }
 
 }

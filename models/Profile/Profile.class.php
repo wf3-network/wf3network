@@ -113,6 +113,12 @@ class Profile extends Model {
         return Profile_Experience::getList('SELECT * FROM profile_experience WHERE profile_id = :profile_id', array('profile_id' => $this->id));
     }
 
+    public function getFormations() {
+        if (empty($this->id)) {
+            return array();
+        }
+        return Profile_Formation::getList('SELECT * FROM profile_formation WHERE profile_id = :profile_id', array('profile_id' => $this->id));
+    }
 
     public function insert() {
 

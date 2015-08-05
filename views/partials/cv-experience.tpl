@@ -2,7 +2,7 @@
 {if !empty($errors)}
 <div class="alert alert-danger" role="danger">
     {foreach $errors as $error}
-        {$error}<br>
+    {$error}<br>
     {/foreach}
 </div>
 {/if}
@@ -19,7 +19,8 @@
 {if !empty($experiences)}
 <div class="profile-experiences">
     {foreach $experiences as $exp}
-        {include file="partials/profile-item-experience.tpl"}
+    {include file="partials/profile-item-experience.tpl"}
+    <button class="btn profile-action" data-type="experience" data-action="update">Modifier</button>
     {/foreach}
 </div>
 {/if}
@@ -31,12 +32,12 @@
 
     <!-- Textarea -->
     <div class="form-group{if !empty($isPost)}{if !empty($errors['job_name'])} has-error{else} has-success{/if}{/if}">
-          <label class="col-md-4 control-label" for="job_name">Intitulé du poste</label>
-          <div class="col-md-4">
-            <textarea class="form-control" id="job_name" name="job_name" placeholder="Intitulé du poste">{$experience->job_name}</textarea>
-        </div>
-
+      <label class="col-md-4 control-label" for="job_name">Intitulé du poste</label>
+      <div class="col-md-4">
+        <textarea class="form-control" id="job_name" name="job_name" placeholder="Intitulé du poste"></textarea>
     </div>
+
+</div>
 
 <!-- Textarea -->
 <div class="form-group">

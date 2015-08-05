@@ -189,7 +189,7 @@ $(document).ready(function() {
 			data: $(this).closest('form').serialize(),
 			dataType: 'html'
 		}).done(function(result) {
-			console.log(result);
+			//console.log(result);
 			$('#'+type).html(result);
 			//$(location).attr('href', HTTP_ROOT+'profile/cvform#experience')
 

@@ -1,7 +1,11 @@
 <h2>Formation</h2>
 
 {if !empty($errors)}
-<div class="alert alert-danger" role="danger">{if !empty($errors['authent'])}{$errors['authent']}{else}{$title} {t}failed{/t}{/if}</div>
+<div class="alert alert-danger" role="danger">
+    {foreach $errors as $error}
+    {$error}<br>
+    {/foreach}
+</div>
 {/if}
 
 {if !empty($isPost) && !empty($success)}
@@ -13,9 +17,14 @@
 {$form}
 {/if}
 
-<div class="profile-formation-container">
-    bla
+{if !empty($formations)}
+<div class="profile-formations">
+    {foreach $formations as $formation}
+    {include file="partials/profile-item-formation.tpl"}
+    <button class="btn profile-action" data-type="formation" data-action="update">Modifier</button>
+    {/foreach}
 </div>
+{/if}
 
 <form class="form-horizontal" method="POST" novalidate>
     <!-- Textarea -->
@@ -44,25 +53,25 @@
 
     <!-- Textarea -->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="city">Ville</label>
+        <label class="col-md-4 control-label" for="city_formation">Ville</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="city" name="city" placeholder="Ville"></textarea>
+            <textarea class="form-control" id="city_formation" name="city_formation" placeholder="Ville"></textarea>
         </div>
     </div>
 
     <!-- Textarea -->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="country">Pays</label>
+        <label class="col-md-4 control-label" for="country_formation">Pays</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="country" name="country" placeholder="Pays"></textarea>
+            <textarea class="form-control" id="country_formation" name="country_formation" placeholder="Pays"></textarea>
         </div>
     </div>
 
     <!-- Textarea -->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="description">Description de la formation</label>
+        <label class="col-md-4 control-label" for="description_formation">Description de la formation</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="description" name="description" placeholder="Description de la formation"></textarea>
+            <textarea class="form-control" id="description_formation" name="description_formation" placeholder="Description de la formation"></textarea>
         </div>
     </div>
 
