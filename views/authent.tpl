@@ -22,7 +22,7 @@
 
 				{if $user->type == 0}
 					{Utils::redirectJS("{$HTTP_ROOT}cvform", 1)}
-				{else if $user->type == 2}
+				{else if $user->type == 2 || 3}
 					{Utils::redirectJS("{$HTTP_ROOT}home", 1)}
 				{/if}
 
@@ -34,7 +34,7 @@
 
 			<hr>
 			<p>Vous êtes une <b>entreprise<b> à la rechercher de développeurs</b>
-			<button type="button" name="register" class="register-btn" value="Register"><a href="{$HTTP_ROOT}register"> Inscrivez-vous </a></button>
+			<button type="button" name="register" class="register-btn" value="Register"><a href="{$HTTP_ROOT}company-form"> Inscrivez-vous </a></button>
 
 
 			{*if !empty($fb_login_url)*}
