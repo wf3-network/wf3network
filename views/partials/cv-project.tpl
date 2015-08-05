@@ -1,8 +1,3 @@
-{include file="partials/header.tpl"}
-{include file="partials/cv-header.tpl"}
-
-
-
 <h2>Projet</h2>
 
 <!-- Select Basic -->
@@ -16,9 +11,3 @@
     </select>
   </div>
 </div>
-
-
-{include file="partials/cv-footer.tpl"}
-
-
-{include file="partials/footer.tpl"}
