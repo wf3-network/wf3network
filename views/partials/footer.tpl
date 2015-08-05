@@ -182,10 +182,17 @@ $(document).ready(function() {
 
 		var type = $(this).data('type');
 		var action = $(this).data('action');
+		var method = typeof($(this).data('method')) != 'undefined' ? $(this).data('method') : 'POST';
+		var id = parseInt(typeof($(this).data('id')) != 'undefined' ? $(this).data('id') : 0);
+
+		var url = HTTP_ROOT+'profile/'+type+'/'+action;
+		if (id != 0) {
+			url += '/'+id;
+		}
 
 		$.ajax({
-			type: 'POST',
-			url: HTTP_ROOT+'profile/'+type+'/'+action,
+			type: method,
+			url: url,
 			data: $(this).closest('form').serialize(),
 			dataType: 'html'
 		}).done(function(result) {

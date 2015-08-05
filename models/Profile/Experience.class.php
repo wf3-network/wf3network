@@ -89,8 +89,7 @@ class Profile_Experience extends Model {
     public function update() {
 
         return Db::update(
-            'UPDATE profile_experience (profile_id, job_name, company_name, date_job, job_city, job_country, job_description)
-            VALUES (:profile_id, :job_name, :company_name, :date_job, :job_city, :job_country, :job_description)',
+            'UPDATE profile_experience SET profile_id = :profile_id, job_name = :job_name, company_name = :company_name, date_job = :date_job, job_city = :job_city, job_country = :job_country, job_description = :job_description WHERE id = :id',
             array(
                 'profile_id' => $this->profile_id,
                 'job_name' => $this->job_name,
@@ -98,26 +97,14 @@ class Profile_Experience extends Model {
                 'date_job' => $this->date_job,
                 'job_city' => $this->job_city,
                 'job_country' => $this->job_country,
-                'job_description' => $this->job_description
-                )
-            );
+                'job_description' => $this->job_description,
+                'id' => $this->id
+            )
+        );
     }
 
-    // public function delete() {
-
-    //     return Db::delete(
-    //         'DELETE profile_experience (profile_id, job_name, company_name, date_job, job_city, job_country, job_description) WHERE profile_experience.id = :id,
-    //         VALUES (:profile_id, :job_name, :company_name, :date_job, :job_city, :job_country, :job_description)',
-    //         array(
-    //             'profile_id' => $this->profile_id,
-    //             'job_name' => $this->job_name,
-    //             'company_name' => $this->company_name,
-    //             'date_job' => $this->date_job,
-    //             'job_city' => $this->job_city,
-    //             'job_country' => $this->job_country,
-    //             'job_description' => $this->job_description
-    //             )
-    //         );
-    // }
+    public function delete() {
+        return Db::delete('DELETE FROM profile_experience WHERE id = :id', array('id' => $this->id));
+    }
 
 }

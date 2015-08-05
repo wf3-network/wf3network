@@ -20,21 +20,19 @@
 <div class="profile-experiences">
     {foreach $experiences as $exp}
     {include file="partials/profile-item-experience.tpl"}
-    <button class="btn profile-action" data-type="experience" data-action="update">Modifier</button>
+    <button class="btn profile-action" data-id="{$exp->id}" data-type="experience" data-action="update" data-method="GET">Modifier</button>
+    <button class="btn profile-action" data-id="{$exp->id}" data-type="experience" data-action="delete" data-method="POST">X</button>
     {/foreach}
 </div>
 {/if}
 
-
-
 <form class="form-horizontal" method="POST">
-
 
     <!-- Textarea -->
     <div class="form-group{if !empty($isPost)}{if !empty($errors['job_name'])} has-error{else} has-success{/if}{/if}">
       <label class="col-md-4 control-label" for="job_name">Intitulé du poste</label>
       <div class="col-md-4">
-        <textarea class="form-control" id="job_name" name="job_name" placeholder="Intitulé du poste"></textarea>
+        <textarea class="form-control" id="job_name" name="job_name" placeholder="Intitulé du poste">{$experience->job_name}</textarea>
     </div>
 
 </div>
@@ -79,7 +77,7 @@
 </div>
 </div>
 
-<button class="btn profile-action" data-type="experience" data-action="create">Ajouter</button>
+<button class="btn profile-action" {if !empty($experience->getId())}data-id="{$experience->getId()}"{/if} data-type="experience" data-action="{if !empty($experience->getId())}update{else}create{/if}">{if !empty($experience->getId())}Modifier{else}Ajouter{/if}</button>
 
 <!-- Button>
 <div class="form-group">

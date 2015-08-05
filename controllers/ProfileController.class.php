@@ -73,12 +73,15 @@ class ProfileController extends BaseController {
 			'user' => $this->user,
 			'profile' => $profile,
 			'experiences' => $experiences,
-			'formations' => $formations
+			'experience' => new Profile_Experience(),
+			'formations' => $formations,
 		);
 
+		/*
 		echo '<pre>';    
 		print_r($vars);
 		echo '</pre>';
+		*/
 
     	$this->render('cv-form', $vars);
 
@@ -107,32 +110,46 @@ class ProfileController extends BaseController {
 		}
 
 		$vars = array();
+		$success = false;
 		$errors = array();
 		if ($isPost) {
 
 			// print array with post items
 			//print_r($this->request->post);
 
-			foreach($this->request->post as $key => $value) {
-				try {
-					if (property_exists($entity, $key)) {
-						$entity->$key = $this->request->post($key, '');
-						print_r($entity);
-					}
-				} catch (Exception $e) {
-					$errors[$key] = $e->getMessage();
-				}	
+			if ($action != 'delete') {			
+				foreach($this->request->post as $key => $value) {
+					try {
+						if (property_exists($entity, $key)) {
+							$entity->$key = $this->request->post($key, '');
+						}
+					} catch (Exception $e) {
+						$errors[$key] = $e->getMessage();
+					}	
+				}
 			}
 
 
 			if (empty($errors)) {
 
-				if ($entity->id = $entity->insert()) {
-
-					$vars[$type] = $entity;	
-					print_r($entity);
-					
+				switch($action) {
+					case 'create':
+						$entity->id = $entity->insert();
+						$success = true;
+					break;
+					case 'update':
+						$success = $entity->update();
+					break;
+					case 'delete':
+						$success = $entity->delete();
+					break;
 				}
+				
+				if ($success) {
+					$entity = new $entity();
+					$isPost = false;
+				}
+
 			}
 		}
 
