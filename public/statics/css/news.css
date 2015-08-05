@@ -1,0 +1,62 @@
+@import url("profile.css");
+@import url("swiper-overwrite.css");
+@import url("directory.css");
+@import url("login.css");
+@import url("main.css");
+
+@font-face {
+    font-family: 'Titillium';
+    src: url('../fonts/TitilliumWeb-Regular.ttf');
+    src: url('../fonts/TitilliumWeb-Bold.ttf');
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+
+.breadcrumb {
+	margin-left: 15px;  
+}
+
+.article-news {
+	background-color: #fff;
+	padding-left: 0;
+	margin-left: 15px;
+}
+
+
+.container {
+	padding-left: 0;
+	margin-left: 15px;
+}
+
+
+.main-title {
+	margin-left: 15px; 
+}
+
+.title {
+	margin-left: 15px; 
+}
+
+.thumbnail {
+	border-top:none;
+	border-left: none; 
+	border: none;
+	border-style: none;
+	border
+
+}
+
+.btn {
+color: white;
+background-color: #144563;
+
+}
+
+.label {
+background-color: #0BA587;	
+}
+
+
