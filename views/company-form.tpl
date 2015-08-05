@@ -3,7 +3,7 @@
 <div class="row">
 <div class="col-md-12">
 
-<form class="form-horizontal {$class}" id="{$id}" name="{$name}"  action="{$action}" method="{$method}" novalidate >
+<form class="form-horizontal">
 <fieldset>
 
 <!-- Form Name -->
@@ -42,7 +42,6 @@
   <div class="col-md-4">
   <input id="lastname" name="lastname" type="text" placeholder="Nom" class="form-control input-md" required="">
 
-
   </div>
 </div>
 
@@ -51,7 +50,9 @@
   <label class="col-md-4 control-label" for="mail">E-Mail</label>
   <div class="col-md-4">
     <div class="input-group">
-    <input type="text" class="form-control" placeholder="mail" aria-describedby="nom_mail">
+    <input type="text" class="form-control" placeholder="nom" aria-describedby="nom_mail">
+    <span class="input-group-addon" id="basic-addon1">@</span>
+    <input type="text" class="form-control" placeholder="domaine" aria-describedby="domaine_mail">
     </div>
   </div>
 </div>
@@ -61,7 +62,6 @@
   <label class="col-md-4 control-label" for="singlebutton"></label>
   <div class="col-md-4">
     <button id="singlebutton" name="singlebutton" class="btn btn-info">Valider</button>
-
   </div>
 </div>
 
@@ -71,3 +71,4 @@
 </div>
 
 {include file="partials/footer.tpl"}
+

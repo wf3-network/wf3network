@@ -189,7 +189,8 @@ $(document).ready(function() {
 			data: $(this).closest('form').serialize(),
 			dataType: 'html'
 		}).done(function(result) {
-			console.log(result);
+			//console.log(result);
+			$('.profile-experience-container').append('<p>'+result+'</p>');
 		});
 
 	});
