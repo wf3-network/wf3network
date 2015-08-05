@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 global $routes;
@@ -39,8 +40,6 @@ $routes = array(
 		'target' => 'news',
 		'action' => 'news'
 	),
-
-
 
 	/* Footer pages */
 	'cgu' => array(

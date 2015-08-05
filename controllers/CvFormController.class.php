@@ -34,6 +34,7 @@ class CvFormController extends BaseController {
 
 		$cvform->user_id = $this->session->user_id;
 		
+		// shows array in cvform.... ?
 		echo '<pre>';    
 		print_r($_POST);
 		echo '</pre>';
@@ -43,28 +44,28 @@ class CvFormController extends BaseController {
    	 	}
 
 
-    $this->render('cv-form'/*, $vars*/);
+    $this->render('cv-form');
 
   }
 
-  public function experience(){
-  		$this->render('cv-experience');
+  // public function experience(){
+  // 		$this->render('cv-experience');
 
-  }
+  // }
 
-  public function formation(){
-        $this->render('cv-formation');
+  // public function formation(){
+  //       $this->render('cv-formation');
 
-  }
+  // }
 
-  public function skills(){
-        $this->render('cv-skills');
+  // public function skills(){
+  //       $this->render('cv-skills');
 
-  }
+  // }
 
-  public function project(){
-  	   	$this->render('cv-project');
+  // public function project(){
+  // 	   	$this->render('cv-project');
 
-  }
+  // }
 
 }

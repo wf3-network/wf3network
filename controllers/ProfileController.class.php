@@ -34,7 +34,7 @@ class ProfileController extends BaseController {
 
 	public function action() {
 
-		$types = array('profile_experience', 'profile_formation', 'profile_skill');
+		$types = array('profile_experience', 'profile_formation', 'profile_skills', 'profile_project');
 		$actions = array('create', 'update', 'delete');
 
 		$type = $this->getParam(0, '');
