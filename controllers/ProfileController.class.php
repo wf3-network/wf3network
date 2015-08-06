@@ -52,7 +52,7 @@ class ProfileController extends BaseController {
 			if (empty($errors)) {
 
 				if ($result = $profile_company->insert()) {
-					$this->response->redirect(ROOT_HTTP);
+					$this->response->redirect(ROOT_HTTP.'profile/company');
 				}
 			}
 		}
@@ -61,7 +61,7 @@ class ProfileController extends BaseController {
 
 		$vars['form'] = $form;
 
-		$this->render('company-form', $vars);
+		$this->render('profile-company', $vars);
 	}
 
 	public function cvform() {
@@ -106,9 +106,8 @@ class ProfileController extends BaseController {
 			'user' => $this->user,
 			'profile' => $profile,
 			'experiences' => $experiences,
-			'formations' => $formations,
 			'experience' => new Profile_Experience(),
-			'formation' => new Profile_Formation(),
+			'formations' => $formations,
 		);
 
 		

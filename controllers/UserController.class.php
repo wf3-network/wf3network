@@ -157,4 +157,5 @@ class UserController extends BaseController {
 		$this->response->redirect(ROOT_HTTP);
 		//return $this->render('authent', $vars);
 	}
+
 }

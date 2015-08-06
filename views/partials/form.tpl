@@ -67,7 +67,7 @@
 
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-default">{t}Send{/t}</button>
+					<button type="submit" class="btn btn-default">{t}{$submit_btn_label}{/t}</button>
 				</div>
 			</div>
 
