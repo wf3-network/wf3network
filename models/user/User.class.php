@@ -119,6 +119,12 @@ class User extends Model {
 	// }
 	//
 
+	public function getProfile() {
+
+		return new Profile(Db::selectOne('SELECT * FROM profile WHERE user_id = :user_id', array('user_id' => $this->id)));
+
+	}
+
 	public static function getTypeLabel($type) {
 		if (isset(self::$types[$type])) {
 			return self::$types[$type];
