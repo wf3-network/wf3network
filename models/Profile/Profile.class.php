@@ -103,8 +103,9 @@ class Profile extends Model {
     public function insert() {
 
         return Db::insert(
-          'INSERT INTO profile (user_id, date_promo, birth, telephone, site, photo, publish, register_date)
-          VALUES (:user_id, :date_promo, :birth, :telephone, :site, :photo, :publish, NOW())',
+          'INSERT INTO profile SET user_id = :user_id, date_promo = :date_promo, birth = :birth, telephone = :telephone, site = :site, photo = :photo, publish = :publish, register_date = NOW()
+          ON DUPLICATE KEY UPDATE user_id = :user_id, date_promo = :date_promo, birth = :birth, telephone = :telephone, site = :site, photo = :photo, publish = :publish, register_date = NOW()
+          ',
           array(
             'user_id' => $this->user_id,
             'date_promo' => $this->date_promo,

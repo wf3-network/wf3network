@@ -72,15 +72,20 @@ class ProfileController extends BaseController {
     		$this->response->redirect(ROOT_HTTP.'login');
     	}
 
-    	$profile = new Profile();
+    	$profile = $this->user->getProfile();
+    	$profile->user_id = $this->session->user_id;
+
+    	echo $profile->user_id;
 
     	$vars = array();
 		$errors = array();
 		if ($isPost) {
 
-			foreach($profile->getFields() as $key => $value) {
+			foreach($this->request->post as $key => $value) {
 				try {
-					$profile->$key = $this->request->post($key, '');
+					if (property_exists($profile, $key)) {
+						$profile->$key = $this->request->post($key, '');
+					}
 				} catch (Exception $e) {
 					$errors[$key] = $e->getMessage();
 				}
@@ -88,16 +93,9 @@ class ProfileController extends BaseController {
 
 			if (empty($errors)) {
 
-				//if ($result = $profile->update()) {
-				if ($result = $profile->insert()) {
-					$this->response->redirect(ROOT_HTTP.'profile/cvform');
-				}
+				$success = $profile->insert();
 			}
 		}
-
-		$profile->user_id = $this->session->user_id;
-
-		$profile = $this->user->getProfile();
 
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
@@ -108,13 +106,14 @@ class ProfileController extends BaseController {
 			'experiences' => $experiences,
 			'experience' => new Profile_Experience(),
 			'formations' => $formations,
+			'formation' => new Profile_Formation(),
 		);
 
-		
+		/*
 		echo '<pre>';    
 		print_r($vars);
 		echo '</pre>';
-		
+		*/
 
     	$this->render('cv-form', $vars);
 
