@@ -20,6 +20,16 @@
 
 				<div class="alert alert-success" role="success">{$title} {t}success{/t}</div>
 
+				{*if $user->status == 1}
+					{Utils::redirectJS("{$HTTP_ROOT}home", 1)}
+				{else}
+					{if $user->type == 2 && $user->status == 0}
+						{Utils::redirectJS("{$HTTP_ROOT}profile/company", 1)}
+					{else if $user->type == 1 && $user->status == 0}
+						{Utils::redirectJS("{$HTTP_ROOT}profile/cvform", 1)}
+					{/if}
+				{/if*}
+
 				{if $user->status == 1}
 					{Utils::redirectJS("{$HTTP_ROOT}home", 1)}
 				{else}
@@ -41,6 +51,11 @@
 				<button type="button" name="register" class="register-btn" value="Register"><a href="{$HTTP_ROOT}register"> Inscrivez-vous </a></button>
 			{/if}
 
+			{*if !empty($fb_login_url)*}
+	<!-- 		<hr>
+
+			<a href="{$fb_login_url}" class="btn btn-primary">{t}Se connecter avec Facebook{/t}</a> -->
+			{*/if*}
 		</div>
 	</div>
 

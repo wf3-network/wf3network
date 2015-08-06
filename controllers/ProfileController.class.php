@@ -100,7 +100,7 @@ class ProfileController extends BaseController {
 
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
-
+		
 		$vars = array(
 			'user' => $this->user,
 			'profile' => $profile,
@@ -110,7 +110,7 @@ class ProfileController extends BaseController {
 		);
 
 		/*
-		echo '<pre>';
+		echo '<pre>';    
 		print_r($vars);
 		echo '</pre>';
 		*/
@@ -149,7 +149,7 @@ class ProfileController extends BaseController {
 			// print array with post items
 			//print_r($this->request->post);
 
-			if ($action != 'delete') {
+			if ($action != 'delete') {			
 				foreach($this->request->post as $key => $value) {
 					try {
 						if (property_exists($entity, $key)) {
@@ -157,7 +157,7 @@ class ProfileController extends BaseController {
 						}
 					} catch (Exception $e) {
 						$errors[$key] = $e->getMessage();
-					}
+					}	
 				}
 			}
 
@@ -176,7 +176,7 @@ class ProfileController extends BaseController {
 						$success = $entity->delete();
 					break;
 				}
-
+				
 				if ($success) {
 					$entity = new $entity();
 					$isPost = false;
@@ -185,7 +185,7 @@ class ProfileController extends BaseController {
 			}
 		}
 
-
+		
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
 
@@ -203,4 +203,3 @@ class ProfileController extends BaseController {
 	}
 
 }
-
