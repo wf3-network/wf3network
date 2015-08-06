@@ -73,7 +73,8 @@ class Profile_Skills extends Model {
                 'skill_level' => $this->skill_level,
                 'skill_wf3' => $this->skill_wf3,
                 'profile_id' => $this->profile_id,
-                'skill_name' => $this->skill_name
+                'skill_name' => $this->skill_name,
+                'id' => $this->id
             )
         );
     }
