@@ -64,6 +64,8 @@ class ProfileController extends BaseController {
 		$this->render('profile-company', $vars);
 	}
 
+
+
 	public function cvform() {
 
     	$isPost = $this->request->isPost();
@@ -100,6 +102,8 @@ class ProfileController extends BaseController {
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
 		$projects = $profile->getProjects();
+
+		$project_names = Db::select('SELECT * FROM project_name');
 		
 		$vars = array(
 			'user' => $this->user,
@@ -110,6 +114,7 @@ class ProfileController extends BaseController {
 			'formation' => new Profile_Formation(),
 			'projects' => $projects,
 			'project' => new Profile_Project(),
+			'project_names' => $project_names
 		);
 
 		
@@ -193,6 +198,8 @@ class ProfileController extends BaseController {
 		$formations = $profile->getFormations();
 		$projects = $profile->getProjects();
 
+		$project_names = Db::select('SELECT * FROM project_name');
+
 
 		$vars = array(
 			'isPost' => $isPost,
@@ -200,7 +207,8 @@ class ProfileController extends BaseController {
 			$type => $entity,
 			'experiences' => $experiences,
 			'formations' => $formations,
-			'projects' => $projects
+			'projects' => $projects,
+			'project_names' => $project_names
 		);
 
 		return $this->render('partials/cv-'.$type, $vars, true);

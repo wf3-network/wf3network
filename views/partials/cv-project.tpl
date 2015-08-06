@@ -1,5 +1,6 @@
 <h2>Projet</h2>
 
+
 {if !empty($errors)}
 <div class="alert alert-danger" role="danger">{if !empty($errors['authent'])}{$errors['authent']}{else}{$title} {t}failed{/t}{/if}</div>
 {/if}
@@ -25,24 +26,25 @@
 
 <form class="form-horizontal" method="POST" novalidate>
     <!-- Select Basic -->
-    <!--div class="form-group">
+    <div class="form-group">
         <label class="col-md-4 control-label" for="project_name">Projet de fin de formation</label>
         <div class="col-md-4">
             <select id="project_name" name="project_name" class="form-control">
                 <option value="">...</option>
-                {foreach $projects as $project}
-                <option value="{$project->project_name}">{$project->project_name}</option>
+                {foreach $project_names as $project_name}
+                <option value="{$project_name['project_name']}">{$project_name['project_name']}</option>
                 {/foreach}
             </select>
         </div>
-    </div-->
+    </div>
 
-    <div class="form-group">
+
+    <!--div class="form-group">
         <label class="col-md-4 control-label" for="project_name">Projet de fin de formation</label>
         <div class="col-md-4">
              <textarea class="form-control" id="project_name" name="project_name" placeholder="Nom du projet">{$project->project_name}</textarea>
         </div>
-    </div>
+    </div-->
 
 
     <div class="form-group">
@@ -52,8 +54,15 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="url">Site du projet</label>
+        <div class="col-md-4">
+            <input id="url" name="url" type="text" placeholder="http://..." class="form-control input-md" value="{$project->url}">
+        </div>
+    </div>
+
     <!--button class="btn profile-action" data-type="project" data-action="create">Ajouter</button-->
-    <button class="btn profile-action" {if !empty($experience->getId())}data-id="{$experience->getId()}"{/if} data-type="experience" data-action="{if !empty($experience->getId())}update{else}create{/if}">{if !empty($experience->getId())}Modifier{else}Ajouter{/if}</button>
+    <button class="btn profile-action" {if !empty($project->getId())}data-id="{$project->getId()}"{/if} data-type="project" data-action="{if !empty($project->getId())}update{else}create{/if}">{if !empty($project->getId())}Modifier{else}Ajouter{/if}</button>
 
 
 </form>
