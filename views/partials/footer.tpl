@@ -13,7 +13,7 @@
 						<ul class="nav navbar-nav navbar-left">
 								<li>
 									<img alt="Brand" src="{$IMG_ROOT}WB3network.png" width="100" lenght="100" alt="WF3 Network logo" class="logo-footer">
-									<br>
+									<br> <br>
 									<p class="navbar-text"> 18 rue Geoffroy L'Asnier <br> 75004 Paris, FRANCE <br>
 										+33 (0)8 05 62 23 45 <br>
 										Découvrez l'école WebForce3 sur : <a href="http://www.wf3.fr/">http://www.wf3.fr/</a>
