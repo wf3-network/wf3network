@@ -65,7 +65,7 @@ class ProfileController extends BaseController {
 	}
 
 
-
+	/* CVFORM */
 	public function cvform() {
 
     	$isPost = $this->request->isPost();
@@ -102,8 +102,10 @@ class ProfileController extends BaseController {
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
 		$projects = $profile->getProjects();
+		$skillss = $profile->getSkills();
 
 		$project_names = Db::select('SELECT * FROM project_name');
+		$skill_names = Db::select('SELECT * FROM skill_name');
 		
 		$vars = array(
 			'user' => $this->user,
@@ -114,7 +116,11 @@ class ProfileController extends BaseController {
 			'formation' => new Profile_Formation(),
 			'projects' => $projects,
 			'project' => new Profile_Project(),
-			'project_names' => $project_names
+			'project_names' => $project_names,
+			'skillss' => $skillss,
+			'skills' => new Profile_Skills(),
+			'skill_names' => $skill_names,
+			
 		);
 
 		
@@ -197,8 +203,10 @@ class ProfileController extends BaseController {
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
 		$projects = $profile->getProjects();
+		$skillss = $profile->getSkills();
 
 		$project_names = Db::select('SELECT * FROM project_name');
+		$skill_names = Db::select('SELECT * FROM skill_name');
 
 
 		$vars = array(
@@ -208,7 +216,9 @@ class ProfileController extends BaseController {
 			'experiences' => $experiences,
 			'formations' => $formations,
 			'projects' => $projects,
-			'project_names' => $project_names
+			'project_names' => $project_names,
+			'skillss' => $skillss,
+			'skill_names' => $skill_names,
 		);
 
 		return $this->render('partials/cv-'.$type, $vars, true);

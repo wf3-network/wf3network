@@ -49,6 +49,8 @@
 
 <script src="{$JS_ROOT}jquery.min.js"></script>
 <script src="{$JS_ROOT}bootstrap.min.js"></script>
+<!-- added for autocomplete -->
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <!--facebook fil-->
 <script>(function(d, s, id) {
@@ -130,6 +132,20 @@ autoplayDisableOnInteraction: false
 		centeredSlides: true,
 	});
 </script><!--fin swiper-->
+
+<!-- script autocomplete not working -->
+<script>
+{literal}
+$(document).ready(function() {
+	$(function() {
+		var $tags = $('.tags')
+		$tags.autocomplete({
+	  		source: [ "HTML5", "CSS3", "PHP", "SQL", "Javascript", "CMS", "Wordpress" ]
+		});
+ 	});
+ });
+{/literal}
+</script>
 
 <!-- Gère la connexion(login) dans la fenêtre modale -->
 <script>

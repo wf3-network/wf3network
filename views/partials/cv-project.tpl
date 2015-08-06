@@ -1,6 +1,4 @@
 <h2>Projet</h2>
-
-
 {if !empty($errors)}
 <div class="alert alert-danger" role="danger">{if !empty($errors['authent'])}{$errors['authent']}{else}{$title} {t}failed{/t}{/if}</div>
 {/if}
@@ -57,7 +55,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="url">Site du projet</label>
         <div class="col-md-4">
-            <input id="url" name="url" type="text" placeholder="http://..." class="form-control input-md" value="{$project->url}">
+            <input id="url" name="url" type="url" placeholder="http://..." class="form-control input-md" value="{$project->url}">
         </div>
     </div>
 

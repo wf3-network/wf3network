@@ -107,6 +107,13 @@ class Profile extends Model {
         return Profile_Project::getList('SELECT * FROM profile_project WHERE profile_id = :profile_id', array('profile_id' => $this->id));
     }
 
+    public function getSkills() {
+        if (empty($this->id)) {
+            return array();
+        }
+        return Profile_Skills::getList('SELECT * FROM profile_skills WHERE profile_id = :profile_id', array('profile_id' => $this->id));
+    }
+
     public function insert() {
 
         return Db::insert(
