@@ -16,17 +16,18 @@ class Profile_Company extends Model {
 	}
 
 	public function getForm($id = '', $name = '', $action = '', $method = 'POST', $class = 'form-horizontal', $errors = array(), $isPost = false) {
-
-		$form = new Form($id, $name, $action, $method, $class, $isPost);
+		/*
+		$form = new Form($id, $name, $action, $method, $class, $isPost, 'Valider');
 
 		$form->addField('company_name', Lang::_('Company_name'), 'text', $this->company_name, true, '', @$errors['company_name']);
 
 
 		$form->addField('function', Lang::_('Function'), 'text', $this->function, true, '', @$errors['function']);
+		*/
 
-		return $form->render();
+		$response = new Response();
+		return $response->render('partials/company-form', array(), true);
 	}
-
 
 	public function setId($id){
 		$this->id = $id;

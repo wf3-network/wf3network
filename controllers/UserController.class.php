@@ -109,8 +109,9 @@ class UserController extends BaseController {
 				if (empty($errors)) {
 
 					$user_already_exists = $user->checkAlreadyExists();
+
 					if ($user_already_exists === true) {
-						$errors['mail'] = Lang::_('Email already in use');
+						$errors['email'] = Lang::_('Email already in use');
 					} else {
 
 						$user->password = password_hash($user->password, PASSWORD_BCRYPT);
@@ -133,7 +134,8 @@ class UserController extends BaseController {
 				'isPost' => $isPost,
 				'form' => $form,
 				'errors' => $errors,
-				'success' => $success
+				'success' => $success,
+				'user' => $user
 			);
 
 		} catch (Exception $e) {

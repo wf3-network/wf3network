@@ -8,14 +8,16 @@ class Form {
 	public $hidden_fields = array();
 	public $fields = array();
 	public $class = '';
+	public $submit_btn_label;
 
-	public function __construct($name = '', $id = '', $action = '', $method = 'POST', $class = '', $isSubmit = false) {
+	public function __construct($name = '', $id = '', $action = '', $method = 'POST', $class = '', $isSubmit = false, $submit_btn_label = 'Send') {
 		$this->name 	= $name;
 		$this->id 		= $id;
 		$this->action 	= $action;
 		$this->method 	= $method;
 		$this->class 	= $class;
 		$this->isSubmit	= $isSubmit;
+		$this->submit_btn_label = $submit_btn_label;
 	}
 
 	public function getVars() {
