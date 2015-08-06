@@ -1,4 +1,5 @@
 <h2>Formation</h2>
+
 {if !empty($errors)}
 <div class="alert alert-danger" role="danger">
     {foreach $errors as $error}
@@ -18,11 +19,9 @@
 
 {if !empty($formations)}
 <div class="profile-formations">
-    {foreach $formations as $form}
+    {foreach $formations as $formation}
     {include file="partials/profile-item-formation.tpl"}
-    <button class="btn profile-action" data-id="{$form->id}" data-type="formation" data-action="update">Modifier</button>
-    <button class="btn profile-action" data-id="{$form->id}" data-type="formation" data-action="delete" data-method="POST">X</button>
-
+    <button class="btn profile-action" data-type="formation" data-action="update">Modifier</button>
     {/foreach}
 </div>
 {/if}
@@ -32,7 +31,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="school_name">Nom de l'école</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="school_name" name="school_name" placeholder="Nom de l'école">{$formation->school_name}</textarea>
+            <textarea class="form-control" id="school_name" name="school_name" placeholder="Nom de l'école"></textarea>
         </div>
     </div>
 
@@ -40,7 +39,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="name_formation">Intitulé de la formation</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="name_formation" name="name_formation" placeholder="Intitulé de la formation">{$formation->name_formation}</textarea>
+            <textarea class="form-control" id="name_formation" name="name_formation" placeholder="Intitulé de la formation"></textarea>
         </div>
     </div>
 
@@ -48,7 +47,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="date_formation">Dates</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="date_formation" name="date_formation" placeholder="Dates">{$formation->date_formation}</textarea>
+            <textarea class="form-control" id="date_formation" name="date_formation" placeholder="Dates"></textarea>
         </div>
     </div>
 
@@ -56,7 +55,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="city_formation">Ville</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="city_formation" name="city_formation" placeholder="Ville">{$formation->city_formation}</textarea>
+            <textarea class="form-control" id="city_formation" name="city_formation" placeholder="Ville"></textarea>
         </div>
     </div>
 
@@ -64,7 +63,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="country_formation">Pays</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="country_formation" name="country_formation" placeholder="Pays">{$formation->country_formation}</textarea>
+            <textarea class="form-control" id="country_formation" name="country_formation" placeholder="Pays"></textarea>
         </div>
     </div>
 
@@ -72,11 +71,11 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="description_formation">Description de la formation</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="description_formation" name="description_formation" placeholder="Description de la formation">{$formation->description_formation}</textarea>
+            <textarea class="form-control" id="description_formation" name="description_formation" placeholder="Description de la formation"></textarea>
         </div>
     </div>
 
-<button class="btn profile-action" {if !empty($formation->getId())}data-id="{$formation->getId()}"{/if} data-type="formation" data-action="{if !empty($formation->getId())}update{else}create{/if}">{if !empty($formation->getId())}Modifier{else}Ajouter{/if}</button>
+<button class="btn profile-action" data-type="formation" data-action="create">Ajouter</button>
 
 <!-- Button >
 <div class="form-group">

@@ -1,7 +1,7 @@
 <?php
 class Profile_Experience extends Model {
 
-	/*Experience*/
+	/*profile*/
 	protected $id;
 	protected $job_name;
 	protected $company_name;

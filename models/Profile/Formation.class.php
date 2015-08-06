@@ -81,25 +81,21 @@ class Profile_Formation extends Model {
         );
     }
 
-
     public function update() {
 
         return Db::update(
-             'UPDATE profile_formation SET profile_id = :profile_id, school_name = :school_name, city_formation = :city_formation, country_formation = :country_formation, name_formation = :name_formation, date_formation = :date_formation, description_formation = :description_formation WHERE id = :id',
+            'UPDATE profile_formation (profile_id, school_name, city_formation, country_formation, name_formation, date_formation, description_formation)
+            VALUES (:profile_id, :school_name, :city_formation, :country_formation, :name_formation, :date_formation, :description_formation)',
             array(
-                'profile_id' => $this->profile_id,
                 'school_name' => $this->school_name,
                 'city_formation' => $this->city_formation,
                 'country_formation' => $this->country_formation,
                 'name_formation' => $this->name_formation,
                 'date_formation' => $this->date_formation,
                 'description_formation' => $this->description_formation,
-                'id' => $this->id
+                'profile_id' => $this->profile_id
             )
         );
-    }
-    public function delete() {
-        return Db::delete('DELETE FROM profile_formation WHERE id = :id', array('id' => $this->id));
     }
 
 }
