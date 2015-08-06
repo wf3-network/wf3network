@@ -105,8 +105,9 @@ class ProfileController extends BaseController {
 			'user' => $this->user,
 			'profile' => $profile,
 			'experiences' => $experiences,
-			'experience' => new Profile_Experience(),
 			'formations' => $formations,
+			'experience' => new Profile_Experience(),
+			'formation' => new Profile_Formation(),
 		);
 
 		/*
