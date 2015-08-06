@@ -68,7 +68,7 @@
     <!-- end test ajax -->
 
     <div class="form-group">
-        <label class="col-md-4 control-label" for="url">Compétences personnelles</label>
+        <label class="col-md-4 control-label" for="skill_name">Compétences personnelles</label>
         <div class="col-md-4">
             <input id="skill_name" type="text" placeholder="Ajouter une compétence personnelle" name="skill_name" class="form-control input-md" value="{$skills->skill_name}"></input>
             <label>Note</label>
@@ -82,9 +82,6 @@
             </select>
         </div>
     </div>
-    {*$skill|var_dump*}
-
-    <!--button class="btn profile-action" data-type="skills" data-action="create">Ajouter</button-->
 
     <button class="btn profile-action" {if !empty($skills->getId())}data-id="{$skills->getId()}"{/if} data-type="skills" data-action="{if !empty($skills->getId())}update{else}create{/if}">{if !empty($skills->getId())}Modifier{else}Ajouter{/if}</button>
 
