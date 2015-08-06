@@ -8,32 +8,32 @@ class Profile_Company extends Model {
     protected $publish;
 
     public function getId() {
-    	return $this ->id = $id;
+    	return $this->id;
     }
     public function getUserId() {
-    	return $this ->user_id = $user_id;
+    	return $this->user_id;
     }
 	public function getCompanyName() {
-		return $this ->company_name = $company_name;
+		return $this->company_name;
 	}
 	public function getFunction() {
-		return $this ->function = $function;
+		return $this->function;
 	}
 
 	public function getPublish() {
-		return $this ->publish = $publish;
+		return $this->publish;
 	}
 
 	public function setId($id){
 		$this->id = $id;
 	}
 	public function setUserId($user_id) {
-    	$this ->user_id = $user_id;
+    	$this->user_id = $user_id;
     }
 	public function setCompanyName($company_name){
 		if (empty($company_name)) {
-		      throw new Exception(Lang::_('You must fill your Company name'));
-		    }
+	      throw new Exception(Lang::_('You must fill your Company name'));
+	    }
 		$this->company_name = $company_name;
 	}
 	public function setFunction($function){
@@ -50,21 +50,18 @@ class Profile_Company extends Model {
 
 		$form = new Form($id, $name, $action, $method, $class, $isPost, 'Valider');
 
-		$form->addField('company_name', Lang::_('Company_name'), 'text', $this->company_name, true, '', @$errors['company_name']);
+		$form->addField('company_name', Lang::_('Raison sociale'), 'text', $this->company_name, true, '', @$errors['company_name']);
 
-		$form->addField('function', Lang::_('Function'), 'text', $this->function, true, '', @$errors['function']);
+		$form->addField('function', Lang::_('Fonction'), 'text', $this->function, true, '', @$errors['function']);
 
-		$response = new Response();
-		return $response->render('partials/company-form', array(), true);
+		return $form;
 	}
 
 	public function insert() {
 
 	    return Db::insert(
-	      // 'INSERT INTO profile_company (company_name, function, register_date)
-	      //       VALUES (:company_name, :function, NOW())',
-
-	      'INSERT INTO profile_company (user_id, company_name, function, publish) VALUES (:user_id, :company_name, :function, :publish)',
+	      'INSERT INTO profile_company SET user_id = :user_id, company_name = :company_name, function = :function, publish = :publish
+	      ON DUPLICATE KEY UPDATE user_id = :user_id, company_name = :company_name, function = :function, publish = :publish',
 	      array(
 			'user_id' => $this->user_id,
 	        'company_name' => $this->company_name,

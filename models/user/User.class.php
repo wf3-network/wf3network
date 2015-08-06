@@ -125,6 +125,13 @@ class User extends Model {
 
 	}
 
+	public function getProfileCompany() {
+
+		return new Profile_Company(Db::selectOne('SELECT * FROM profile_company WHERE user_id = :user_id', array('user_id' => $this->id)));
+
+	}
+
+
 	public static function getTypeLabel($type) {
 		if (isset(self::$types[$type])) {
 			return self::$types[$type];
@@ -189,7 +196,7 @@ class User extends Model {
 
 	public function getLoginForm($type, $action, $request, $isPost = false, $errors = array()) {
 
-		$form = new Form('', 'form-login', $action, 'POST', 'form-horizontal', $errors, $isPost, 'Valider');
+		$form = new Form('', 'form-login', $action, 'POST', 'form-horizontal', $isPost, 'Valider');
 		$form->addField('email', Lang::_('Email'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', !empty($errors['authent']) ? true : false);
 		$form->addField('password', Lang::_('Password'), 'password', '', true, '', !empty($errors['authent']) ? true : false);
 		$form->addField('remember_me', Lang::_('Remember me'), 'checkbox', $this->_getfieldvalue('remember_me', $type, $request), false, '');
@@ -213,7 +220,7 @@ class User extends Model {
 			$types_select[] = array('id' => $type, 'name' => $label);
 		}
 
-		$form = new Form('', 'form-register', $action, 'POST', 'form-horizontal', $errors, $isPost);
+		$form = new Form('', 'form-register', $action, 'POST', 'form-horizontal', $isPost, 'Inscription');
 		$form->addField('type', Lang::_('Type'), 'select', $this->_getfieldvalue('type', $type, $request), true, '', @$errors['type'], null, null, $types_select);
 		$form->addField('firstname', Lang::_('Firstname'), 'text', $this->_getfieldvalue('firstname', $type, $request), true, '', @$errors['firstname']);
 		$form->addField('lastname', Lang::_('Lastname'), 'text', $this->_getfieldvalue('lastname', $type, $request), true, '', @$errors['lastname']);

@@ -1,4 +1,19 @@
-<form class="form-horizontal">
+{if !empty($errors)}
+<div class="alert alert-danger" role="danger">
+    {foreach $errors as $error}
+    {$error}<br>
+    {/foreach}
+</div>
+{/if}
+
+{if !empty($isPost) && !empty($success)}
+<div class="alert alert-success" role="success">{$title} {t}success{/t}</div>
+{Utils::redirectJS("{$HTTP_ROOT}profile/company", 1)}
+{/if}
+
+{$profile_company}
+
+<form class="form-horizontal" method="POST" novalidate>
 <fieldset>
 
 <!-- Form Name -->
@@ -6,9 +21,9 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="companyname">Entreprise</label>
+  <label class="col-md-4 control-label" for="company_name">Entreprise</label>
   <div class="col-md-5">
-  <input id="companyname" name="companyname" type="text" placeholder="Raison sociale" class="form-control input-md" required="">
+  <input id="company_name" name="company_name" type="text" placeholder="Raison sociale" class="form-control input-md" value="{$profile_company->company_name}">
 
   </div>
 </div>
@@ -17,12 +32,12 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="function">Fonction</label>
   <div class="col-md-4">
-  <input id="function" name="function" type="text" placeholder="Fonction" class="form-control input-md">
+  <input id="function" name="function" type="text" placeholder="Fonction" class="form-control input-md" value="{$profile_company->function}">
 
   </div>
 </div>
 
-<!-- Text input-->
+<!--
 <div class="form-group">
   <label class="col-md-4 control-label" for="firstname">Prénom</label>
   <div class="col-md-4">
@@ -31,7 +46,7 @@
   </div>
 </div>
 
-<!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="lastname">Nom</label>
   <div class="col-md-4">
@@ -40,7 +55,7 @@
   </div>
 </div>
 
-<!-- Text input-->
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="email">E-Mail</label>
   <div class="col-md-4">
@@ -49,6 +64,7 @@
     </div>
   </div>
 </div>
+-->
 
 <!-- Button -->
 <div class="form-group">

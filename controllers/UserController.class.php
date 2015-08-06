@@ -133,7 +133,8 @@ class UserController extends BaseController {
 				'isPost' => $isPost,
 				'form' => $form,
 				'errors' => $errors,
-				'success' => $success
+				'success' => $success,
+				'user' => $user
 			);
 
 		} catch (Exception $e) {
