@@ -75,7 +75,7 @@ class ProfileController extends BaseController {
     	$profile = $this->user->getProfile();
     	$profile->user_id = $this->session->user_id;
 
-    	echo $profile->user_id;
+    	//echo $profile->user_id;
 
     	$vars = array();
 		$errors = array();
@@ -99,6 +99,7 @@ class ProfileController extends BaseController {
 
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
+		$projects = $profile->getProjects();
 		
 		$vars = array(
 			'user' => $this->user,
@@ -107,13 +108,15 @@ class ProfileController extends BaseController {
 			'experience' => new Profile_Experience(),
 			'formations' => $formations,
 			'formation' => new Profile_Formation(),
+			'projects' => $projects,
+			'project' => new Profile_Project(),
 		);
 
-		/*
+		
 		echo '<pre>';    
 		print_r($vars);
 		echo '</pre>';
-		*/
+		
 
     	$this->render('cv-form', $vars);
 
@@ -188,6 +191,7 @@ class ProfileController extends BaseController {
 		
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
+		$projects = $profile->getProjects();
 
 
 		$vars = array(
@@ -195,7 +199,8 @@ class ProfileController extends BaseController {
 			'errors' => $errors,
 			$type => $entity,
 			'experiences' => $experiences,
-			'formations' => $formations
+			'formations' => $formations,
+			'projects' => $projects
 		);
 
 		return $this->render('partials/cv-'.$type, $vars, true);

@@ -48,7 +48,7 @@
     <div class="form-group">
         <label class="col-md-4 control-label" for="date_formation">Dates</label>
         <div class="col-md-4">
-            <textarea class="form-control" id="date_formation" name="date_formation" placeholder="Dates">{$formation->date_formation}</textarea>
+            <input type="date" id="date_formation" name="date_formation" placeholder="jj/mm/aaaa" class="form-control input-md" value="{$formation->date_formation}">
         </div>
     </div>
 

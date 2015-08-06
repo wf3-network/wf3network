@@ -29,16 +29,16 @@ class Profile_Project extends Model {
     public function setId($id) {
         $this->id = $id;
     }
-    public function setProjectName(($project_name) {
+    public function setProjectName($project_name) {
         $this->project_name = $project_name;
     }
-    public function setDescription(($description) {
+    public function setDescription($description) {
         $this->description = $description;
     }
-    public function setUrl(($url) {
+    public function setUrl($url) {
         $this->url = $url;
     }
-    public function setProfileId(($profile_id) {
+    public function setProfileId($profile_id) {
         $this->profile_id = $profile_id;
     }
 
@@ -49,9 +49,9 @@ class Profile_Project extends Model {
     		VALUES (:profile_id, :project_name, :description, :url)',
     		array(
     			'profile_id' => $this->profile_id,
-    			'job_name' => $this->project_name,
-    			'company_name' => $this->description,
-    			'date_job' => $this->url
+    			'project_name' => $this->project_name,
+    			'description' => $this->description,
+    			'url' => $this->url
     			)
     		);
     }
@@ -62,9 +62,9 @@ class Profile_Project extends Model {
             'UPDATE profile_project SET profile_id = :profile_id, project_name = :project_name, description = :description, url = :url WHERE id = :id',
             array(
     			'profile_id' => $this->profile_id,
-    			'job_name' => $this->project_name,
-    			'company_name' => $this->description,
-    			'date_job' => $this->url
+    			'project_name' => $this->project_name,
+    			'description' => $this->description,
+    			'url' => $this->url,
                 'id' => $this->id
             )
         );
