@@ -115,10 +115,10 @@ class UserController extends BaseController {
 
 						$user->password = password_hash($user->password, PASSWORD_BCRYPT);
 
-						$user_id = $user->register();
+						$user_id = $user->id = $user->register();
 
 						if (!empty($user_id)) {
-							$success = $this->login();
+							$success = $user->login();
 						} else {
 							$errors['authent'] = Lang::_('Register failed');
 						}
@@ -157,5 +157,4 @@ class UserController extends BaseController {
 		$this->response->redirect(ROOT_HTTP);
 		//return $this->render('authent', $vars);
 	}
-
 }
