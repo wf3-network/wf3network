@@ -81,6 +81,7 @@ class Profile_Formation extends Model {
         );
     }
 
+
     public function update() {
 
         return Db::update(
@@ -100,4 +101,5 @@ class Profile_Formation extends Model {
     public function delete() {
         return Db::delete('DELETE FROM profile_formation WHERE id = :id', array('id' => $this->id));
     }
+
 }
