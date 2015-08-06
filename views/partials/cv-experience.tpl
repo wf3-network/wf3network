@@ -41,7 +41,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="company_name">Nom de l'entreprise</label>
   <div class="col-md-4">
-    <textarea class="form-control" id="company_name" name="company_name" placeholder="Nom de l'entreprise"></textarea>
+    <textarea class="form-control" id="company_name" name="company_name" placeholder="Nom de l'entreprise">{$experience->company_name}</textarea>
 </div>
 </div>
 
@@ -49,7 +49,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="date_job">Dates</label>
   <div class="col-md-4">
-    <textarea class="form-control" id="date_job" name="date_job" placeholder="Dates"></textarea>
+    <input type="date" id="date_job" name="date_job" placeholder="jj/mm/aaaa" class="form-control input-md" value="{$experience->date_job}">
 </div>
 </div>
 
@@ -57,7 +57,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="job_city">Ville</label>
   <div class="col-md-4">
-    <textarea class="form-control" id="job_city" name="job_city" placeholder="Ville"></textarea>
+    <textarea class="form-control" id="job_city" name="job_city" placeholder="Ville">{$experience->job_city}</textarea>
 </div>
 </div>
 
@@ -65,7 +65,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="job_country">Pays</label>
   <div class="col-md-4">
-    <textarea class="form-control" id="job_country" name="job_country" placeholder="Pays"></textarea>
+    <textarea class="form-control" id="job_country" name="job_country" placeholder="Pays">{$experience->job_country}</textarea>
 </div>
 </div>
 
@@ -73,7 +73,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="job_description">Description du poste</label>
   <div class="col-md-4">
-    <textarea class="form-control" id="job_description" name="job_description" placeholder="Description du poste"></textarea>
+    <textarea class="form-control" id="job_description" name="job_description" placeholder="Description du poste">{$experience->job_description}</textarea>
 </div>
 </div>
 

@@ -88,6 +88,7 @@ class ProfileController extends BaseController {
 
 			if (empty($errors)) {
 
+				//if ($result = $profile->update()) {
 				if ($result = $profile->insert()) {
 					$this->response->redirect(ROOT_HTTP.'profile/cvform');
 				}
@@ -110,11 +111,11 @@ class ProfileController extends BaseController {
 			'formation' => new Profile_Formation(),
 		);
 
-		/*
+		
 		echo '<pre>';    
 		print_r($vars);
 		echo '</pre>';
-		*/
+		
 
     	$this->render('cv-form', $vars);
 
