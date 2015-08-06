@@ -19,10 +19,10 @@ class Profile_Company extends Model {
 	public function getFunction() {
 		return $this ->function = $function;
 	}
+
 	public function getPublish() {
 		return $this ->publish = $publish;
 	}
-
 
 	public function setId($id){
 		$this->id = $id;

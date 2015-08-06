@@ -5,11 +5,8 @@ class Profile extends Model {
     protected $id;
     protected $user_id;
     protected $photo;
-    protected $lastname;
-    protected $firstname;
     protected $date_promo;
     protected $birth;
-    protected $email;
     protected $telephone;
     protected $site;
     protected $publish;
@@ -26,20 +23,11 @@ class Profile extends Model {
     public function getPhoto() {
         return $this->photo;
     }
-    public function getLastname() {
-        return $this->lastname;
-    }
-    public function getFirstname() {
-        return $this->firstname;
-    }
     public function getDatepromo() {
         return $this->date_promo;
     }
     public function getBirth() {
         return $this->birth;
-    }
-    public function getEmail() {
-        return $this->email;
     }
     public function getTelephone() {
         return $this->telephone;
@@ -67,31 +55,25 @@ class Profile extends Model {
     public function setPhoto($photo) {
         $this->photo = $photo;
     }
-    public function setLastname($lastname) {
-        if (empty($lastname)) {
-          throw new Exception(Lang::_('You must fill your lastname'));
-      }
-      $this->lastname = $lastname;
-  }
-     public function setFirstname($firstname) {
-         if (empty($firstname)) {
-        throw new Exception(Lang::_('You must fill your firstname'));
-        }
-      $this->firstname = $firstname;
-    }
     public function setDatepromo($date_promo) {
+        if (empty($date_promo)) {
+        throw new Exception(Lang::_('Vous devez renseigner une promo'));
+        }
         $this->date_promo = $date_promo;
     }
     public function setBirth($birth) {
         $this->birth = $birth;
     }
-    public function setEmail($email) {
-        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-          throw new Exception(Lang::_('You must fill a valid email'));
-        }
-        $this->email = $email;
-    }
+    // public function setEmail($email) {
+    //     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //       throw new Exception(Lang::_('You must fill a valid email'));
+    //     }
+    //     $this->email = $email;
+    // }
     public function setTelephone($telephone) {
+        if (strlen($telephone) > 10) {
+        throw new Exception(Lang::_('Votre numéro de téléphone est trop long'));
+        }
         $this->telephone = $telephone;
     }
     public function setSite($site) {
@@ -103,8 +85,6 @@ class Profile extends Model {
     public function setRegisterdate($register_date) {
         $this->register_date = $register_date;
     }
-
-
 
     public function getExperiences() {
         if (empty($this->id)) {
@@ -123,19 +103,35 @@ class Profile extends Model {
     public function insert() {
 
         return Db::insert(
-          'INSERT INTO profile (user_id, lastname, firstname, date_promo, birth, email, telephone, site, photo, publish, register_date)
-          VALUES (:user_id, :lastname, :firstname, :date_promo, :birth, :email, :telephone, :site, :photo, :publish, NOW())',
+          'INSERT INTO profile SET user_id = :user_id, date_promo = :date_promo, birth = :birth, telephone = :telephone, site = :site, photo = :photo, publish = :publish, register_date = NOW()
+          ON DUPLICATE KEY UPDATE user_id = :user_id, date_promo = :date_promo, birth = :birth, telephone = :telephone, site = :site, photo = :photo, publish = :publish, register_date = NOW()
+          ',
           array(
             'user_id' => $this->user_id,
-            'lastname' => $this->lastname,
-            'firstname' => $this->firstname,
             'date_promo' => $this->date_promo,
             'birth' => $this->birth,
-            'email' => $this->email,
             'telephone' => $this->telephone,
             'site' => $this->site,
             'photo' => $this->photo,
             'publish' => (int) $this->publish
+            )
+          );
+    }
+
+
+    public function update() {
+
+        return Db::update(
+          'UPDATE profile SET user_id = :user_id, date_promo = :date_promo, birth = :birth, telephone = :telephone, site = :site, photo = :photo, publish = :publish WHERE id = :id',
+          array(
+            'user_id' => $this->user_id,
+            'date_promo' => $this->date_promo,
+            'birth' => $this->birth,
+            'telephone' => $this->telephone,
+            'site' => $this->site,
+            'photo' => $this->photo,
+            'publish' => (int) $this->publish,
+            'id' => $this->id
             )
           );
     }

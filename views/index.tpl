@@ -9,9 +9,9 @@
                     <img class="third-slide img-responsive" src="{$IMG_ROOT}home-slider/wf3-0.jpg" alt="Responsive image">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>titre</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="recipes.php?type=3" role="button">Voir news</a></p>
+                            <h1>WebForce3</h1>
+                            <p>WebForce3 ouvre une nouvelle école !</p>
+                            <p><a class="btn btn-lg btn-primary" href="{$HTTP_ROOT}news" role="button">Voir les News</a></p>
                         </div>
                     </div>
                 </div>
@@ -19,9 +19,9 @@
                     <img class="third-slide img-responsive" src="{$IMG_ROOT}home-slider/wf3-1.jpg" alt="Responsive image">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>titre</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="recipes.php?type=3" role="button">Voir news</a></p>
+                            <h1>WebForce3</h1>
+                            <p>WebForce3 ouvre une nouvelle école !</p>
+                            <p><a class="btn btn-lg btn-primary" href="{$HTTP_ROOT}news" role="button">Voir les News</a></p>
                         </div>
                     </div>
                 </div>
@@ -29,9 +29,9 @@
                     <img class="third-slide img-responsive" src="{$IMG_ROOT}home-slider/wf3-2.jpg" alt="Responsive image">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>titre</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="recipes.php?type=3" role="button">Voir news</a></p>
+                            <h1>WebForce3</h1>
+                            <p>WebForce3 ouvre une nouvelle école !</p>
+                            <p><a class="btn btn-lg btn-primary" href="{$HTTP_ROOT}news" role="button">Voir les News</a></p>
                         </div>
                     </div>
                 </div>
@@ -39,9 +39,9 @@
                     <img class="third-slide img-responsive" src="{$IMG_ROOT}home-slider/wf3-3.jpg" alt="Responsive image">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>titre</h1>
-                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="recipes.php?type=3" role="button">Voir news</a></p>
+                            <h1>WebForce3</h1>
+                            <p>WebForce3 ouvre une nouvelle école !</p>
+                            <p><a class="btn btn-lg btn-primary" href="{$HTTP_ROOT}news" role="button">Voir les News</a></p>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         <div class="carousel-caption">
                             <h1>titre</h1>
                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                            <p><a class="btn btn-lg btn-primary" href="recipes.php?type=3" role="button">Voir news</a></p>
+                            <p><a class="btn btn-lg btn-primary" href="r{$HTTP_ROOT}news" role="button">Voir les News</a></p>
                         </div>
                     </div>
                 </div>

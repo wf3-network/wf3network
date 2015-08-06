@@ -44,17 +44,26 @@ class Profile_Experience extends Model {
     }
     public function setJobName($job_name) {
     	if (empty($job_name)) {
-    		throw new Exception(Lang::_('You must fill a job name'));
+    		throw new Exception(Lang::_('Vous devez renseigner l\'intitulé de votre poste.'));
     	}
     	$this->job_name = $job_name;
     }
     public function setCompanyName($company_name) {
+        if (empty($company_name)) {
+            throw new Exception(Lang::_('Vous devez renseigner un nom d\'entreprise.'));
+        }
     	$this->company_name = $company_name;
     }
     public function setDateJob($date_job) {
+        if (empty($date_job)) {
+            throw new Exception(Lang::_('Vous devez renseigner une date.'));
+        }
     	$this->date_job = $date_job;
     }
     public function setJobCity($job_city) {
+        if (empty($job_city)) {
+            throw new Exception(Lang::_('Vous devez renseigner une ville.'));
+        }
     	$this->job_city = $job_city;
     }
     public function setJobCountry($job_country) {

@@ -20,6 +20,14 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('../img/WB3_header.jpg');
 }
 
+
+.navbar {
+    border: none;
+    border-radius: 0;
+    text-decoration: none;
+}
+
+
 html, body {
     position: relative;
     height: 100%;
@@ -90,6 +98,18 @@ body {
 .footer-link {
     color: #9d9d9d;
 }
+
+
+
+footer a:hover /* Apparence au survol des liens */
+{
+   text-decoration: none;
+   color: white;
+}
+
+
+
+
 
 .list-unstyled {
     margin-top: 25px;

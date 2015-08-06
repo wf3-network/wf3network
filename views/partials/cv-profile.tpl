@@ -14,40 +14,23 @@
 {/if}
 
 
+Nom: {$user->lastname}<br>
+Prénom: {$user->firstname}<br>
+Email: {$user->email}<br>
+
 <form class="form-horizontal" method="POST" novalidate>
   <fieldset>
 
-
-<!--
-    
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="lastname">Nom</label>
-      <div class="col-md-4">
-          <input id="lastname" name="lastname" type="text" placeholder="Nom" class="form-control input-md" required="">
-
-      </div>
-  </div>
-
-
-  <div class="form-group">
-      <label class="col-md-4 control-label" for="firstname">Prénom</label>
-      <div class="col-md-4">
-          <input id="firstname" name="firstname" type="text" placeholder="Prénom" class="form-control input-md" required="">
-
-      </div>
-  </div>
--->
-
-  <!-- Text input-->
-  <div class="form-group">
-      <label class="col-md-4 control-label" for="date_promo">Promotion</label>
-      <div class="col-md-4">
-        <select id="date_promo" name="date_promo" class="form-control">
-          <option value="1">Lieu-Mois-Année</option>
-          <option value="2">Lieu-Mois-Année</option>
-          <option value="3">Lieu-Mois-Année</option>
-      </select>
-  </div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="date_promo">Promotion</label>
+  <div class="col-md-4">
+    <select id="date_promo" name="date_promo" class="form-control">
+      <option value="1">Lieu-Mois-Année</option>
+      <option value="2">Lieu-Mois-Année</option>
+      <option value="3">Lieu-Mois-Année</option>
+  </select>
+</div>
 </div>
 
 <!-- Text input-->
@@ -59,20 +42,11 @@
   </div>
 </div>
 
-<!--
-<div class="form-group">
-  <label class="col-md-4 control-label" for="email">E-Mail</label>
-  <div class="col-md-4">
-      <input id="email" name="email" type="text" placeholder="email" class="form-control input-md">
-  </div>
-</div>
--->
-
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="telephone">Téléphone</label>
+  <label class="col-md-4 control-label" for="telephone">Téléphone (+33)</label>
   <div class="col-md-4">
-      <input id="telephone" name="telephone" type="text" placeholder="fixe ou mobile" class="form-control input-md">
+      <input id="telephone" name="telephone" type="text" placeholder="fixe ou mobile" class="form-control input-md" value="{$profile->telephone}">
   </div>
 </div>
 
@@ -80,7 +54,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="site">Site perso</label>
   <div class="col-md-4">
-      <input id="site" name="site" type="text" placeholder="http://..." class="form-control input-md">
+      <input id="site" name="site" type="text" placeholder="http://..." class="form-control input-md" value="{$profile->site}">
 
   </div>
 </div>
@@ -98,6 +72,8 @@
   <label class="col-md-4 control-label" for="submit"></label>
   <div class="col-md-4">
     <button id="submit" name="submit" class="btn btn-info">Envoyer</button>
+<!--     <button class="btn profile-action" data-id="{$profile->id}" data-type="profile" data-action="update" data-method="POST">Envoyer</button> -->
+
 </div>
 </div>
 
