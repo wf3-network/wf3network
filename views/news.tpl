@@ -7,7 +7,7 @@
 		<div class="col-md-12">
 			<ol class="breadcrumb">
           		<li><a href="#">Accueil</a></li>
-         		<li class="active"><a href="#">Conditions générales d'utilisation</a></li>
+         		<li class="active"><a href="#">News</a></li>
           		<!--li class="active">Data</li-->
          	 </ol>
         </div> <!-- /col-md-12 -->	 
@@ -36,7 +36,6 @@
 				<p>
 					Le 11 Mars dernier, Alain Assouline était l’invité de Stéphane Soumier sur BFM Business pour présenter l’école WebForce 3 et parler de l’emploi dans les métiers du web. Retrouvez l’intégralité de son interview en <a href="http://bfmbusiness.bfmtv.com/mediaplayer/video/webforce3-l-ecole-qui-forme-au-metier-de-developpeur-web-et-mobile-alain-assouline-1103-467343.html">rediffusion</a>.
 				</p>
-				<p><a class="btn" href="#">Read more</a></p>
 			</div> <!-- /div col-md-8 -->
 
 			<div class="col-md-8">
@@ -71,7 +70,6 @@
 				<p>
 					Le 11 Mars dernier, Alain Assouline était l’invité de Stéphane Soumier sur BFM Business pour présenter l’école WebForce 3 et parler de l’emploi dans les métiers du web. Retrouvez l’intégralité de son interview en <a href="http://bfmbusiness.bfmtv.com/mediaplayer/video/webforce3-l-ecole-qui-forme-au-metier-de-developpeur-web-et-mobile-alain-assouline-1103-467343.html">rediffusion</a>.
 				</p>
-				<p><a class="btn" href="#">Read more</a></p>
 			</div> <!-- /div col-md-8 -->
 
 			<div class="col-md-8">
