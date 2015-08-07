@@ -77,40 +77,6 @@ class ProfileController extends BaseController {
     	$profile = $this->user->getProfile();
     	$profile->user_id = $this->session->user_id;
 
-    	///////////////// trying to : Link skill_id from project_skills tab to the id of skill_name tab
-    	// Faire un skill controller ???
-    	//$_skill = new Skill();
-
-    	// $_skill = $this->skill->getSkillId();
-
-    	// $vars = array();
-    	// $errors = array();
-    	// if ($isPost) {
-
-    	// 	foreach($this->request->post as $key => $value) {
-    	// 		try {
-    	// 			if (property_exists($_skill, $key)) {
-    	// 				$_skill->$key = $this->request->post($key, '');
-    	// 			}
-    	// 		} catch (Exception $e) {
-    	// 			$errors[$key] = $e->getMessage();
-    	// 		}
-    	// 	}
-
-    	// 	if (empty($errors)) {
-
-    	// 		$success = $_skill->insert();
-    	// 	}
-    	// }
-
-    	//$_skill = Skill::get($id);
-    	// or
-    	//$_skill = $this->profile_skills->getSkillId();
-
-    	//$_skill->skill_id = $this->session->skill_id;
-    	
-    	/////////////
-
     	$vars = array();
 		$errors = array();
 		if ($isPost) {
@@ -139,10 +105,12 @@ class ProfileController extends BaseController {
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
 		$projects = $profile->getProjects();
-		$skillss = $profile->getSkills();
+		$skills = $profile->getSkills();
 
 		$project_names = Db::select('SELECT * FROM project_name');
-		$skill_names = Db::select('SELECT * FROM skill_name');
+		$skills_list = Db::select('SELECT id as value, skill_name as label FROM skill');
+
+		//$_skill_id = Db::select('SELECT * FROM skill s LEFT JOIN profile_skill ps ON sa.id = ps.skill_id WHERE ps.skill_id = :id', array('id' => $id));
 		
 		$vars = array(
 			'user' => $this->user,
@@ -154,12 +122,10 @@ class ProfileController extends BaseController {
 			'projects' => $projects,
 			'project' => new Profile_Project(),
 			'project_names' => $project_names,
-			'skillss' => $skillss,
-			'skills' => new Profile_Skills(),
-			'skill_names' => $skill_names,
-			// define var skill id 
-			//'_skill' => $_skill,
 			
+			'skills' => $skills,
+			'skill' => new Profile_Skill(),
+			'skills_list' => json_encode($skills_list)
 		);
 
 		
@@ -174,7 +140,7 @@ class ProfileController extends BaseController {
 
 	public function action() {
 
-		$types = array('profile_experience', 'profile_formation', 'profile_skills', 'profile_project');
+		$types = array('profile_experience', 'profile_formation', 'profile_skill', 'profile_project');
 		$actions = array('create', 'update', 'delete');
 
 		$type = $this->getParam(0, '');
@@ -212,6 +178,20 @@ class ProfileController extends BaseController {
 						$errors[$key] = $e->getMessage();
 					}	
 				}
+
+				if (empty($errors)) {
+
+					if ($type == 'skill') {
+
+						$skill_exists = Skill::isSkillExists($entity->skill_name);
+
+						if ($skill_exists === false) {
+							$skill = new Skill();
+							$skill->skill_name = $entity->getSkillName(false);
+							$this->skill_id = $skill->insert();
+						}
+					}
+				}
 			}
 
 
@@ -242,10 +222,10 @@ class ProfileController extends BaseController {
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
 		$projects = $profile->getProjects();
-		$skillss = $profile->getSkills();
+		$skills = $profile->getSkills();
 
 		$project_names = Db::select('SELECT * FROM project_name');
-		$skill_names = Db::select('SELECT * FROM skill_name');
+		$skills_list = Db::select('SELECT * FROM skill');
 
 
 		$vars = array(
@@ -256,9 +236,11 @@ class ProfileController extends BaseController {
 			'formations' => $formations,
 			'projects' => $projects,
 			'project_names' => $project_names,
-			'skillss' => $skillss,
-			'skill_names' => $skill_names,
+			'skills' => $skills,
+			'skills_list' => $skills_list,
 		);
+
+		print_r($skills);
 
 		return $this->render('partials/cv-'.$type, $vars, true);
 		//return json_encode(array('error' => 'Unable to handle '.$type.' '.$action));

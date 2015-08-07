@@ -111,7 +111,7 @@ class Profile extends Model {
         if (empty($this->id)) {
             return array();
         }
-        return Profile_Skills::getList('SELECT * FROM profile_skills WHERE profile_id = :profile_id', array('profile_id' => $this->id));
+        return Profile_Skill::getList('SELECT ps.*, s.skill_name FROM profile_skill ps LEFT JOIN skill s ON s.id = ps.skill_id WHERE ps.profile_id = :profile_id', array('profile_id' => $this->id));
     }
 
     public function insert() {

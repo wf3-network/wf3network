@@ -133,19 +133,43 @@ autoplayDisableOnInteraction: false
 	});
 </script><!--fin swiper-->
 
-<!-- script autocomplete not working -->
 <script>
+var skills_list = {$skills_list};
+function initSkillsAutocomplete() {
+
+	var $tags = $('.tags')
+	$tags.autocomplete({
+  		source: skills_list,
+  		/*focus: function( event, ui ) {
+	        $( "#skill_name" ).val( ui.item.label);
+	        return false;
+	    },*/
+
+  		select: function( event, ui ) {
+  			$( "#skill_name" ).val(ui.item.label);
+  			$( "#skill_id" ).val(ui.item.value);
+  			return false;
+  		},
+
+	});
+}
+ 	
+
+</script>
+
+<!-- script autocomplete not working -->
+{if !empty($skills_list)}
+<script>
+
 {literal}
 $(document).ready(function() {
 	$(function() {
-		var $tags = $('.tags')
-		$tags.autocomplete({
-	  		source: [ "HTML5", "CSS3", "PHP", "SQL", "Javascript", "CMS", "Wordpress" ]
-		});
- 	});
+		initSkillsAutocomplete();
+	});
  });
 {/literal}
 </script>
+{/if}
 
 <!-- Gère la connexion(login) dans la fenêtre modale -->
 <script>
@@ -215,7 +239,7 @@ $(document).ready(function() {
 			//console.log(result);
 			$('#'+type).html(result);
 			//$(location).attr('href', HTTP_ROOT+'profile/cvform#experience')
-
+			initSkillsAutocomplete();
 		});
 
 		return false;
