@@ -229,7 +229,7 @@ class User extends Model {
 		$form->addField('password', Lang::_('Mot de passe'), 'password', '', true, '', @$errors['password']);
 		$form->addField('confirm_password', Lang::_('Confirmez votre mot de passe'), 'password', '', true, '', @$errors['confirm_password']);
 		$form->addField('newsletter', Lang::_('Inscription à la newsletter'), 'checkbox', $this->_getfieldvalue('newsletter', $type, $request), false, '');
-		$form->addField('cgu', Lang::_('J&apos;accepte les conditions d&apos;utilisation'), 'checkbox', $this->_getfieldvalue('cgu', $type, $request), true, '', @$errors['cgu']);
+		$form->addField('cgu', Lang::_('J&apos;accepte les <a href="../cgu" target="_blank">conditions d&apos;utilisation</a>'), 'checkbox', $this->_getfieldvalue('cgu', $type, $request), true, '', @$errors['cgu']);
 
 		return $form;
 	}
