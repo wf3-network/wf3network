@@ -222,14 +222,14 @@ class User extends Model {
 
 		$form = new Form('', 'form-register', $action, 'POST', 'form-horizontal', $isPost, 'Inscription');
 		$form->addField('type', Lang::_('Type'), 'select', $this->_getfieldvalue('type', $type, $request), true, '', @$errors['type'], null, null, $types_select);
-		$form->addField('firstname', Lang::_('Firstname'), 'text', $this->_getfieldvalue('firstname', $type, $request), true, '', @$errors['firstname']);
-		$form->addField('lastname', Lang::_('Lastname'), 'text', $this->_getfieldvalue('lastname', $type, $request), true, '', @$errors['lastname']);
-		$form->addField('email', Lang::_('Email'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', @$errors['email']);
-		$form->addField('confirm_email', Lang::_('Confirm email'), 'email', $this->_getfieldvalue('confirm_email', $type, $request), true, '', @$errors['confirm_email']);
-		$form->addField('password', Lang::_('Password'), 'password', '', true, '', @$errors['password']);
-		$form->addField('confirm_password', Lang::_('Confirm password'), 'password', '', true, '', @$errors['confirm_password']);
-		$form->addField('newsletter', Lang::_('Subscribe to the newsletter'), 'checkbox', $this->_getfieldvalue('newsletter', $type, $request), false, '');
-		$form->addField('cgu', Lang::_('Accept the terms of service'), 'checkbox', $this->_getfieldvalue('cgu', $type, $request), true, '', @$errors['cgu']);
+		$form->addField('firstname', Lang::_('Prénom'), 'text', $this->_getfieldvalue('firstname', $type, $request), true, '', @$errors['firstname']);
+		$form->addField('lastname', Lang::_('Nom'), 'text', $this->_getfieldvalue('lastname', $type, $request), true, '', @$errors['lastname']);
+		$form->addField('email', Lang::_('E-mail'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', @$errors['email']);
+		$form->addField('confirm_email', Lang::_('Confirmez votre e-mail'), 'email', $this->_getfieldvalue('confirm_email', $type, $request), true, '', @$errors['confirm_email']);
+		$form->addField('password', Lang::_('Mot de passe'), 'password', '', true, '', @$errors['password']);
+		$form->addField('confirm_password', Lang::_('Confirmez votre mot de passe'), 'password', '', true, '', @$errors['confirm_password']);
+		$form->addField('newsletter', Lang::_('Inscription à la newsletter'), 'checkbox', $this->_getfieldvalue('newsletter', $type, $request), false, '');
+		$form->addField('cgu', Lang::_('J&apos;accepte les conditions d&apos;utilisation'), 'checkbox', $this->_getfieldvalue('cgu', $type, $request), true, '', @$errors['cgu']);
 
 		return $form;
 	}
