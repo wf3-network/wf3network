@@ -19,7 +19,7 @@ class User extends Model {
 	private $session;
 
 	public static $types = array(
-		self::USER_TYPE_STUDENT => 'Etudiant',
+		self::USER_TYPE_STUDENT => 'Étudiant',
 		self::USER_TYPE_COMPANY => 'Entreprise'
 	);
 

@@ -5,7 +5,7 @@
 {/if}
 
 {if !empty($isPost) && !empty($success)}
-<div class="alert alert-success" role="success">{$title} {t}success{/t}</div>
+<div class="alert alert-success" role="success">{$title} {t}: succès{/t}</div>
 {Utils::redirectJS("{$HTTP_ROOT}cvform", 1)}
 {/if}
 
@@ -26,9 +26,10 @@ Email: {$user->email}<br>
   <label class="col-md-4 control-label" for="date_promo">Promotion</label>
   <div class="col-md-4">
     <select id="date_promo" name="date_promo" class="form-control">
-      <option value="1">Lieu-Mois-Année</option>
-      <option value="2">Lieu-Mois-Année</option>
-      <option value="3">Lieu-Mois-Année</option>
+      <option value="1">...</option>
+      <option value="2">Lieu1-Mois-Année</option>
+      <option value="3">Lieu2-Mois-Année</option>
+      <option value="4">Lieu3-Mois-Année</option>
   </select>
 </div>
 </div>

@@ -4,7 +4,7 @@
 {/if}
 
 {if !empty($isPost) && !empty($success)}
-<div class="alert alert-success" role="success">{$title} {t}success{/t}</div>
+<div class="alert alert-success" role="success">{$title} {t}: succès{/t}</div>
 {Utils::redirectJS("{$HTTP_ROOT}cvform", 1)}
 {/if}
 
