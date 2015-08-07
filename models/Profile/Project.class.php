@@ -53,7 +53,7 @@ class Profile_Project extends Model {
     			'description' => $this->description,
     			'url' => $this->url
     			)
-    		);
+    	);
     }
 
     public function update() {
