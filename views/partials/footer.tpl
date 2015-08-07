@@ -49,6 +49,8 @@
 
 <script src="{$JS_ROOT}jquery.min.js"></script>
 <script src="{$JS_ROOT}bootstrap.min.js"></script>
+<!-- added for autocomplete -->
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
 <!--facebook fil-->
 <script>(function(d, s, id) {
@@ -131,6 +133,44 @@ autoplayDisableOnInteraction: false
 	});
 </script><!--fin swiper-->
 
+<script>
+var skills_list = {$skills_list};
+function initSkillsAutocomplete() {
+
+	var $tags = $('.tags')
+	$tags.autocomplete({
+  		source: skills_list,
+  		/*focus: function( event, ui ) {
+	        $( "#skill_name" ).val( ui.item.label);
+	        return false;
+	    },*/
+
+  		select: function( event, ui ) {
+  			$( "#skill_name" ).val(ui.item.label);
+  			$( "#skill_id" ).val(ui.item.value);
+  			return false;
+  		},
+
+	});
+}
+ 	
+
+</script>
+
+<!-- script autocomplete not working -->
+{if !empty($skills_list)}
+<script>
+
+{literal}
+$(document).ready(function() {
+	$(function() {
+		initSkillsAutocomplete();
+	});
+ });
+{/literal}
+</script>
+{/if}
+
 <!-- Gère la connexion(login) dans la fenêtre modale -->
 <script>
 var HTTP_ROOT = '{$HTTP_ROOT}';
@@ -199,7 +239,7 @@ $(document).ready(function() {
 			//console.log(result);
 			$('#'+type).html(result);
 			//$(location).attr('href', HTTP_ROOT+'profile/cvform#experience')
-
+			initSkillsAutocomplete();
 		});
 
 		return false;

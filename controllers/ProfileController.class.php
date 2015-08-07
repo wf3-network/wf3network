@@ -82,6 +82,8 @@ class ProfileController extends BaseController {
 		$this->render('profile-company', $vars);
 	}
 
+
+	/* CVFORM */
 	public function cvform() {
 
     	$isPost = $this->request->isPost();
@@ -110,11 +112,25 @@ class ProfileController extends BaseController {
 			if (empty($errors)) {
 
 				$success = $profile->insert();
+				// if($current_page === 'cv-end.tpl' && $result = $profile->insert()){
+					//$this->response->redirect(ROOT_HTTP.'profile/view'+{$user->id});
+				//}
+				// try insert skill id
+				//$success = $_skill->insert();
 			}
 		}
 
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
+
+		$projects = $profile->getProjects();
+		$skills = $profile->getSkills();
+
+		$project_names = Db::select('SELECT * FROM project_name');
+		$skills_list = Db::select('SELECT id as value, skill_name as label FROM skill');
+
+		//$_skill_id = Db::select('SELECT * FROM skill s LEFT JOIN profile_skill ps ON sa.id = ps.skill_id WHERE ps.skill_id = :id', array('id' => $id));
+		
 
 		$vars = array(
 			'user' => $this->user,
@@ -123,13 +139,20 @@ class ProfileController extends BaseController {
 			'experience' => new Profile_Experience(),
 			'formations' => $formations,
 			'formation' => new Profile_Formation(),
+			'projects' => $projects,
+			'project' => new Profile_Project(),
+			'project_names' => $project_names,
+			
+			'skills' => $skills,
+			'skill' => new Profile_Skill(),
+			'skills_list' => json_encode($skills_list)
 		);
 
-		/*
-		echo '<pre>';
-		print_r($vars);
-		echo '</pre>';
-		*/
+
+		// echo '<pre>';    
+		// print_r($vars);
+		// echo '</pre>';
+		
 
     	$this->render('cv-form', $vars);
 
@@ -137,7 +160,7 @@ class ProfileController extends BaseController {
 
 	public function action() {
 
-		$types = array('profile_experience', 'profile_formation', 'profile_skills', 'profile_project');
+		$types = array('profile_experience', 'profile_formation', 'profile_skill', 'profile_project');
 		$actions = array('create', 'update', 'delete');
 
 		$type = $this->getParam(0, '');
@@ -175,6 +198,20 @@ class ProfileController extends BaseController {
 						$errors[$key] = $e->getMessage();
 					}
 				}
+
+				if (empty($errors)) {
+
+					if ($type == 'skill') {
+
+						$skill_exists = Skill::isSkillExists($entity->skill_name);
+
+						if ($skill_exists === false) {
+							$skill = new Skill();
+							$skill->skill_name = $entity->getSkillName(false);
+							$this->skill_id = $skill->insert();
+						}
+					}
+				}
 			}
 
 
@@ -204,6 +241,11 @@ class ProfileController extends BaseController {
 
 		$experiences = $profile->getExperiences();
 		$formations = $profile->getFormations();
+		$projects = $profile->getProjects();
+		$skills = $profile->getSkills();
+
+		$project_names = Db::select('SELECT * FROM project_name');
+		$skills_list = Db::select('SELECT * FROM skill');
 
 
 		$vars = array(
@@ -211,8 +253,14 @@ class ProfileController extends BaseController {
 			'errors' => $errors,
 			$type => $entity,
 			'experiences' => $experiences,
-			'formations' => $formations
+			'formations' => $formations,
+			'projects' => $projects,
+			'project_names' => $project_names,
+			'skills' => $skills,
+			'skills_list' => $skills_list,
 		);
+
+		print_r($skills);
 
 		return $this->render('partials/cv-'.$type, $vars, true);
 		//return json_encode(array('error' => 'Unable to handle '.$type.' '.$action));

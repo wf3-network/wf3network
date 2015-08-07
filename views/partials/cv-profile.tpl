@@ -73,7 +73,6 @@ Email: {$user->email}<br>
   <label class="col-md-4 control-label" for="submit"></label>
   <div class="col-md-4">
     <button id="submit" name="submit" class="btn btn-info">Envoyer</button>
-<!--     <button class="btn profile-action" data-id="{$profile->id}" data-type="profile" data-action="update" data-method="POST">Envoyer</button> -->
 
 </div>
 </div>
