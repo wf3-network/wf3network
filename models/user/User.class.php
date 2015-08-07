@@ -197,9 +197,9 @@ class User extends Model {
 	public function getLoginForm($type, $action, $request, $isPost = false, $errors = array()) {
 
 		$form = new Form('', 'form-login', $action, 'POST', 'form-horizontal', $isPost, 'Valider');
-		$form->addField('email', Lang::_('Email'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', !empty($errors['authent']) ? true : false);
-		$form->addField('password', Lang::_('Password'), 'password', '', true, '', !empty($errors['authent']) ? true : false);
-		$form->addField('remember_me', Lang::_('Remember me'), 'checkbox', $this->_getfieldvalue('remember_me', $type, $request), false, '');
+		$form->addField('email', Lang::_('E-mail'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', !empty($errors['authent']) ? true : false);
+		$form->addField('password', Lang::_('Mot de passe'), 'password', '', true, '', !empty($errors['authent']) ? true : false);
+		$form->addField('remember_me', Lang::_('Se souvenir de moi'), 'checkbox', $this->_getfieldvalue('remember_me', $type, $request), false, '');
 
 		return $form;
 	}
