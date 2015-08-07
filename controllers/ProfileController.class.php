@@ -57,9 +57,8 @@ class ProfileController extends BaseController {
 			}
 
 			if (empty($errors)) {
-
 				if ($result = $profile_company->insert()) {
-					$this->response->redirect(ROOT_HTTP.'profile/company');
+					$this->response->redirect(ROOT_HTTP.'companysuccess');
 				}
 			}
 		}
@@ -80,6 +79,50 @@ class ProfileController extends BaseController {
 		*/
 
 		$this->render('profile-company', $vars);
+	}
+
+	public function companyview() {
+
+		$params = $this->getParams();
+		if (empty($params[0])) {
+			throw new ActionControllerException('Undefined post id');
+		}
+
+		$id = (int) $params[0];
+
+		$profile = Profile::get($id);
+
+		$profile_companyview = new Profile_Company(Db::selectOne('SELECT * FROM user u LEFT JOIN profile_company pc ON pc.user_id = u.id WHERE pc.user_id = :id', array('id' => $id)));
+
+		$vars = array(
+			'profile_companyview' => $profile_companyview
+		);
+
+		$isPost = $this->request->isPost();
+
+		$errors = array();
+		if ($isPost) {
+
+			foreach($this->request->post as $key => $value) {
+				try {
+					if (property_exists($profile_companyview, $key)) {
+						$profile_companyview->$key = $this->request->post($key, '');
+					}
+				} catch (Exception $e) {
+					$errors[$key] = $e->getMessage();
+				}
+			}
+
+			if (empty($errors)) {
+				if ($result = $profile_companyview->insert()) {
+					$this->response->redirect(ROOT_HTTP.'companysuccess');
+				}
+			}
+		}
+
+		if (User::isLogged()) {
+			$this->render('partials/profile-companyview.tpl', $vars);
+		}
 	}
 
 	public function cvform() {

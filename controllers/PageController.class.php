@@ -20,4 +20,8 @@ class PageController extends BaseController {
 
   }
 
+  public function companysuccess(){
+
+  	$this->render('companysuccess');
+  }
 }

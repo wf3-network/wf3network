@@ -34,8 +34,12 @@
 
 							<ul class="nav navbar-nav navbar-right">
 								{if User::isLogged()}
-								<li><a href="{$HTTP_ROOT}profile/view/{$user->id}" class=" glyphicon glyphicon-user"> Bonjour {$user->firstname}</a></li>
-								<li><a href="{$HTTP_ROOT}logout"> Déconnexion</a></li>
+									{if $user->type == 1}
+										<li><a href="{$HTTP_ROOT}profile/view/{$user->id}" class=" glyphicon glyphicon-user"> Bonjour {$user->firstname}</a></li>
+									{elseif $user->type == 2}
+										<li><a href="{$HTTP_ROOT}profile/companyview/{$user->id}" class=" glyphicon glyphicon-user"> Bonjour {$user->firstname}</a></li>
+									{/if}
+										<li><a href="{$HTTP_ROOT}logout"> Déconnexion</a></li>
 								{else}
 
 								<li><a id="login-link" href="{$HTTP_ROOT}login" class="glyphicon glyphicon-user" data-target="#login-modal" border="0"> Login</a></li>
