@@ -73,25 +73,25 @@ class User extends Model {
 	}
 	public function setFirstname($firstname) {
 		if (empty($firstname)) {
-			throw new Exception(Lang::_('You must fill your firstname'));
+			throw new Exception(Lang::_('Vous devez saisir votre prénom'));
 		}
 		$this->firstname = $firstname;
 	}
 	public function setLastname($lastname) {
 		if (empty($lastname)) {
-			throw new Exception(Lang::_('You must fill your lastname'));
+			throw new Exception(Lang::_('Vous devez saisir votre nom'));
 		}
 		$this->lastname = $lastname;
 	}
 	public function setEmail($email) {
 		if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			throw new Exception(Lang::_('You must provide a valid email'));
+			throw new Exception(Lang::_('Vous devez saisir une adresse mail valide'));
 		}
 		$this->email = $email;
 	}
 	public function setPassword($password) {
 		if (strlen($password) < 6) {
-			throw new Exception(Lang::_('You must profide a password with at least 6 chars'));
+			throw new Exception(Lang::_('Votre mot de passe doit être composé d&apos;au moins 6 caractères'));
 		}
 		$this->password = $password;
 	}
