@@ -77,14 +77,39 @@ class ProfileController extends BaseController {
     	$profile = $this->user->getProfile();
     	$profile->user_id = $this->session->user_id;
 
-    	// Link skill_id from project_skills tab to the id of skill_name tab
+    	///////////////// trying to : Link skill_id from project_skills tab to the id of skill_name tab
+    	// Faire un skill controller ???
+    	//$_skill = new Skill();
 
-    	//$_skill_name = $this->skills->getSkillName();
-    	//$_skill_name->skill_id = $this->session->skill_id;
+    	// $_skill = $this->skill->getSkillId();
+
+    	// $vars = array();
+    	// $errors = array();
+    	// if ($isPost) {
+
+    	// 	foreach($this->request->post as $key => $value) {
+    	// 		try {
+    	// 			if (property_exists($_skill, $key)) {
+    	// 				$_skill->$key = $this->request->post($key, '');
+    	// 			}
+    	// 		} catch (Exception $e) {
+    	// 			$errors[$key] = $e->getMessage();
+    	// 		}
+    	// 	}
+
+    	// 	if (empty($errors)) {
+
+    	// 		$success = $_skill->insert();
+    	// 	}
+    	// }
+
+    	//$_skill = Skill::get($id);
+    	// or
+    	//$_skill = $this->profile_skills->getSkillId();
+
+    	//$_skill->skill_id = $this->session->skill_id;
     	
     	/////////////
-
-    	//echo $profile->user_id;
 
     	$vars = array();
 		$errors = array();
@@ -103,6 +128,11 @@ class ProfileController extends BaseController {
 			if (empty($errors)) {
 
 				$success = $profile->insert();
+				// if($current_page === 'cv-end.tpl' && $result = $profile->insert()){
+					//$this->response->redirect(ROOT_HTTP.'profile/view'+{$user->id});
+				//}
+				// try insert skill id
+				//$success = $_skill->insert();
 			}
 		}
 
@@ -127,6 +157,8 @@ class ProfileController extends BaseController {
 			'skillss' => $skillss,
 			'skills' => new Profile_Skills(),
 			'skill_names' => $skill_names,
+			// define var skill id 
+			//'_skill' => $_skill,
 			
 		);
 
