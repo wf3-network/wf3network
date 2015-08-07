@@ -49,6 +49,7 @@ class Profile_Skills extends Model {
         $this->skill_name = $skill_name;
     }
 
+
 	public function insert() {
 
         return Db::insert(
