@@ -77,6 +77,13 @@ class ProfileController extends BaseController {
     	$profile = $this->user->getProfile();
     	$profile->user_id = $this->session->user_id;
 
+    	// Link skill_id from project_skills tab to the id of skill_name tab
+
+    	//$_skill_name = $this->skills->getSkillName();
+    	//$_skill_name->skill_id = $this->session->skill_id;
+    	
+    	/////////////
+
     	//echo $profile->user_id;
 
     	$vars = array();
