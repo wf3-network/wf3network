@@ -13,12 +13,12 @@
 		<div class="col-sm-8 blog-main">
 
 			{if !empty($errors)}
-			<div class="alert alert-danger" role="danger">{if !empty($errors['authent'])}{$errors['authent']}{else}{$title} {t}failed{/t}{/if}</div>
+			<div class="alert alert-danger" role="danger">{if !empty($errors['authent'])}{$errors['authent']}{else}{$title} {t} :échec{/t}{/if}</div>
 			{/if}
 
 			{if !empty($isPost) && !empty($success)}
 
-				<div class="alert alert-success" role="success">{$title} {t}success{/t}</div>
+				<div class="alert alert-success" role="success">{$title} {t}: succès{/t}</div>
 
 				{if $user->status == 1}
 					{Utils::redirectJS("{$HTTP_ROOT}home", 1)}
@@ -37,8 +37,8 @@
 			{if isset($form) && empty($success)}
 				{$form}
 				<hr>
-				<p>Vous êtes une <b>entreprise<b> à la recherche de développeurs</b>
-				<button type="button" name="register" class="register-btn" value="Register"><a href="{$HTTP_ROOT}register"> Inscrivez-vous </a></button>
+				<p>Vous êtes une <b>entreprise</b> à la recherche de développeurs :
+				<button type="button" name="register" class="register-btn" value="Register"><a href="{$HTTP_ROOT}register"> Inscrivez-vous ! </a></button>
 			{/if}
 
 			{*if !empty($fb_login_url)*}

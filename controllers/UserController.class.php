@@ -34,14 +34,14 @@ class UserController extends BaseController {
 			}
 
 			if ($success === false) {
-				$errors['authent'] = Lang::_('Authent failed');
+				$errors['authent'] = Lang::_('Échec de l&apos;authentification');
 			}
 		}
 
 		$form = $user->getLoginForm('create', ROOT_HTTP.$this->lang->getUserLang().'/user/login', $this->request, $isPost, $errors);
 
 		$vars = array(
-			'title' => Lang::_('Login'),
+			'title' => Lang::_('Connexion'),
 			'isPost' => $isPost,
 			'form' => $form,
 			'errors' => $errors,
@@ -100,17 +100,17 @@ class UserController extends BaseController {
 				}
 
 				if (empty($confirm_email) || strcmp($user->email, $confirm_email) !== 0) {
-					$errors['confirm_email'] = Lang::_('You must confirm your email');
+					$errors['confirm_email'] = Lang::_('Vous devez confirmer votre e-mail');
 				}
 				if (empty($confirm_password) || strcmp($user->password, $confirm_password) !== 0) {
-					$errors['confirm_password'] = Lang::_('You must confirm your password');
+					$errors['confirm_password'] = Lang::_('Vous devez confirmer votre mot de passe');
 				}
 
 				if (empty($errors)) {
 
 					$user_already_exists = $user->checkAlreadyExists();
 					if ($user_already_exists === true) {
-						$errors['mail'] = Lang::_('Email already in use');
+						$errors['mail'] = Lang::_('Cet e-mail est déjà utilisé');
 					} else {
 
 						$user->password = password_hash($user->password, PASSWORD_BCRYPT);
@@ -120,7 +120,7 @@ class UserController extends BaseController {
 						if (!empty($user_id)) {
 							$success = $user->login();
 						} else {
-							$errors['authent'] = Lang::_('Register failed');
+							$errors['authent'] = Lang::_('Enregistrement échoué');
 						}
 					}
 				}
@@ -129,7 +129,7 @@ class UserController extends BaseController {
 			$form = $user->getRegisterForm('create', ROOT_HTTP.$this->lang->getUserLang().'/user/register', $this->request, $isPost, $errors);
 
 			$vars = array(
-				'title' => Lang::_('Register'),
+				'title' => Lang::_('Créer un compte'),
 				'isPost' => $isPost,
 				'form' => $form,
 				'errors' => $errors,
@@ -149,7 +149,7 @@ class UserController extends BaseController {
 		$success = Authent::logout();
 
 		$vars = array(
-			'title' => Lang::_('Logout'),
+			'title' => Lang::_('Déconnexion'),
 			'isPost' => true,
 			'success' => $success
 		);

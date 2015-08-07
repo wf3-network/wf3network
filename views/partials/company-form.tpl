@@ -7,8 +7,8 @@
 {/if}
 
 {if !empty($isPost) && !empty($success)}
-  <div class="alert alert-success" role="success">{$title} {t}success{/t}</div>
-  {Utils::redirectJS("{$HTTP_ROOT}companysuccess", 1)}
+<div class="alert alert-success" role="success">{$title} {t}: succès{/t}</div>
+{Utils::redirectJS("{$HTTP_ROOT}profile/company", 1)}
 {/if}
 
 <form class="form-horizontal" method="POST" novalidate>

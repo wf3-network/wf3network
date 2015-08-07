@@ -1,13 +1,12 @@
 <?php
-class Profile_Skills extends Model {
+class Profile_Skill extends Model {
 
 	/*Skills*/
 	protected $id;
 	protected $profile_id;
 	protected $skill_id;
 	protected $skill_level;
-	protected $skill_wf3;
-	protected $skill_name;
+    protected $skill_name;
 
 	 /* Getters skills*/
     public function getId() {
@@ -16,51 +15,46 @@ class Profile_Skills extends Model {
     public function getSkillId() {
         return $this->skill_id;
     }
+    public function getSkillName($get_from_skill = true) {
+        $skill = Skill::get($this->skill_id);
+        if (empty($skill)) {
+            return '';
+        }
+        return $skill->skill_name;
+    }
     public function getSkillLevel() {
         return $this->skill_level;
-    }
-    public function getSkillWf3() {
-        return $this->skill_wf3;
     }
     public function getProfileid(){
         return $this->profile_id;
     }
-    public function getSkillName(){
-        return $this->skill_name;
-    }
 
     /* Setters skills */
-    public function SetId($id) {
+    public function setId($id) {
         $this->id = $id;
     }
     public function setSkillId($skill_id) {
         $this->skill_id = $skill_id;
     }
+    public function setSkillName($skill_name) {
+        $this->skill_name = $skill_name;
+    }
     public function setSkillLevel($skill_level) {
         $this->skill_level = $skill_level;
-    }
-    public function setSkillWf3($skill_wf3) {
-        $this->skill_wf3 = $skill_wf3;
     }
     public function setProfileId($profile_id) {
         $this->profile_id = $profile_id;
     }
-    public function setSkillName($skill_name) {
-        $this->skill_name = $skill_name;
-    }
-
 
 	public function insert() {
 
         return Db::insert(
-            'INSERT INTO profile_skills (profile_id, skill_id, skill_level, skill_wf3, skill_name)
-            VALUES (:profile_id, :skill_id, :skill_level, :skill_wf3, :skill_name)',
+            'INSERT INTO profile_skill (profile_id, skill_id, skill_level)
+            VALUES (:profile_id, :skill_id, :skill_level)',
             array(
                 'skill_id' => $this->skill_id,
                 'skill_level' => $this->skill_level,
-                'skill_wf3' => $this->skill_wf3,
                 'profile_id' => $this->profile_id,
-                'skill_name' => $this->skill_name
             )
         );
     }
@@ -68,19 +62,18 @@ class Profile_Skills extends Model {
     public function update() {
 
         return Db::update(
-             'UPDATE profile_skills SET profile_id = :profile_id, skill_id = :skill_id, skill_level = :skill_level, skill_wf3 = :skill_wf3, skill_name = :skill_name WHERE id = :id',
+             'UPDATE profile_skill SET profile_id = :profile_id, skill_id = :skill_id, skill_level = :skill_level WHERE id = :id',
             array(
                 'skill_id' => $this->skill_id,
                 'skill_level' => $this->skill_level,
-                'skill_wf3' => $this->skill_wf3,
                 'profile_id' => $this->profile_id,
-                'skill_name' => $this->skill_name,
                 'id' => $this->id
             )
         );
     }
+    
     public function delete() {
-        return Db::delete('DELETE FROM profile_skills WHERE id = :id', array('id' => $this->id));
+        return Db::delete('DELETE FROM profile_skill WHERE id = :id', array('id' => $this->id));
     }
 
 

@@ -19,7 +19,7 @@ class User extends Model {
 	private $session;
 
 	public static $types = array(
-		self::USER_TYPE_STUDENT => 'Etudiant',
+		self::USER_TYPE_STUDENT => 'Étudiant',
 		self::USER_TYPE_COMPANY => 'Entreprise'
 	);
 
@@ -73,25 +73,25 @@ class User extends Model {
 	}
 	public function setFirstname($firstname) {
 		if (empty($firstname)) {
-			throw new Exception(Lang::_('You must fill your firstname'));
+			throw new Exception(Lang::_('Vous devez saisir votre prénom'));
 		}
 		$this->firstname = $firstname;
 	}
 	public function setLastname($lastname) {
 		if (empty($lastname)) {
-			throw new Exception(Lang::_('You must fill your lastname'));
+			throw new Exception(Lang::_('Vous devez saisir votre nom'));
 		}
 		$this->lastname = $lastname;
 	}
 	public function setEmail($email) {
 		if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			throw new Exception(Lang::_('You must provide a valid email'));
+			throw new Exception(Lang::_('Vous devez saisir une adresse mail valide'));
 		}
 		$this->email = $email;
 	}
 	public function setPassword($password) {
 		if (strlen($password) < 6) {
-			throw new Exception(Lang::_('You must profide a password with at least 6 chars'));
+			throw new Exception(Lang::_('Votre mot de passe doit être composé d&apos;au moins 6 caractères'));
 		}
 		$this->password = $password;
 	}
@@ -197,9 +197,9 @@ class User extends Model {
 	public function getLoginForm($type, $action, $request, $isPost = false, $errors = array()) {
 
 		$form = new Form('', 'form-login', $action, 'POST', 'form-horizontal', $isPost, 'Valider');
-		$form->addField('email', Lang::_('Email'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', !empty($errors['authent']) ? true : false);
-		$form->addField('password', Lang::_('Password'), 'password', '', true, '', !empty($errors['authent']) ? true : false);
-		$form->addField('remember_me', Lang::_('Remember me'), 'checkbox', $this->_getfieldvalue('remember_me', $type, $request), false, '');
+		$form->addField('email', Lang::_('E-mail'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', !empty($errors['authent']) ? true : false);
+		$form->addField('password', Lang::_('Mot de passe'), 'password', '', true, '', !empty($errors['authent']) ? true : false);
+		$form->addField('remember_me', Lang::_('Se souvenir de moi'), 'checkbox', $this->_getfieldvalue('remember_me', $type, $request), false, '');
 
 		return $form;
 	}
@@ -222,14 +222,14 @@ class User extends Model {
 
 		$form = new Form('', 'form-register', $action, 'POST', 'form-horizontal', $isPost, 'Inscription');
 		$form->addField('type', Lang::_('Type'), 'select', $this->_getfieldvalue('type', $type, $request), true, '', @$errors['type'], null, null, $types_select);
-		$form->addField('firstname', Lang::_('Firstname'), 'text', $this->_getfieldvalue('firstname', $type, $request), true, '', @$errors['firstname']);
-		$form->addField('lastname', Lang::_('Lastname'), 'text', $this->_getfieldvalue('lastname', $type, $request), true, '', @$errors['lastname']);
-		$form->addField('email', Lang::_('Email'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', @$errors['email']);
-		$form->addField('confirm_email', Lang::_('Confirm email'), 'email', $this->_getfieldvalue('confirm_email', $type, $request), true, '', @$errors['confirm_email']);
-		$form->addField('password', Lang::_('Password'), 'password', '', true, '', @$errors['password']);
-		$form->addField('confirm_password', Lang::_('Confirm password'), 'password', '', true, '', @$errors['confirm_password']);
-		$form->addField('newsletter', Lang::_('Subscribe to the newsletter'), 'checkbox', $this->_getfieldvalue('newsletter', $type, $request), false, '');
-		$form->addField('cgu', Lang::_('Accept the terms of service'), 'checkbox', $this->_getfieldvalue('cgu', $type, $request), true, '', @$errors['cgu']);
+		$form->addField('firstname', Lang::_('Prénom'), 'text', $this->_getfieldvalue('firstname', $type, $request), true, '', @$errors['firstname']);
+		$form->addField('lastname', Lang::_('Nom'), 'text', $this->_getfieldvalue('lastname', $type, $request), true, '', @$errors['lastname']);
+		$form->addField('email', Lang::_('E-mail'), 'email', $this->_getfieldvalue('email', $type, $request), true, '', @$errors['email']);
+		$form->addField('confirm_email', Lang::_('Confirmez votre e-mail'), 'email', $this->_getfieldvalue('confirm_email', $type, $request), true, '', @$errors['confirm_email']);
+		$form->addField('password', Lang::_('Mot de passe'), 'password', '', true, '', @$errors['password']);
+		$form->addField('confirm_password', Lang::_('Confirmez votre mot de passe'), 'password', '', true, '', @$errors['confirm_password']);
+		$form->addField('newsletter', Lang::_('Inscription à la newsletter'), 'checkbox', $this->_getfieldvalue('newsletter', $type, $request), false, '');
+		$form->addField('cgu', Lang::_('J&apos;accepte les <a href="../cgu" target="_blank">conditions d&apos;utilisation</a>'), 'checkbox', $this->_getfieldvalue('cgu', $type, $request), true, '', @$errors['cgu']);
 
 		return $form;
 	}
